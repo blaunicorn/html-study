@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Bird</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+    <div id="wrapBg">
+        <div id="headTitle">
+            <img id="headBird" src="img/bird0.png" alt="小鸟" />
+        </div>
+        <button id="startBtn"></button>
+        <div id="grassLand1"></div>
+        <div id="grassLand2"></div>
+        <div id="score">
+            <div id="num1"></div>
+            <div id="num2"></div>
+            <div id="num3"></div>
+        </div>
+        <div id="gameOver">
+            <img src="img/game_over.jpg" alt="game over" />
+            <img src="img/message.jpg" alt="message" />
+            <img id="ok" src="img/ok.jpg" alt="ok" />
+        </div>
+    </div>
+</body>
+<script src="./js/bird.js"></script>
+<script src="./js/block.js"></script>
+<script src="./js/utils.js"></script>
+<script>
+    ; (function () {
+        let wrapBg = document.getElementById("wrapBg"),
+            headTitle = document.getElementById('headTitle'),
+            headBird = document.getElementById('headBird'),
+            grassLand1 = document.getElementById("grassLand1"),
+            grassLand2 = document.getElementById("grassLand2"),
+            jsScore = document.getElementById("score"),
+            num1 = document.getElementById("num1"),
+            num2 = document.getElementById("num2"),
+            num3 = document.getElementById("num3"),
+            okBtn = document.getElementById("ok"),
+            startBtn = document.getElementById("startBtn"),
+            gameOver = document.getElementById("gameOver")
+        // 1、设置动态标题
+        let imgArr = ["img/bird0.png",'img/bird1.png']
+        let Y = 3
+        let index = 0
+        let titleTimer = window.setInterval(animate, 200);
+        function animate() {
+            Y *= -1;
+            // console.log(Y)
+            headTitle.style.top = headTitle.offsetTop + Y + "px";
+            headBird.src = imgArr[index++];
+            if (index === imgArr.length) {
+                index = 0
+            }
+        }
+        // 2、设置动态草坪
+        let landTimer = window.setInterval(landRun,50);
+        let blockArr = []
+        let blockDistance = utils.randomNum(130, 250)
+        let score = 0
+        function landRun() {
+            if (grassLand1.offsetLeft < -343) {
+                grassLand1.style.left = "343px"
+            }
+            if (grassLand2.offsetLeft < -343) {
+                grassLand2.style.left = "343px"
+            }
+            // console.log(grassLand1.style.left)
+            grassLand1.style.left = grassLand1.offsetLeft - 3 + "px"
+            grassLand2.style.left = grassLand2.offsetLeft - 3 + "px"
+            // 5.1 在一个定时器里设置管道的移动和添加
+            // 设置管道移动、添加、移除管道,计分
+            console.log('blockArr.length', blockArr.length)
+            if (blockArr.length > 0) {
+                // 管道的移动
+                blockArr.forEach((item,index) => {
+                    item.moveBlock()
+                    // 判断何时结束游戏
+                    let x = utils.crash(item.upDivWrap, bird.ele)
+                    let y = utils.crash(item.downDivWrap, bird.ele)
+                    let z = bird.ele.offsetTop >= 395  // 判读是否撞到了地方
+                    if (x || y || z) {
+                        window.clearInterval(landTimer)
+                        bird.fallSpeed = 0
+                        wrapBg.onclick = null
+                        jsScore.style.display = "none"
+                        gameOver.style.display = "block"
+                    }
+                })
+                // 增加新的管道
+                if (blockArr[blockArr.length-1].downDivWrap.offsetLeft < 450 - blockDistance) {
+                    let newBlock = new Block()
+                    newBlock.createBlock()
+                    blockArr.push(newBlock)
+                    blockDistance = utils.randomNum(130, 250)
+                }
+                // 删除左侧屏幕外的管道
+                if (blockArr[0].downDivWrap.offsetLeft < -50 ) {
+                    // 移除第一个管道
+                    console.log(blockArr)
+                    wrapBg.removeChild(blockArr[0].downDivWrap)
+                    wrapBg.removeChild(blockArr[0].upDivWrap)
+                    blockArr.shift(blockArr[0])
+                }
+                // 设置计分器
+                if (blockArr[0].downDivWrap.offsetLeft === -12) {
+                    score++
+                    if (score < 10) {
+                        console.log(score)
+                        num3.style.display = "block"
+                        num3.style.backgroundImage = `url(img/${score}.jpg)` 
+                    } else if (score < 100) {
+                        num2.style.display = "block"
+                        num2.style.backgroundImage = `url(img/${parseInt(score/10)}.jpg)`
+                        num3.style.backgroundImage = `url(img/${score%10}.jpg)`
+                    } else if (score < 1000) {
+                        num1.style.display = "block"
+                        num1.style.backgroundImage = `url(img/${parseInt(score/100)}.jgp)`
+                        num2.style.backgroundImage = `url(img/${parseInt(score/10)%10}.jpg)`
+                        num3.style.backgroundImage = `url(img/${score%10}.jpg)`
+                    }
+                }
+            }
+        }
+        // 3、设置开始按钮，清楚定时器和隐藏开始画面
+        startBtn.onclick = function() {
+            headTitle.style.display = "none"
+            clearInterval(titleTimer)
+            this.style.display = "none"
+            num1.style.display = "block"
+            num2.style.display = "block"
+            num3.style.display = "block"
+            // 4.动态创建小鸟，设置小鸟下落及翅膀摆动效果
+            bird.addBird(wrapBg)
+            bird.flyBird();
+            bird.wingWave()
+            wrapBg.onclick = function() {
+                bird.fallSpeed = -8
+            }
+            window.document.onkeydown = isSpace
+            function isSpace() {
+                if (event.keyCode === 32) {
+                    console.log('按下了空格')
+                    bird.fallSpeed = -8;
+                }                
+            }
+            // 5.动态创建障碍物（随机设置上下管道高度，上下管道中间的距离）
+            let b = new Block()
+            b.createBlock()
+            blockArr.push(b)
+        }
+
+        // 刷新重新开始游戏
+        okBtn.onclick = function() {
+            // window.location.href = "index.html"
+            window.location.reload()
+        }
+    })()
+</script>
+
+</html>

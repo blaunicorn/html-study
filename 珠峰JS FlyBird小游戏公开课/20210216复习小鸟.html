@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20210216飞行的小鸟复习</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="wrapBg">
+        <div id="headTitle">
+            <img src="img/bird0.png" alt="" id="headBird">
+        </div>
+        <button id="startBtn"></button>
+        <div id="grassLand1"></div>
+        <div id="grassLand2"></div>
+        <div id="score">
+            <div id="num1"></div>
+            <div id="num2"></div>
+            <div id="num3"></div>
+        </div>
+        <div id="gameOver">
+            <img src="img/game_over.jpg" alt="game over" srcset="">
+            <img src="img/message.jpg" alt="" srcset="">
+            <img id="ok" src="img/ok.jpg" alt="ok" srcset="">
+        </div>
+    </div>
+    <script src="./js/bird.js"></script>
+    <script src="./js/block.js"></script>
+    <script src="./js/utils.js"></script>
+    <script>
+        ; (function () {
+            console.log('111')
+            let wrapBg = document.querySelector('#wrapBg'),
+                headTitle = document.querySelector('#headTitle')
+            headBird = document.querySelector('#headBird'),
+                grassLand1 = document.querySelector("#grassLand1"),
+                grassLand2 = document.querySelector("#grassLand2"),
+                jsScore = document.querySelector("#score"),
+                num1 = document.querySelector("#num1"),
+                num2 = document.querySelector("#num2"),
+                num3 = document.querySelector("#num3"),
+                okBtn = document.querySelector("#ok"),
+                startBtn = document.querySelector("#startBtn"),
+                gameOver = document.querySelector("#gameOver")
+            // 1、设置动态标题
+            let imgArr = ["img/bird0.png", 'img/bird1.png']
+            let Y = 3
+            let index = 0
+            let titleTimer = window.setInterval(animate, 300)
+            function animate() {
+                Y *= -1
+                headTitle.style.top = headTitle.offsetTop + Y + "px"
+                headBird.src = imgArr[index++]
+                if (index >= imgArr.length) {
+                    index = 0
+                }
+            }
+            // 2、设置动态草坪
+            let landTimer = window.setInterval(landRun, 50)
+            let blockArr = []
+            let blockDistance = utils.randomNum(130, 250)
+            let score = 0
+            function landRun() {
+                grassLand1.style.left = grassLand1.offsetLeft - 3 + "px"
+                grassLand2.style.left = `${grassLand2.offsetLeft - 3}px`
+                if (grassLand1.offsetLeft < -343) {
+                    grassLand1.style.left = `343px`
+                }
+                if (grassLand2.offsetLeft < -343) {
+                    grassLand2.style.left = `343px`
+                }
+            }
+
+            // 3、设置开始按钮，清除定时器和隐藏开始画面
+            startBtn.onclick = function () {
+                headTitle.style.display = "none"
+                clearInterval(titleTimer)
+                this.style.display = "none"
+                num1.style.display = "block"
+                num2.style.display = "block"
+                num3.style.display = "block"
+                // 4.动态创建小鸟，设置小鸟下落及翅膀摆动效果
+                bird.addBird(wrapBg)
+                bird.flyBird();
+                bird.wingWave()
+                wrapBg.onclick = function () {
+                    bird.fallSpeed = -8
+                }
+                window.document.onkeydown = isSpace
+                function isSpace() {
+                    if (event.keyCode === 32) {
+                        console.log('按下了空格   ')
+                        bird.fallSpeed = -8
+                    }
+                }
+                // 5.动态创建障碍物（随机设置上下管道高度，上下管道中间的距离）
+                let b = new Block()
+                b.createBlock()
+                blockArr.push(b)
+            }
+            // 页面加载后，直接执行点击事件
+            startBtn.click()
+            // 刷新重新开始游戏
+            okBtn.onclick = function () {
+                window.location.reload()
+            }
+
+
+        })()
+    </script>
+</body>
+
+</html>

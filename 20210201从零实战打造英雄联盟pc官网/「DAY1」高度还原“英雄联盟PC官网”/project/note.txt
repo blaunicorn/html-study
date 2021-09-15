@@ -1,0 +1,33 @@
+项目模块化开发
+   1. 基于vue/react/webpack工程化开发 「项目中主流思想」
+   2. 不用框架开发
+      + 单例设计模式「处理JS的」
+        /* 头部  */
+        let headModule = (function () {
+            let head_box = null,
+                n = 0;
+
+            function query() {
+
+            }
+
+            return {
+                query: query
+            };
+        })();
+
+        /* 轮播图 */
+        (function () {
+            let swiper_box = null,
+                n = 1;
+            headModule.query();
+
+        })();
+      + CSS代码写在一起，基于前缀区分模块即可
+    
+    3.我们这次用的模块划分的方案
+    「CSS ->less/sass」
+
+    「JS」
+       script type="module"
+       直接让JS中支持ES6Module模块规范（新版本浏览器）

@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+.w1300 {
+    margin: 0 auto;
+    width: 1300px;
+}
+
+img {
+    display: block;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center-y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sp-top {
+    background: url('../images/topfoot-spr.png') no-repeat;
+    background-size: 405px 178px;
+}
+
+.sp-comm {
+    background: url('../images/comm-spr.png') no-repeat;
+    background-size: 393px 200px;
+}
+
+/* 更多按钮箭头处理 */
+.comm-more-arrow {
+    display: inline-block;
+    margin-left: 5px;
+    width: 15px;
+    height: 9px;
+    .sp-comm;
+    background-position: -213px -126px;
+
+    &.move {
+        animation: commMoreArrowMove 1.5s infinite;
+    }
+
+    // 需要实现的动画
+    @keyframes commMoreArrowMove {
+
+        from,
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+            transform: translate3d(-10px, 0, 0);
+        }
+
+        20%,
+        40%,
+        60%,
+        80% {
+            transform: translate3d(10px, 0, 0);
+        }
+    }
+}
