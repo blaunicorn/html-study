@@ -1,33 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/index.css" />
+		<title>Document</title>
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="IE=edge"
-  >
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-  <link
-    rel="stylesheet"
-    href="css/index.css"
-  >
-  <title>Document</title>
-</head>
+	<body>
+		<!-- 遮罩层 -->
+		<div id="shadow"></div>
+		<!-- head -->
+		<header id="head">
+			<!-- head left -->
+			<ul class="nav">
+				<li>
+					<!-- <a href="#"
+						><span><i class="iconfont icon-bilibili"></i></span
+					></a> -->
+					<a href="#">
+						<span> <i class="iconfont logo">&#xe600;</i></span>
+						<span class="mainweb">main<i class="iconfont">&#xe63c;</i></span>
+					</a>
+				</li>
+				<li><a href="#">番剧</a></li>
+				<li><a href="#">游戏中心</a></li>
+				<li><a href="#">直播</a></li>
+				<li><a href="#">会员购</a></li>
+				<li><a href="#">漫画</a></li>
+				<li><a href="#">赛事</a></li>
+				<li class="scroll">
+					<div>
+						<a href="#">月圆会</a>
+						<a href="#"><img src="images/ico_01.png" alt="" srcset="" /></a>
+						<a href="#">月圆会</a>
+						<!-- 无缝滚动 -->
+					</div>
+				</li>
+				<li><a href="#" class="iconfont">&#xe61a;</a><a href="#">下载APP</a></li>
+			</ul>
+			<!-- head center -->
+			<div class="search">
+				<input type="text" name="" id="" />
+				<button class="iconfont">&#xe6dd;</button>
+			</div>
+			<!-- head right -->
+			<div class="user">
+				<a href="#" class="avatar"><img src="images/avatar.jpg" alt="" srcset="" /></a>
+				<ul>
+					<li><a href="#">大会员</a></li>
+					<li class="msg"><a href="#">消息</a><i>2</i></li>
+					<li><a href="#">动态</a></li>
+					<li><a href="#">收藏</a></li>
+					<li><a href="#">历史</a></li>
+					<li><a href="#">创作中心</a></li>
+				</ul>
+				<a href="#" class="btn">投稿</a>
+			</div>
+		</header>
+		<!-- 吸顶导航 -->
+		<div class="appointment">
+			<button class="appointmentBtn appointmentedBtn">预约直播</button>
+		</div>
+		<!-- 遮罩层上层内容 -->
+		<div id="content">
+			<div class="banner">
+				<img src="images/banner.png" alt="" srcset="" />
+				<img src="images/appointment_text.png" alt="点击预约直播即可参与抽奖" srcset="" />
+				<button class="appointmentBtn appointmentedBtn">预约直播</button>
+				<button class="ticket">查看门票</button>
+			</div>
+			<div class="movie">
+				<div class="movieBox">
+					<iframe
+						scrolling="no"
+						border="0"
+						frameborder="no"
+						src="https://player.bilibili.com/player.html?aid=505324032&amp;bvid=BV1mg411V7GA&amp;cid=403551075&amp;page=1"
+					></iframe>
+				</div>
+				<ul class="movieTab">
+					<!-- <div class="slick-arrow slick-prev"></div> -->
 
-<body>
-  <header id="head">
-    <ul class="nav">
-      <li>
-        <a href="#"><span><i class="iconfont icon-bilibili">&#x33;</i></span></a>
-      </li>
-    </ul>
-    <div class="search"></div>
-    <div class="user"></div>
-  </header>
-</body>
+					<li>
+						<img src="images/movie_01.webp" alt="" srcset="" />
+						<p>花好月圆会 | 正片全程回顾</p>
+					</li>
+					<li>
+						<img src="images/movie_01.webp" alt="" srcset="" />
+						<p>花好月圆会 | 正片全程回顾gugugugu</p>
+					</li>
 
+					<!-- <div class="slick-arrow slick-next"></div> -->
+					<!-- <ul class="slick-dots" style="display: block">
+						<li class=""><button style="color: rgb(0, 0, 0)"></button></li>
+						<li class="slick-active"><button style="color: rgb(0, 0, 0)"></button></li>
+						<li class=""><button style="color: rgb(0, 0, 0)"></button></li>
+						<li class=""><button style="color: rgb(0, 0, 0)"></button></li>
+						<li class=""><button style="color: rgb(0, 0, 0)"></button></li>
+						<li class=""><button style="color: rgb(0, 0, 0)"></button></li>
+						<li class=""><button style="color: rgb(0, 0, 0)"></button></li>
+					</ul> -->
+				</ul>
+			</div>
+			<div class="ccbad center">
+				<a href="#"><img src="images/ccbad.jpg" alt="" srcset="" /></a>
+			</div>
+			<!-- 锚点对应的class anchor -->
+			<div class="title1 anchor center">
+				<img src="images/title_01.png" alt="" srcset="" />
+			</div>
+			<div class="title2 anchor center">
+				<img src="images/title_02.png" alt="" srcset="" />
+			</div>
+			<div class="guest">
+				<div class="tab">
+					<button class="">嘉宾名单</button>
+					<button class="active">up主名单</button>
+				</div>
+				<div class="tabContent">
+					<div class="scroll">
+						<div class="guestName">
+							<div class="photo photo1">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo photo2">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+						</div>
+					</div>
+					<div class="scroll active">
+						<div class="upName active">
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+							<div class="photo">
+								<a href="#" class="img"></a>
+								<button></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="title3 anchor center">
+				<img src="images/title_03.png" alt="" srcset="" />
+			</div>
+			<div class="title4 anchor center">
+				<img src="images/title_04.png" alt="" srcset="" />
+			</div>
+			<div class="festival">
+				<ul class="prize">
+					<li>
+						<img src="imges/prize_01" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li>
+						<img src="imges/prize_01" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li>
+						<img src="imges/prize_01" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li>
+						<img src="imges/prize_01" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li>
+						<img src="imges/prize_01" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li>
+						<img src="imges/prize_06" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li>
+						<img src="imges/prize_07" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li>
+						<img src="imges/prize_08" alt="" srcset="" />
+						<p>哔哩哔哩幻星集Ⅱ2233金属书签</p>
+					</li>
+					<li class="btn">
+						<img src="imges/.png" alt="" srcset="" />
+					</li>
+				</ul>
+				<div class="msg">
+					<p class="draw_number">您当前剩余<strong>0</strong>次抽奖机会</p>
+					<div class="namelist">
+						<div class="title">
+							<h3>获奖名单</h3>
+							<a href="#">我的中奖信息</a>
+						</div>
+						<div class="scroll">
+							<ul>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+								<li data-v-ea3e8c2a="">
+									***ペ <span data-v-ea3e8c2a="">通过抽奖获得了</span> 哔哩哔哩幻星集Ⅱ2233金属书签
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="rule center">
+					<button><img src="images/draw_rule.png" alt="" srcset="" /></button>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

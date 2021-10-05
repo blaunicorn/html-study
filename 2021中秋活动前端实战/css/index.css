@@ -1,17 +1,492 @@
 @font-face {
-  font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1631706765873') format('truetype');
+	font-family: 'iconfont'; /* Project id 2847265 */
+	src: url('//at.alicdn.com/t/font_2847265_gx8ioqi9507.woff2?t=1633156063117') format('woff2'),
+		url('//at.alicdn.com/t/font_2847265_gx8ioqi9507.woff?t=1633156063117') format('woff'),
+		url('//at.alicdn.com/t/font_2847265_gx8ioqi9507.ttf?t=1633156063117') format('truetype');
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: 'iconfont' !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .icon-bilibili:before {
-  content: "\e504";
+	content: '\e600';
+}
+/* 样式重置 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body,
+p,
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #212121;
+}
+i {
+	font-style: normal;
+}
+img {
+	vertical-align: middle;
+}
+button {
+	border: none;
+	background: none;
+	padding: 0;
+	outline: none;
+	cursor: pointer;
+}
+input {
+	outline: none;
+	border: none;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	user-select: none;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #222;
+	background: #f4f4f4 url(../images/body_gb.png) no-repeat center / cover fixed;
 }
 
+/* 头部样式 */
+#head {
+	min-width: 1000px;
+	height: 56px;
+	padding: 10px 24px;
+	box-sizing: border-box;
+
+	background-color: #f4f4f4;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: space-between;
+
+	position: relative;
+}
+#head .nav {
+	display: flex;
+
+	align-items: center;
+}
+#head .nav li {
+	margin-right: 12px;
+}
+#head .logo {
+	color: #00a1d6;
+	font-size: 31px;
+}
+#head .nav li:nth-child(1) span {
+	vertical-align: middle;
+}
+#head .mainweb {
+	margin-left: 10px;
+}
+#head .mainweb .iconfont {
+	font-size: 10px;
+	color: #bbb;
+	margin-left: 3px;
+}
+#head .scroll {
+	width: 54px;
+	height: 36px;
+	position: relative;
+
+	overflow: hidden;
+}
+#head .scroll div {
+	height: 108px;
+	position: absolute;
+	top: 0px;
+	/* 无缝滚动 */
+	animation: moveIcon 10s 3s infinite;
+}
+#head .scroll img {
+	height: 36px;
+	width: 54px;
+}
+#head .scroll a {
+	display: flex;
+	width: 54px;
+	height: 36px;
+
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes moveIcon {
+	0% {
+		transform: translateY(0);
+	}
+	5% {
+		transform: translateY(-36px);
+	}
+	50% {
+		transform: translateY(-36px);
+	}
+	55% {
+		transform: translateY(-72px);
+	}
+	100% {
+		transform: translateY(-72px);
+	}
+}
+
+#head .nav li:last-child .iconfont {
+	color: #00a1d6;
+	font-size: 20px;
+}
+
+#head .nav li:last-child i,
+a {
+	vertical-align: middle;
+}
+
+#head .search {
+	display: flex;
+}
+
+#head .search input {
+	width: 152px;
+	height: 34px;
+	background: #f4f4f4;
+	border: 1px solid #e7e7e7;
+
+	padding-left: 16px;
+	color: #999;
+}
+#head .search button {
+	width: 48px;
+	height: 34px;
+	background: #e7e7e7;
+	color: #505050;
+}
+#head .search button:hover {
+	color: #00a1d6;
+}
+#head .user {
+	display: flex;
+	align-items: center;
+}
+#head .user .avatar {
+	margin-right: 12px;
+}
+#head .user img {
+	width: 36px;
+	border-radius: 50%;
+}
+#head .user ul {
+	display: flex;
+}
+#head .user ul li {
+	margin-right: 12px;
+	position: relative;
+}
+
+#head .user .msg i {
+	width: 16px;
+	height: 16px;
+	background: #fa5a7a;
+
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	line-height: 16px;
+	font-size: 12px;
+	position: absolute;
+	top: -10px;
+	right: -12px;
+}
+#head .user .btn {
+	width: 100px;
+	height: 36px;
+	line-height: 36px;
+	background: #fb7299;
+	border-radius: 5px;
+
+	text-align: center;
+	color: #fff;
+}
+
+@media only screen and (max-width: 1000px) {
+	#head .search {
+		display: none;
+	}
+}
+
+/* shadow */
+#shadow {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	/* z-index: 5; */
+	background: rgba(0, 0, 0, 0.8);
+	opacity: 1;
+}
+
+/* appointment */
+.appointment {
+	width: 100%;
+	height: 110px;
+	background: url(../images/appointment_bg.png) no-repeat center;
+
+	text-align: center;
+	position: fixed;
+	top: 0;
+	/* z-index: 6; */
+
+	visibility: hidden;
+}
+
+.appointmentBtn {
+	width: 294px;
+	height: 112px;
+	background: url(../images/appointmet_btn1.png);
+	font-size: 0;
+}
+.appointmentedBtn {
+	background: url(../images/appointmet_btn2.png) no-repeat center / cover;
+}
+
+/* content */
+#content {
+	position: relative;
+	/* overflow: auto; */
+}
+/* banner  */
+.banner {
+	/* 方式一 */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+/* 方式二 */
+/* .banner img,
+button {
+
+	display: block;
+	margin: 0 auto;
+} */
+
+.banner .ticket {
+	width: 100px;
+	height: 31px;
+	background: url(../images/ticket.png);
+	font-size: 0;
+	margin-top: -14px;
+}
+
+/* movie */
+.movie {
+	width: 980px;
+	margin: 50px auto 0;
+	padding-top: 133px;
+	background: url(../images/movie_bg.png) top;
+}
+.movie .movieBox {
+	width: 974px;
+	height: 584px;
+	margin: 0 auto;
+}
+.movie .movieBox iframe {
+	width: 100%;
+	height: 100%;
+}
+.movie .movieTab {
+	display: flex;
+	justify-content: space-between;
+	margin: 23px 40px 0px 40px;
+}
+.movie .movieTab li {
+	width: 180px;
+	height: 100px;
+	border: 2px solid #0ff;
+	border-radius: 5px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+.movie .movieTab li img {
+	width: 100%;
+	height: 100%;
+}
+.movie .movieTab li p {
+	width: 100%;
+	height: 30px;
+	line-height: 40px;
+	padding: 0 5px;
+
+	position: absolute;
+	bottom: 0;
+
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: linear-gradient(
+		transparent,
+		rgba(0, 0, 0, 0.1) 20%,
+		rgba(0, 0, 0, 0.2) 35%,
+		rgba(0, 0, 0, 0.6) 65%,
+		rgba(0, 0, 0, 0.9)
+	);
+}
+.slick-arrow {
+	width: 30px;
+	height: 100px;
+}
+.slick-slider .slick-prev {
+	display: block;
+	left: -10px;
+	-webkit-transform: translate(-100%, -50%);
+	transform: translate(-100%, -50%);
+	background-image: url(../images/slick-prev.png);
+}
+
+.slick-slider .slick-next {
+	left: 100%;
+	-webkit-transform: translate(10px, -50%);
+	transform: translate(10px, -50%);
+	background-image: url(../images/slick-next.png);
+}
+
+.center {
+	text-align: center;
+}
+.ccbad {
+	margin: 56px auto 0;
+}
+.title2 {
+	margin: 28px auto 118px;
+}
+
+/* guest */
+.guest {
+	width: 901px;
+	height: 851px;
+	background: url(../images/name_bg.png);
+	margin: 0 auto;
+}
+.guest .tab {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: -30px;
+
+	position: relative;
+	top: -30px;
+}
+.guest .tab button {
+	width: 220px;
+	height: 61px;
+	background: url(../images/guest_btn1.png);
+	font-size: 0;
+}
+.guest .tab button:nth-child(2) {
+	background: url(../images/guest_btn2.png);
+}
+.guest .tab button:nth-child(1).active {
+	background: url(../images/guest_btn1_active.png);
+}
+.guest .tab button:nth-child(2).active {
+	background: url(../images/guest_btn2_active.png);
+}
+.guest .tabContent {
+	height: 763px;
+	overflow: hidden;
+	position: relative;
+}
+.guest .scroll {
+	width: 100%;
+	height: 100%;
+	/* 必须用正常盒子模型才能使用padding方式隐藏滑动条，或者用display方式 */
+	box-sizing: content-box;
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.5s opacity linear;
+
+	overflow-y: scroll;
+	padding-right: 18px;
+	/* right: -18px; */
+}
+/* .guest .scroll::-webkit-scrollbar {
+	display: none;
+} */
+.guest .scroll.active {
+	opacity: 1;
+	visibility: visible;
+}
+.guest .guestName.active {
+	height: 934px;
+	background: url(../images/special_name.png) no-repeat center top;
+}
+.guest .photo {
+	margin-top: 70px;
+	width: 190px;
+	height: 304px;
+	text-align: center;
+	background: rgba(40, 0, 0, 0.6);
+}
+.guest .photo .img {
+	display: block;
+	width: 100%;
+	height: 187px;
+}
+.guest .photo button {
+	width: 89px;
+	height: 59px;
+	background: url(../images/follow_btn.png);
+}
+.guest .photo1 {
+	position: absolute;
+	left: 457px;
+	top: 38px;
+}
+.guest .photo2 {
+	position: absolute;
+	left: 676px;
+	top: 38px;
+}
+.guest .guestName button {
+	margin-top: 57px;
+}
+
+.guest .upName {
+	height: 3367px;
+	background: url(../images/up_name.png) no-repeat center top;
+	box-sizing: border-box;
+	padding-top: 54px;
+	font-size: 0;
+}
+
+.guest .upName .photo {
+	display: inline-block;
+	margin: 0 7px 0 21px;
+}
+.guest .upName button {
+	margin: 40px 4px 0 0px;
+}

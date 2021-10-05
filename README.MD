@@ -5,3 +5,4 @@
 ### 【陈学辉】中秋活动前端实战项目 20210915
 
 https://www.ixigua.com/7007245771128963587?id=7007244071014138404&logTag=d513bf283601828f31d9
+https://www.bilibili.com/video/BV1Mg41157hC?p=1
