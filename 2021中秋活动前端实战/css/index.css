@@ -238,8 +238,8 @@ a {
 	left: 0;
 	top: 0;
 	/* z-index: 5; */
-	background: rgba(0, 0, 0, 0.8);
-	opacity: 1;
+	background: rgba(0, 0, 0, 0.75);
+	opacity: 0;
 }
 
 /* appointment */
@@ -251,7 +251,7 @@ a {
 	text-align: center;
 	position: fixed;
 	top: 0;
-	/* z-index: 6; */
+	z-index: 6;
 
 	visibility: hidden;
 }
@@ -440,7 +440,7 @@ button {
 	opacity: 1;
 	visibility: visible;
 }
-.guest .guestName.active {
+.guest .guestName {
 	height: 934px;
 	background: url(../images/special_name.png) no-repeat center top;
 }
@@ -449,7 +449,7 @@ button {
 	width: 190px;
 	height: 304px;
 	text-align: center;
-	background: rgba(40, 0, 0, 0.6);
+	/* background: rgba(40, 0, 0, 0.6); */
 }
 .guest .photo .img {
 	display: block;
@@ -934,20 +934,23 @@ button {
 	top: calc(50vh - 475px / 2);
 	box-sizing: border-box;
 	padding-top: 80px;
-	padding-left: 13px;
 }
 #navigator.show {
 	display: block;
+}
+#navigator li {
+	width: 126px;
+	height: 48px;
+	margin: 0 auto;
+	cursor: pointer;
 }
 #navigator li img:nth-child(1),
 #navigator li.active img:nth-child(2),
 #navigator li:hover img:nth-child(2) {
 	display: block;
-	cursor: pointer;
 }
 #navigator li img:nth-child(2),
 #navigator li.active img:nth-child(1),
 #navigator li:hover img:nth-child(1) {
 	display: none;
-	cursor: pointer;
 }
