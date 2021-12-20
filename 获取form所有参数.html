@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<form id="auditFrom" action="#">
+			<label>房龄：</label> <input name="houseAge" type="number" class="el-input" />
+			<label>权属情况：</label> <input name="houseOwner" type="text" class="el-input" />
+			<hr />
+			<label for="">性别</label>
+			<input type="radio" name="sex" class="el-input" value="1" /> 男
+			<input type="radio" name="sex" class="el-input" value="2" />女<br />
+			<hr />
+			<label>爱好</label>
+			<input type="checkbox" name="hoppy" value="旅游" class="el-input" />旅游
+			<input type="checkbox" name="hoppy" value="宅家" class="el-input" />宅家
+			<input type="checkbox" name="hoppy" value="运动" class="el-input" />运动
+			<input type="checkbox" name="hoppy" value="看书" class="el-input" />看书
+			<span id="span" style="color: red"></span><br />
+
+			<label>是否抵贷不一：</label>
+			<select name="mortgageLoan" class="el-input">
+				<option>是</option>
+				<option>否</option>
+			</select>
+
+			<label>抵押情况：</label>
+			<select name="mortgage" class="el-input">
+				<option>一抵</option>
+				<option>二抵</option>
+				<option>多抵</option>
+			</select>
+
+			<label>有无备用房信息：</label>
+			<select name="spareHouse" class="el-input">
+				<option value="1">有</option>
+				<option value="2">无</option>
+			</select>
+
+			<label>放款金额：</label> <input name="fkAmount" type="text" class="el-input" />
+
+			<label>备注：</label> <input name="remark" type="textarea" class="el-input" />
+		</form>
+		<button onclick="getFormJson('auditFrom')">提交</button>
+		<script>
+			// getFormJson('auditFrom');
+			function getFormJson(formId) {
+				console.log(11);
+				var from = document.getElementById(formId);
+				var tagElements = from.getElementsByClassName('el-input'); //这里我把所有我要获取值得属性都使用了同一个类来标识；
+				var json = {};
+				json.hoppy = [];
+				for (var j = 0; j < tagElements.length; j++) {
+					if (tagElements[j].type === 'radio') {
+						// var type = $("#id").attr("type");
+						if (tagElements[j].checked == true && tagElements[j].name === 'sex') {
+							name = tagElements[j].name;
+							var value = tagElements[j].value;
+							json[name] = value;
+						}
+					} else if (tagElements[j].type === 'checkbox') {
+						if (tagElements[j].checked == true && tagElements[j].name === 'hoppy') {
+							name = tagElements[j].name;
+							var value = tagElements[j].value;
+							json[name].push(value);
+						}
+					} else {
+						var name = tagElements[j].name; //这里就是要获取得name属性，将此name属性作为json对象得key；
+						var value = tagElements[j].value;
+						json[name] = value; //注意这里必须要使用这种方式给json赋值。如果使用json.name=value得话你会发现你所有的key都是一个字符串name，而不是name代表的值
+					}
+				}
+				console.log({ json });
+				return json;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="carouse.css" />
+	</head>
+	<style>
+		/* 后代选择器 */
+		/* h1 strong {
+			color: blue;
+		} */
+		/* 父子选择器 */
+		/* h1 > strong {
+			color: blue;
+			background-color: black;
+		} */
+		/* 兄弟选择器 */
+		strong + span {
+			color: red;
+			background-color: blueviolet;
+		}
+	</style>
+	<body>
+		<!-- <h1>
+			<strong>子元素1 </strong><span>兄弟<strong>孙元素</strong></span
+			><br />
+			<strong
+				>不相邻兄弟元素 <span><strong>孙元素</strong></span></strong
+			><br />
+			<strong
+				>跟第一个比，不是相邻兄弟元素 <strong></strong><span>孙元素</span></strong></strong
+			>
+		</h1>
+
+    <style>
+      p:first-letter {
+        font:30px 黑体;
+        color:blueviolet;
+        text-indent:2em;
+      }
+      p:before {
+        content:'&lg;'
+      }
+      p::after {
+        content:'.....'
+      }
+    </style>
+	
+    <p>大是大非阿<br>蒂芬双方都</p>
+
+		<div class="wrapper" style="overflow: hidden;">
+			<div class="box1" style="float:left"></div>
+			<div class="box2" style="float:left"></div>
+		</div>
+		<div class="box3" style="clear:both"></div>
+		<div class="info-show" style="width: 600px; padding: 20px;border:1px solid #ccc;margin: 100px autp;overflow: hidden;">
+			<div class="head-sculpture" style="float: left;">
+				<div class="photo" style="width: 200px;height: 300px;border: 1px solid #000;text-align: center;line-height:300px;">头像</div>
+				<div class="txt" style="text-align: center;">姓名</div>
+				
+			</div>
+			<div class="description" style=" height: 300px; float: left;margin-left:10px;border:1px solid #ccc; width: 380px;">描述</div>
+		</div> -->
+		<!-- 1.轮播图组图 -->
+		<div class="carousel">
+			<ul class="carousel-imgs">
+				<li>
+					<a herf="#"><img src="images/href-bg-2.jpg" alt="banner" /></a>
+				</li>
+				<li>
+					<a herf="#"><img src="images/href-bg-3.jpg" alt="banner" /></a>
+				</li>
+				<li>
+					<a herf="#"><img src="images/href-bg-4.jpg" alt="banner" /></a>
+				</li>
+			</ul>
+			<!-- 2.控制器 -->
+			<div class="prev"></div>
+			<div class="next"></div>
+			<!-- 3.计数器 -->
+			<div class="count">
+				<ul>
+					<li></li>
+					<li class="acitve"></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

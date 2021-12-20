@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			li {
+				list-style-type: none;
+			}
+			a {
+				text-decoration: none;
+				color: black;
+			}
+			.container {
+				font-size: 12px;
+				background: url(./images/bg.png) no-repeat center top;
+				width: 980px;
+				margin: 0 auto;
+			}
+			.header {
+				padding-bottom: 15px;
+				background: url(/images/main_line.png) no-repeat left bottom/100%;
+			}
+			.mainnav {
+				background: url(images/main_menu_bg.png) repeat-x;
+			}
+			.mainnav ul {
+				font-size: 15px;
+				font-weight: bold;
+				padding: 9px 0 8px 0;
+				margin-left: 30px;
+			}
+			.mainnav ul li {
+				display: inline-block;
+				padding: 0 20px 0 18px;
+				border-right: 1px solid #88180a;
+			}
+			.mainnav ul li:last-child {
+				border-right: none;
+			}
+			.mainnav ul li a {
+				color: #fff;
+			}
+			.mainnav ul li a:hover {
+				color: #ababab;
+			}
+			.subnav ul {
+				text-align: center;
+				font-size: 12px;
+				padding: 10px 0 9px 0;
+			}
+			.subnav ul li a {
+				color: #888;
+			}
+			.subnav ul li a:hover {
+				color: #000;
+			}
+			.subnav ul li {
+				display: inline-block;
+				border-right: 1px solid #999;
+				padding-right: 10px;
+				margin-right: 7px;
+			}
+			.subnav ul li:last-child {
+				border-right: none;
+			}
+			.content::after {
+				clear: both;
+				content: '';
+				display: block;
+			}
+			.leftsider {
+				float: left;
+				width: 210px;
+				border: 1px solid #ccc;
+				border-top: none;
+			}
+			.leftsider ul {
+				background: url(images/dircectory_bg.png) left top/100%;
+				padding-left: 50px;
+			}
+			.leftsider ul li {
+				/* background: url(images/dircectory_bg.png) left top/100%; */
+				/* padding: 9px 0px 9px 50px; */
+				line-height: 35px;
+			}
+			.leftsider ul li a:hover {
+				color: #ff4f46;
+			}
+			.main {
+				float: right;
+				width: 743px;
+				padding-left: 15px;
+				padding-bottom: 10px;
+				border: 1px solid #ccc;
+			}
+			.main .title {
+				margin-left: -20px;
+				background: url(images/content_bg.png) left top/100%;
+				height: 40px;
+			}
+			.main .title h1 {
+				font-size: 14px;
+				padding: 8px 0 7px 45px;
+			}
+			.main h2 {
+				font-size: 12px;
+				margin: 25px 0 10px;
+			}
+			.main p {
+				line-height: 1.5em;
+				margin: 10px 0;
+			}
+			.main li {
+				list-style-type: decimal;
+				list-style-position: inside;
+				line-height: 2em;
+			}
+			.footer {
+				background: url(images/bottom_bg.png) repeat-x;
+				margin-top: 15px;
+			}
+			.footer ul {
+				text-align: center;
+				padding: 10px 0;
+			}
+			.footer ul li {
+				display: inline-block;
+				padding-right: 10px;
+				padding-left: 10px;
+				border-right: 1px solid #999;
+			}
+			.footer ul li:last-child {
+				border: none;
+			}
+			.footer ul li a {
+				color: #fff;
+			}
+			.footer ul li a:hover {
+				color: #ff0;
+			}
+		</style>
+		<!-- 页面  -->
+		<div class="container">
+			<!-- 1、头部 -->
+			<div class="header">
+				<!-- logo -->
+				<a href="#"><img src="./images/logo.png" alt="" srcset="" /></a>
+				<!-- 主导航 -->
+				<nav class="mainnav">
+					<ul>
+						<li><a href="#">主页</a></li>
+						<li><a href="#">个人业务</a></li>
+						<li><a href="#">公司业务</a></li>
+						<li><a href="#">小企业</a></li>
+						<li><a href="#">信用卡</a></li>
+						<li><a href="#">i理财</a></li>
+						<li><a href="#">商旅预订</a></li>
+						<li><a href="#">今日招行</a></li>
+					</ul>
+				</nav>
+				<!-- 副导航 -->
+				<nav class="subnav">
+					<ul>
+						<li><a href="#">金葵花理财</a></li>
+						<li><a href="#">私人银行</a></li>
+						<li><a href="#">出国金融</a></li>
+						<li><a href="#">个人贷款</a></li>
+						<li><a href="#">空中银行</a></li>
+						<li><a href="#">一卡通</a></li>
+						<li><a href="#">财富账户</a></li>
+						<li><a href="#">伙伴一生</a></li>
+						<li><a href="#">电子银行</a></li>
+						<li><a href="#">居家生活</a></li>
+						<li><a href="#">储蓄业务</a></li>
+						<li><a href="#">投资理财</a></li>
+						<li><a href="#">网上个人银行</a></li>
+					</ul>
+				</nav>
+			</div>
+			<!-- 2、主体部分 -->
+			<div class="content">
+				<!-- 侧栏 -->
+				<div class="leftsider">
+					<ul>
+						<li><a href="#">个人通知存款</a></li>
+						<li><a href="#">个人通知存款</a></li>
+						<li><a href="#">个人通知存款</a></li>
+						<li><a href="#">境</a></li>
+						<li><a href="#">外汇款</a></li>
+						<li><a href="#">个人通知存款</a></li>
+						<li><a href="#">教育储蓄</a></li>
+						<li><a href="#">个人结汇／购汇业务</a></li>
+						<li><a href="#">大额存单</a></li>
+						<li><a href="#"> 结构性存款</a></li>
+						<li><a href="#">创新型存款产品</a></li>
+						<li><a href="#">VISA/MASTERCARD外卡收单业务</a></li>
+						<li><a href="#">定期储蓄</a></li>
+						<li><a href="#">转账汇款</a></li>
+						<li><a href="#"> 活期储蓄</a></li>
+						<li><a href="#"> 存 单</a></li>
+						<li><a href="#">存 折</a></li>
+					</ul>
+				</div>
+				<!-- 内容区 -->
+				<div class="main">
+					<div class="title">
+						<h1>消费贷</h1>
+					</div>
+					<section>
+						<h2>适用客户</h2>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+					</section>
+					<section>
+						<h2>办理流程</h2>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+						<p>消费贷是指向自然人发放的，用于借款人家庭合法合规消费用途的贷款。</p>
+					</section>
+					<section>
+						<h2>担保方式</h2>
+						<ol>
+							<li>支持一次性放款及可循环式放款</li>
+							<li>支持一次性放款及可循环式放款</li>
+							<li>支持一次性放款及可循环式放款</li>
+							<li>支持一次性放款及可循环式放款</li>
+							<li>支持一次性放款及可循环式放款</li>
+						</ol>
+					</section>
+					<section>
+						<h2>如何找到招商银行个人贷款？</h2>
+						<ol>
+							<li>欢迎致电招商银行客户经理。</li>
+							<li>向就近招商银行网点提出申请。</li>
+							<li>拨打全国统一服务热线95555。</li>
+						</ol>
+					</section>
+				</div>
+			</div>
+			<!-- 3、尾部 -->
+			<div class="footer">
+				<ul>
+					<li><a href="#">安全说明</a></li>
+					<li><a href="#">隐私保险条款</a></li>
+					<li><a href="#">网站地图</a></li>
+					<li><a href="#">友情链接</a></li>
+					<li><a href="#">加入收藏</a></li>
+					<li><a href="#">人才招聘</a></li>
+					<li><a href="#">手机一网通</a></li>
+					<li><a href="#">测试</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

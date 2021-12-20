@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="https://fonts.googleapls.com/css?family=Belgrano" />
+	</head>
+	<body>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			a {
+				text-decoration: none;
+				color: #900000;
+			}
+			li {
+				list-style-type: none;
+			}
+			img,
+			a,
+			audio,
+			video {
+				border: 0;
+				outline: none;
+			}
+			.container {
+				width: 1100px;
+				margin: 0 auto;
+				font-family: Belgrano, serif;
+				font-size: 14px;
+				padding-top: 10px;
+				background: url(images/bg1.png) repeat;
+				color: #452200;
+			}
+			.container::after {
+				clear: both;
+				display: block;
+				content: '';
+			}
+
+			aside {
+				float: left;
+				width: 320px;
+			}
+			.logo {
+				float: left;
+				background: url(images/logoBackground.png) no-repeat center bottom;
+				width: 220px;
+				height: 220px;
+			}
+			.logo h1 {
+				font-size: 60px;
+
+				font-family: Lobster, sans-serif;
+
+				line-height: 60px;
+				padding: 40px 0 0 43px;
+			}
+			.logo h1 a {
+				color: #5a270b;
+				text-shadow: 3px 1px 5px #fff;
+			}
+			.navlist {
+				padding-right: 40px;
+				text-align: center;
+			}
+			.navlist li {
+				padding: 5px 0;
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				text-shadow: 1px 1px 1px #fff;
+				font-size: 36px;
+			}
+			.navlist li a {
+				color: #ac8839;
+			}
+			.navlist li a:hover {
+				color: #452200;
+			}
+			.navlist li a.active {
+				color: #452200;
+			}
+			main {
+				float: right;
+				width: 750px;
+			}
+			main article {
+				width: 193px;
+				float: left;
+				margin: 0 57px 25px 0;
+			}
+			main h2 {
+				font-family: Verdana, Geneva, Tahoma, sans-serif;
+				font-size: 30px;
+				padding: 10px 0;
+				color: #883b12;
+				text-shadow: 1px 1px 2px #fff;
+				height: 90px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				-webkit-line-clamp: 2;
+				line-clamp: 2;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+			}
+			main article a h2:hover {
+				color: #452200;
+			}
+			main p {
+				line-height: 1.5em;
+			}
+			main .date,
+			main .read-more {
+				font-weight: bold;
+				font-style: italic;
+				font-size: 14px;
+				margin-top: 10px;
+			}
+			main .date span {
+				color: #ac8829;
+			}
+			.clear {
+				clear: both;
+			}
+			footer {
+				width: 1100px;
+				margin: 30px auto 0;
+				text-align: center;
+				border-top: 1px solid #ac8829;
+			}
+			footer p {
+				padding: 30px 20px;
+			}
+			footer p a {
+				color: #f00;
+			}
+		</style>
+		<!-- 页面由上下两部分组成 -->
+		<!-- 内容区 -->
+		<div class="container">
+			<!-- 左侧栏 -->
+			<aside>
+				<div class="logo">
+					<h1><a href="#">Corn Food</a></h1>
+				</div>
+				<nav>
+					<ul class="navlist">
+						<li><a href="#" class="active">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Shop</a></li>
+						<li><a href="#">Customers</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+					<audio src="/myAudio" autoplay controls></audio>
+				</nav>
+			</aside>
+			<main>
+				<!-- 动画 -->
+				<section>
+					<object
+						data="audio_video/spring.swf"
+						type="application/x-shockwave-flash"
+						width="719"
+						height="428"
+					>
+						<param name="movie" value="spring.swf" />
+					</object>
+				</section>
+				<!-- 分类文章 -->
+				<section>
+					<article>
+						<a href="#"
+							><h2>标题标题标题1标题标题标题1标题标题标题1标题标题标题1</h2>
+							<video src="audio_video/move.ogg" controls width="163" height="112"></video>
+						</a>
+						<p class="small-post">文字文字文字文字</p>
+						<p class="date">
+							<span>2021年12月30日<a href="#">（详情）</a></span>
+						</p>
+					</article>
+					<article>
+						<a href="#"
+							><h2>标题标题标题2</h2>
+							<video src="audio_video/move.ogg" controls width="163" height="112"></video>
+						</a>
+						<p class="small-post">文字文字文字文字</p>
+						<p class="date">
+							<span>2021年12月30日<a href="#">（详情）</a></span>
+						</p>
+					</article>
+					<article>
+						<a href="#"
+							><h2>标题标题标题3</h2>
+							<video src="audio_video/move.ogg" controls width="163" height="112"></video>
+						</a>
+						<p class="small-post">文字文字文字文字</p>
+						<p class="date">
+							<span>2021年12月30日<a href="#">（详情）</a></span>
+						</p>
+					</article>
+					<article>
+						<a href="#"
+							><h2>标题标题标题4</h2>
+							<video src="audio_video/move.ogg" controls width="163" height="112"></video>
+						</a>
+						<p class="small-post">文字文字文字文字</p>
+						<p class="date">
+							<span>2021年12月30日<a href="#">（详情）</a></span>
+						</p>
+					</article>
+					<article>
+						<a href="#"
+							><h2>标题标题标题5</h2>
+							<video src="audio_video/move.ogg" controls width="163" height="112"></video>
+						</a>
+						<p class="small-post">文字文字文字文字</p>
+						<p class="date">
+							<span>2021年12月30日<a href="#">（详情）</a></span>
+						</p>
+					</article>
+					<article>
+						<a href="#"
+							><h2>标题标题标题6</h2>
+							<video src="audio_video/move.ogg" controls width="163" height="112"></video>
+						</a>
+						<p class="small-post">文字文字文字文字</p>
+						<p class="date">
+							<span>2021年12月30日<a href="#">（详情）</a></span>
+						</p>
+					</article>
+				</section>
+				<div class="clear"></div>
+				<!-- 关于	 -->
+				<section>
+					<h2>About</h2>
+					<p>
+						关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍关于介绍
+					</p>
+					<p class="read-more"><a href="#">(详情)</a></p>
+				</section>
+			</main>
+		</div>
+		<!-- 页尾 -->
+		<footer>
+			<p>页尾页尾页尾页尾页尾页尾页尾页尾页尾页尾<a href="#"> HTML5 </a>|<a href="#"> CSS </a></p>
+		</footer>
+	</body>
+</html>

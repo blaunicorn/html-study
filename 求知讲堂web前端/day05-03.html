@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- 
+			定位示例
+			<style>
+			html {
+				padding: 20px;
+				position: relative;
+			}
+			.wrapper {
+				width: 600px;
+				height: 400px;
+				border: 1px solid rebeccapurple;
+			}
+			.box1,
+			.box2,
+			.box3 {
+				width: 150px;
+				height: 150px;
+				border: 1px solid blue;
+				display: inline-block;
+			}
+			.box2 {
+				/* position: relative; */
+				left: 100px;
+				top: 120px;
+			}
+			.box3 {
+				position: absolute;
+				left: 0px;
+				top: 120px;
+			}
+		</style>
+		<div class="wrapper">
+			<div class="box1">1</div>
+			<div class="box2">2</div>
+			<div class="box3">3</div>
+		</div> -->
+
+		<!-- 双飞翼布局 -->
+		<!-- <style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.container {
+				width: 100%;
+			}
+			.column {
+				float: left;
+				height: 100vh;
+			}
+			.left {
+				width: 300px;
+				background-color: #f00;
+				/* 这个是覆盖上边center的宽度，所以用100% */
+				margin-left: -100%;
+			}
+			.center {
+				width: 100%;
+				padding: 0 300px;
+				background-color: #0f0;
+				word-break: break-all;
+			}
+			.right {
+				width: 300px;
+				background-color: #00f;
+				/* 这个是要覆盖上边一个 .right本身的宽度，所以用-300px */
+				margin-left: -300px;
+			}
+		</style>
+		<div class="contaner">
+			<div class="column center">
+				centercentercentercentercentercentercentercentercenter11111111111111
+			</div>
+			<div class="column left">left</div>
+
+			<div class="column right">right</div>
+		</div> -->
+
+		<!-- 圣杯布局 -->
+		<!-- 一个网页通常由上中下三部分组成 -->
+		<!-- header头部 -->
+		<!-- 主体内容区 -->
+		<!-- 尾部 -->
+		<!-- <style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			.header,
+			.footer {
+				width: 100%;
+				height: 100px;
+				background-color: #2fff99;
+				text-align: center;
+				font-size: 30px;
+				line-height: 100px;
+			}
+			.container {
+				min-width: 600px;
+				padding: 0 200px;
+			}
+			.container::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.column {
+				float: left;
+				height: 200px;
+				position: relative;
+			}
+			.left {
+				width: 200px;
+				background-color: #f00;
+				margin-left: -100%;
+				left: -200px;
+			}
+			.right {
+				width: 200px;
+				background-color: #00f;
+				margin-left: -200px;
+				left: 200px;
+			}
+			.center {
+				width: 100%;
+				background-color: #0f0;
+			}
+		</style>
+
+		<div class="header">header</div>
+
+		<div class="container">
+			<div class="column center">center</div>
+			<div class="column left">left</div>
+			<div class="column right">right</div>
+		</div>
+
+		<div class="footer">foot</div> -->
+
+		<!-- 双栏布局，左固定 -->
+		<!-- <style>
+			.container {
+				min-width: 600px;
+				width: 100%;
+			}
+			.container::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.left {
+				width: 150px;
+				height: 200px;
+				float: left;
+				margin-right: -150px;
+				background-color: #f00;
+			}
+			.right {
+				width: calc(100% - 150px);
+				height: 200px;
+				float: left;
+				margin-left: 155px;
+				background-color: #0ff;
+			}
+		</style>
+		<div class="container">
+			<div class="left">left</div>
+			<div class="right">right</div>
+		</div> -->
+
+		<!-- 双栏布局，右固定 -->
+		<!-- <style>
+			* {
+				box-sizing: border-box;
+			}
+			.container {
+				min-width: 500px;
+				width: 100%;
+				border: 2px solid #000;
+			}
+			.container::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.left {
+				width: 100%;
+				height: 200px;
+				float: left;
+				padding-right: 150px;
+				background-color: #f00;
+			}
+			.right {
+				width: 150px;
+				height: 200px;
+				float: left;
+				margin-left: -150px;
+				background-color: #0ff;
+			}
+		</style>
+		<div class="container">
+			<div class="left">
+				左侧自适应左侧自适应左侧自1适应左2侧自适应左4侧自适应左5侧自适6应左侧7自适应左侧自适应左侧自适应
+			</div>
+			<div class="right">右侧固定</div>
+		</div> -->
+
+		<!-- 两列定宽布局 -->
+		<!-- <style>
+			* {
+				box-sizing: border-box;
+			}
+			.container {
+				min-width: 500px;
+				width: 100%;
+				border: 2px solid #000;
+			}
+			.container::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.left {
+				width: 200px;
+				height: 200px;
+				float: left;
+
+				background-color: #f00;
+			}
+			.right {
+				width: 290px;
+				height: 200px;
+				float: left;
+
+				background-color: #0ff;
+			}
+		</style>
+		<div class="container">
+			<div class="left">左侧固定</div>
+			<div class="right">右侧固定</div>
+		</div> -->
+
+		<!-- 三栏布局 左侧固定，右侧固定，中间自适应 -->
+		<!-- <style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.container {
+				min-width: 500px;
+				width: 100%;
+				border: 2px solid #000;
+			}
+			.container::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.left {
+				width: 200px;
+				height: 200px;
+				float: left;
+				position: relative;
+				background-color: #f00;
+				margin-right: -200px;
+			}
+			.right {
+				width: 200px;
+				height: 200px;
+				float: left;
+				position: relative;
+				background-color: #0ff;
+				margin-left: -200px;
+			}
+			.center {
+				float: left;
+				width: 100%;
+				background-color: #ff0;
+			}
+			.content {
+				padding: 0 200px;
+			}
+		</style>
+		<div class="container">
+			<div class="left">左侧固定</div>
+			<div class="center">
+				<div class="content">中间自适应</div>
+			</div>
+			<div class="right">右侧固定</div>
+		</div> -->
+
+		<!-- 三栏布局 左侧自适应，中间、右侧固定 -->
+		<!-- <style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.container {
+				min-width: 500px;
+				width: 100%;
+				border: 2px solid #000;
+			}
+			.container::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.left {
+				float: left;
+				width: 100%;
+				height: 200px;
+				background-color: #f00;
+				margin-right: -300px;
+			}
+			.center {
+				float: left;
+				width: 150px;
+				height: 150px;
+				background-color: #ff0;
+			}
+			.right {
+				width: 150px;
+				height: 200px;
+				float: right;
+
+				background-color: #0ff;
+			}
+
+			.content {
+				margin-right: 300px;
+			}
+		</style>
+		<div class="container">
+			<div class="left">
+				<div class="content">
+					左侧自适应左侧自适应左侧自适应左侧自适应左侧自适应左侧自适应左侧自适应左侧自适应
+				</div>
+			</div>
+			<div class="center">中间固定</div>
+			<div class="right">右侧固定</div>
+		</div> -->
+
+		<!-- 三栏布局 左侧中间固定、右侧自适应 -->
+		<!-- .content {margin-left: 420px;}可不加，CSS中float属性会制造文字环绕图片的效果
+		脱离文档流，也就是将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute positioning脱离文档流的元素，其他盒子与其他盒子内的文本都会无视它。 -->
+
+		<!-- <style>
+			.container {
+				color: #fff;
+			}
+			.container::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.left,
+			.center {
+				float: left;
+				width: 200px;
+				height: 200px;
+			}
+			.left {
+				background-color: #f00;
+			}
+			.center {
+				background-color: #ff0;
+			}
+			.right {
+				width: 100%;
+				height: 150px;
+				background-color: #00f;
+			}
+			.content {
+				margin-left: 420px;
+			}
+		</style>
+		<div class="container">
+			<div class="left">左侧固定</div>
+			<div class="center">中间固定</div>
+			<div class="right"><div class="content">右侧自适应</div></div>
+		</div> -->
+
+		<!-- BFC规范 -->
+		<!-- 对于float的元素，如果想让父元素撑开，就应该让他触发BFC规范，譬如 ｛overflow:hidden;｝ -->
+		<!-- <style>
+			.box1,
+			.box2 {
+				width: 200px;
+				height: 150px;
+				border: 1px solid #000;
+				margin-top: -50px;
+			}
+			.box1 {
+				background-color: #f00;
+			}
+			.box2 {
+				background-color: #ff0;
+			}
+		</style>
+		<div class="container">
+			<div class="box1"></div>
+			<div class="box2"></div>
+		</div> -->
+
+		<!-- IFC规范 -->
+
+		<style>
+			span {
+				font-size: 30px;
+				background-color: #f00;
+			}
+			span {
+				font-size: 20px;
+				background-color: #020;
+			}
+			em {
+				float: left;
+				width: 200px;
+			}
+		</style>
+		<div>
+			<span>span</span>
+			<strong>strong</strong>
+			<span>span</span>
+			<strong>strong</strong>
+			<span>span</span>
+			<strong>strong</strong>
+			<span>span</span>
+			<em>em</em>
+		</div>
+	</body>
+</html>

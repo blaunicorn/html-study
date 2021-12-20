@@ -1,0 +1,76 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.carousel {
+	width: 800px;
+	height: 300px;
+	margin: 0 auto;
+	background-color: #444;
+	position: relative;
+	overflow: hidden;
+}
+/* 1.轮播组图样式设置 */
+.carousel-imgs {
+	width: 9999px;
+}
+.carousel-imgs img {
+	width: 100%;
+	height: 300px;
+}
+
+.carousel-imgs li {
+	float: left;
+}
+/* 2.控制器接口，提取公共样式 */
+.prev,
+.next {
+	width: 30px;
+	height: 124px;
+	position: absolute;
+	cursor: pointer;
+	top: calc(50% - 62px);
+}
+.prev {
+	background-image: url('/images/slick-prev.png');
+	left: 20px;
+}
+.next {
+	background-image: url('/images/slick-next.png');
+	right: 20px;
+}
+/* 3.计数器 */
+.count {
+	width: 100%;
+	/* height: 10px;  高度可以去掉，由子元素自动撑开*/
+	position: absolute;
+	bottom: 25px;
+}
+.count ul {
+	/* 这个设定宽度，是为了整体ul居中，并包装子元素设置浮动后，在居中中 */
+	width: 60px;
+	margin: 0 auto;
+	/* background-color: #f00; */
+}
+.count ul li {
+	width: 10px;
+	height: 10px;
+	background-color: #666;
+	float: left;
+	margin-right: 10px;
+	border-radius: 50%;
+	opacity: 0.5;
+	cursor: pointer;
+}
+.count .acitve {
+	background-color: red;
+	opacity: 1;
+}

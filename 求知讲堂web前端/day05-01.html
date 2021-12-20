@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			/* 内容区一般不给高度，高度由内容自行撑开 */
+			.wrapper {
+				margin-top: 10px;
+				width: 700px;
+				/* height: 500px; */
+				border: 1px solid #000;
+				margin: 0 auto;
+			}
+			header {
+				font-size: 20px;
+				font-family: 黑体;
+				font-weight: normal;
+				background-color: #eee;
+				text-align: center;
+				padding: 18px 0;
+			}
+			.aside {
+				background: #ebebeb url(../images/top.gif) repeat-x;
+				width: 150px;
+				height: 400px;
+				background-image: linear-gradient(#8e9eab, #eef2f3);
+			}
+			.aside-left {
+				float: left;
+			}
+			.aside-right {
+				float: right;
+			}
+			h4 {
+				padding: 20px 0 15px 10px;
+			}
+			ul {
+				padding-left: 30px;
+			}
+			li {
+				line-height: 1.5em;
+				font-size: 14px;
+			}
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			a:hover {
+				color: aquamarine;
+			}
+			.main {
+				background: #eef2f3 url(../images/main-top.gif) repeat-x;
+				float: left;
+				/* width: 300px; */
+				/* position: absolute; */
+				width: 398px;
+				height: 400px;
+				background-image: linear-gradient(#8e9eab, #eef2f3);
+			}
+			.main p {
+				text-indent: 2em;
+				line-height: 1.5em;
+				padding: 10px 20px 10px 10px;
+				font-size: 14px;
+			}
+			.content::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			.footer {
+				background-color: #ccc;
+				padding: 10px 0 15px 10px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- .wrapper>header+.content+.footer 
+      先整体再局部
+      -->
+		<div class="wrapper">
+			<!-- 标题 -->
+			<header>页面标题</header>
+			<!-- 内容 -->
+			<div class="content">
+				<!-- 左侧边栏 -->
+				<div class="aside aside-left">
+					<h4>左侧边栏</h4>
+					<ul>
+						<li><a href="#">链接一</a></li>
+						<li><a href="#">链接二</a></li>
+						<li><a href="#">链接三</a></li>
+						<li><a href="#">链接四</a></li>
+						<li><a href="#">链接五</a></li>
+					</ul>
+				</div>
+				<!-- 主内容区 -->
+				<div class="main">
+					<h4>主体内容的标题</h4>
+					<p>
+						文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落
+					</p>
+					<p>
+						文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落
+					</p>
+					<p>
+						文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落
+					</p>
+					<p>
+						文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落文章的段落
+					</p>
+				</div>
+				<!-- 右侧边栏 -->
+				<div class="aside aside-right">
+					<h4>右侧边栏</h4>
+					<ul>
+						<li><a href="#">链接一</a></li>
+						<li><a href="#">链接二</a></li>
+						<li><a href="#">链接三</a></li>
+						<li><a href="#">链接四</a></li>
+						<li><a href="#">链接五</a></li>
+						<li><a href="#">链接六</a></li>
+						<li><a href="#">链接七</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 尾部 -->
+			<div class="footer">页脚</div>
+		</div>
+	</body>
+</html>
