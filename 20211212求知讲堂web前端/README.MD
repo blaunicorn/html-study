@@ -245,7 +245,7 @@ inherit 从父元素继承 box-sizing 属性的值。
     2）控制器
     3）计数器
 
-#### css 第五天 定位布局
+#### 第五章 css 定位布局
 
     定位(position)
         规定元素的定位类型，绝对或固定元素会生成一个块级框，而不论该元素本身是什么类型，相对定位元素会相对于它在正常流中的默认位置偏移。
@@ -495,4 +495,379 @@ inherit 从父元素继承 box-sizing 属性的值。
         关闭所有html元素
         属性值尽量用双引号
 
-第七章 css 新特性
+#### 第七章 css 新特性
+
+0.  css3 兼容处理
+    通常做法：加厂商前缀（ie：trident webkit：chorme 和 safari gecko：firefox blink：chrome 和 opear）
+    tips:国内的浏览器大多都是双核的。
+    IE：-ms-
+    Chrome、safari：-webkit-
+    Gecko：-moz-
+    Opera：-o-
+1.  选择器
+    1. 属性选择器
+    2. 结构性伪类
+    3. 目标伪类
+    4. ui 元素状态伪类(表单元素)
+    5. 否定伪类
+    6. 童工兄弟元素选择器
+2.  css3 文本
+
+    1.  text-shadow:设置文本阴影
+        text-shadow: 水平偏移 垂直偏移 模糊距离 阴影的尺寸 颜色 inset|outset;
+        ```
+          h1 {
+            text-shadow: 2px 3px 5px red;
+          }
+        ```
+    2.  word-wrap:文本自动换行 normal（默认，只允许在断字点换行）|break-word（在长单词或 url 地址内部进行换行）
+        ```
+            p {
+              width: 200px;
+              border:1px solid #000;
+              word-wrap:break-word;
+            }
+        ```
+    3.  word-break:单词拆分 nomal(默认浏览器换行规则) | break-all（允许在单词内换行） | keep-all（只能在半角或空格处换行）
+    4.  text-wrap:文本拆分（浏览器不支持）normal | none | unrestricted | supperess
+    5.  文本溢出 ie9 以下版本不支持，但谷歌支持
+        a)单行文本溢出 text-overflow: clip(修剪文本) | ellipsis（显示省略号来代表被修剪的文字） | string（用给定字符串来代表修剪的文本,大多数浏览器不支持）
+        ```
+          div {
+            overflow:hidden;
+            white-space: nowrap;  /*  必须要有宽度，但不允许折行 */
+            -ms-text-overflow:ellipsis;
+            text-overflow:ellipsis;
+          }
+        ```
+        b)多行文本溢出
+        ```
+          div {
+            display:-webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp:3;
+            overflow: hidden;
+          }
+        ```
+    6.  css3 边框：新增了圆角边框、多层边框、边框色彩与图片等
+
+        - border-radius:圆角边框(top-left/top/right/bottom-left/bottom-right)
+          2 个参数对应的左上和右下、右上和左下
+          3 个参数对应的左上、右上和左下、右下
+
+        ```
+         boder-radius: 1-4 length|% / 1-4 length|%
+
+        ```
+
+        - 边框阴影(ie9 以上支持)：box-shadow：水平偏移 垂直偏移 模糊距离 阴影的尺寸 颜色 inset|outset；
+        - 边框图片
+          border-image (ie11 以上支持)属性是 ige 简写属性，用于设置一下属性：路径 图片边框向内偏移 图片的宽度 图片区域超出边框的距离 重复效果（round | stretch |repeat）铺满、拉伸、平铺
+          border-image:border-image-source border-iamge-slice border-image-width border-image-outset border-image-repeat
+
+    7.  css3 背景
+
+    - 多重背景
+      background: 背景色 背景图片 平铺方式 位置,背景色 背景图片 平铺方式 位置...;
+      - background-size: length(宽高，如果只一个值，那么默认第二个值为 auto，其他类似) | percentage | cover（把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。） | contain（把图像扩展至最大尺寸，以使宽度和高度 完全适应内容区域。 ）
+      - background-origin：指定背景图像的位置区域,padding-box(背景图像相对于内边距框来定位。) | border-box(背景图像相对于边框盒外侧线来定位。) | content-box(背景图像相对于内容框来定位。)
+      - background-clip: 背景的裁剪区域绘制。border-box 从边框开始显示（默认值） | padding-box 从内边距开始显示 | content-box 从内容区域开始显示。（指定了背景在哪些区域可以显示，但与背景开始绘制的位置无关，背景的绘制的位置可以出现在不显示背景的区域，这时就相当于背景图片被不显示背景的区域裁剪了一部分一样。）
+
+    8. css3 颜色
+       - rgba(red,green,blue,apacity),取值范围：0-255/0-100% | 0-1 之间
+       - hsl(h,s,l) h 色调（0-360） s 饱和度（0-100%） l 亮度（0-100%）
+       - hsla(h,s,l,a) a 不透明度（0-1）
+    9. opacity 调整元素的不透明度，大多数情况用于做元素的遮罩效果 取值范围 0-1
+       ```
+        opacity:0.5;
+       ```
+       - ie8 及以下版本不支持，处理兼容的方式，再添加一行代码来处理不透明度
+         filter:alpha(opacity=value) opacity 数值范围（0-100%）
+         ```
+          filter:alpha(opacity=20);
+          filter: opacity(25%);
+         ```
+    10. css3 渐变：主要用来设置背景或者 3 维图
+
+        - 线性渐变
+          语法 background:linear-gradient(dircection,color-stop1 percent1（Optional）,color-stop2 percent2（Optional）,...);
+          - dircection 方向或角度 to left | to right | to top | to bottom | to top left | to top right | to bottom left | to bottom right | to deg |
+        - 径向渐变:沿半径方向进行渐变
+          语法：background:raidal-gradient(shape size at center,start-color,...,last-color);
+          - shape size：形状 渐变大小。 ellipse 椭圆（默认值） | circle 正圆；渐变大小 farthest-corner(默认值)渐变的半径长度为从圆心到圆心最远的角 | closest-side 从圆心到离圆心最近的边 | closest-corner 从圆心到离圆心最近的角 | farthest-side 从圆心到离圆心最远的角
+          - center 渐变的位置， center（默认值）圆心在中心位置 | top 设置圆心在顶部位置 | bottom 设置圆心在底部位置 | at 25% 35% | at 20px 50px 设置圆心的位置在指定的横纵坐标、百分比处
+          - 颜色 1 percent2（Optional），。。。，颜色 n percentn（Optional）；
+        - 文字渐变
+
+        ```
+           div {
+             background-image:-webkit-linear-gradient(45deg,#f35626,#feab3a);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+           }
+        ```
+
+    11. css3 box-sizing 盒模型，允许以某种方式定义某些元素，以适应指定的区域
+        - box-sizing: content-box | border-box （火狐低版本需要写厂商兼容）
+
+3.  形状转换(2d <-> 3d)
+4.  变形
+5.  动画(过渡动画、帧动画)
+6.  边框
+7.  多重背景
+8.  反射
+9.  文字效果
+10. 颜色（不透明度 rgba、hsl、hsla）
+11. 滤镜（filter）
+12. 弹性布局
+13. 多列布局
+14. 盒子模型
+15. web 字体
+16. 媒体查询
+
+### 第八章 css3 动画
+
+1. 变形（transform）
+   - translate(x,y) 一个参数的话，表示 x 轴移动距离
+   - translateX(n) 沿 x 轴移动元素 n 距离
+   - translateY(n) 沿 y 轴移动元素 n 距离
+   - scale(x,y) ，一个参数的话，表示 xy 轴都缩放 n 大小
+   - scaleX(n) x 轴按 n 比例缩放
+   - scaleY(n) y 轴按 n 比例缩放
+   - rotate(angle) 2d 顺时针选择（-360deg---+360deg）
+   - skew(x-angle,y-angle) 扭曲,如果一个参数，只有 x 轴扭曲
+   - skewX(angle)
+   - skewY(angle)
+   - matrix(a,b,c,d,e,f) 用一个 3 行 3 列的矩阵表示,ab 表示 x 轴，cd 表示 y 轴，ef 表示 z 轴
+     a c e
+     b d f
+2. transform-origin:调整元素的继电
+   - transform-orgin: x-axis y-axios z-axios;
+     属性值：x-axis: 定义 x 的位置，left,center,right,length,%
+     属性值：y-axis: 定义 y 的位置，left,center,right,length,%
+     属性值：z-axis: 定义 z 的位置，length
+3. perspective:透视效果
+   - perspective:number+px | none;
+4. transform-style: 在 3d 空间呈现被嵌套的元素，该属性必须与 transform 属性一同使用。
+   - transform-style: flat | preserve-3d
+5. rotateZ:沿着 Z 轴的方向顺时针旋转
+6. transition：过渡动画 （transition-property transition-duration transition-timing-function transition-delay）,可分可合。{transition: all 2s ease 500ms;}
+   {transition: left 4s ease 500ms, width 4s cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;}
+   - a) 可以应用的属性：all 代表所有
+     i) color background-color border-color outline-color
+     ii) background-position left right top bottom
+     iii) max-height min-height max-width min-width height width border-width margin padding outline-width outline-offset font-size lin-height text-indent vertical-align border-spacing letter-spacing word-spacing
+     iv) opacity visibility font-weight zoom
+     v) text-shadow transform box-shadow clip
+     vi) grandient
+   - b)transition-duration 动画持续时间，一般以 s、ms 为单位
+   - c) transition-timing-function 动画函数
+     i)linear:匀速
+     ii)ease：变速（先慢后快，最后再慢）
+     iii) ease-in：变速（由慢到快）
+     iv) ease-out: 变速（由快到慢）
+     v) ease-in-out: 变速（慢速开始，慢速结束）
+     vi)cubic-bezier(n,n,n,n)：贝萨尔曲线，自定设定变速，n 的值在 0-1 之间
+   - d)delay 动画延时时间，以秒或毫秒为单位
+7. @keyframes 关键帧动画
+
+   - 设置关键帧
+
+   ```
+      @keyframes animation-name {
+        0% {}
+        ...
+        100%{}
+        } 或：
+      @keyframes animation-name {
+        from {}
+        to{}
+      }
+   ```
+
+   - 实施动画，在元素上添加 animation: animation-name 动画名 animation-duration 动画持续时间 animation-timing-function 动画函数 animation-delay 动画延迟时间 animation-iteration-count 动画迭代次数 animation-direction 动画方向(共 6 个动画属性) 单独使用的属性： animation-play-state
+   - animation-iteration-count： number | infinite
+   - animation-direction: 动画播放完后，是否反向播放 normal | alternate
+   - animation-play-state: 动画播放或者停止播放 paused | running(默认值)
+
+# 第九章 布局
+
+1. 多列 （Internet Explorer 9 及更早 IE 版本浏览器不支持）将文本内容设计成像报纸一样的多列布局
+   - column-count:元素应该被分割的列数
+     column-count:number | auto;
+   - column-gap 列之间的间隔
+     column-gap: length | normal;
+   - column-rule 设置栏间分割线。所有 column-rule-\*属性的简写属性
+     column-rule-style 属性指定了列与列间的边框样式
+     none：没有规则
+     hidden：隐藏规则
+     dotted 点状规则
+     dashed 虚线规则
+     solid 实现规则
+     double 双线规则
+     groove ridge inset ouset ： 3d 规则，取决于宽度和颜色值
+     ```
+      div {
+          -webkit-column-rule-style: solid; /* Chrome, Safari, Opera */
+          -moz-column-rule-style: solid; /* Firefox */
+          column-rule-style: solid;
+      }
+     ```
+     column-rule-width 属性指定了两列的边框厚度
+     ```
+      div {
+          -webkit-column-rule-width: 1px; /* Chrome, Safari, Opera */
+          -moz-column-rule-width: 1px; /* Firefox */
+          column-rule-width: 1px;
+      }
+     ```
+     column-rule-color 属性指定了两列的边框颜色
+     ```
+      div {
+          -webkit-column-rule-color: lightblue; /* Chrome, Safari, Opera */
+          -moz-column-rule-color: lightblue; /* Firefox */
+          column-rule-color: lightblue;
+      }
+     ```
+     column-rule 属性是 column-rule-\* 所有属性的简写。
+     ```
+      div {
+          -webkit-column-rule: 1px solid lightblue; /* Chrome, Safari, Opera */
+          -moz-column-rule: 1px solid lightblue; /* Firefox */
+          column-rule: 1px solid lightblue;
+      }
+     ```
+   - column-span 指定元素跨越多少列
+   ```
+      h2 {
+          -webkit-column-span: all; /* Chrome, Safari, Opera */
+          column-span: all;
+      }
+   ```
+   - column-width 规定列的宽度
+   ```
+     div {
+         -webkit-column-width: 100px; /* Chrome, Safari, Opera */
+         column-width: 100px;
+     }
+   ```
+   - columns 规定设置 column-width 和 column-count 的简写属性
+   ```
+    div
+    {
+        columns:100px 3;
+        -webkit-columns:100px 3; /* Safari and Chrome */
+        -moz-columns:100px 3; /* Firefox */
+    }
+   ```
+2. flex 布局
+
+   - 弹性布局，是一种当页面需要适应不同的屏幕大小以及设备，元素拥有的恰当的行为的布局方式。
+   - 通过设置 display 属性为 flex 或 inline-flex 将其定义为弹性容器，弹性盒子只定义了弹性子元素如何在弹性容器中布局。弹性子元素通常在弹性盒子内一行显示，默认情况每个容器只有一行。
+   - 常用容器属性：
+
+     - flex-direction:指定弹性子元素在父容器中的主轴排列方式，此属性作用在父容器
+       语法：flex-direction:row | row-reverse | column | column-reverse
+       参数：
+       - row:默认方式，横向从左到右排列，左对齐
+       - row-reverse:反转横向排列，右对齐，从后往前排，最后一项排在最前面
+       - column：纵向排列
+       - column-reverse：反转纵向排列，从后往前排，最后一项排在最上面
+     - flex-wrap:定义如果一条主轴线排不下，如果换行。
+       flex-wrap: nowrap 不换行 | wrap 换行，第一行在上方 | wrap-reverse 第一行在下方
+     - flex-flow:是 flex-direction 和 flex-wrap 的简写形式，默认为 row nowrap
+       flex-flow:<flex-direction> <flex-wrap>
+     - justify-content:定义了项目在主轴上的对齐方式
+
+     ```
+      .box {
+        justify-content: flex-start紧凑方式起点对齐 | flex-end紧凑方式终点对齐 | center紧凑方式居中对齐 | space-between两端对齐 | space-around分散对齐，首尾有留白;
+      }
+     ```
+
+     - align-item:定义项目在交叉轴上如何对齐。
+
+     ```
+       .box {
+         align-items: flex-start | flex-end | center | baseline项目的第一行文字的基线对齐 | stretch（默认值）如果项目未设置高度或设为auto，将占满整个容器的高度。;
+       }
+     ```
+
+     - align-content 属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+
+     ```
+      .box {
+        align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+      }
+     ```
+
+   - 子项目的属性
+
+     - order 定义项目的排列顺序。数值越小，排列越靠前，默认为 0
+
+     ```
+      .item {
+        order: <integer>;
+      }
+     ```
+
+     - flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大。如果所有项目的 flex-grow 属性都为 1，则它们将等分剩余空间（如果有的话）。如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍。
+
+     ```
+     .item {
+       flex-grow: <number>; /* default 0 */
+     }
+     ```
+
+     - flex-shrink:定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小。如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小。如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小。负值对该属性无效。
+
+     ```
+      .item {
+        flex-shrink: <number>; /* default 1 */
+      }
+     ```
+
+     - flex-basis:定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为 auto，即项目的本来大小。它可以设为跟 width 或 height 属性一样的值（比如 350px），则项目将占据固定空间。
+
+     ```
+      .item {
+        flex-basis: <length> | auto; /* default auto */
+      }
+     ```
+
+     - flex:是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选。
+
+     ```
+     .item {
+        flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+      }
+     ```
+
+     该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)、 initial(初始宽度(0 1 auto)）。
+     建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
+
+     - align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。
+
+     ```
+      .item {
+        align-self: auto | flex-start | flex-end | center | baseline | stretch;
+      }
+     ```
+
+     该属性可能取 6 个值，除了 auto，其他都与 align-items 属性完全一致。
+
+3. 响应式布局
+
+   - 响应式布局概念：Responsive Design，实现在不同屏幕分辨率的终端上浏览网页
+   - 实现方法：
+     a) 媒体查询
+     b) 百分百布局
+     c) rem 布局（相对于根节点 html 的字号布局）
+     d) 视口单位布局（vw/vh）
+   - 响应式设计步骤
+     a) 设置 meta 标签
+     b) 通过媒体查询来设置样式
+     c) 设置多种视图的宽度
+     - i) 宽度需要是哦那个百分比、rem、vw/vh 等
+     - ii) 处理图片缩放
+     - iii) 其他属性处理，如 pre、iframe、video 等，都要缩放其窗口大小；table 建议不要增加 padding 属性，低分辨率下要使用内容居中操作。

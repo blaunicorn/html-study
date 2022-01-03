@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			@font-face {
+				font-family: droidSans;
+				src: url('../font/ziti.ttf') format('TrueType');
+			}
+			@font-face {
+				font-family: dro;
+				src: url('../font/ziti.otf') format('OpenType');
+			}
+			li {
+				list-style-type: none;
+			}
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			body {
+				background: url(images/bg1.png) repeat;
+				font: 14px dro;
+			}
+			.container {
+				width: 950px;
+				margin: 0 auto;
+			}
+			header img {
+				margin: 10px 0 20px 20px;
+			}
+			nav {
+				background: #fff;
+				border-radius: 15px;
+				box-shadow: 5px 5px 2px #666;
+			}
+			nav .nav {
+				padding: 20px 0 20px 10px;
+			}
+			nav li {
+				display: inline-block;
+				padding: 0 15px;
+			}
+			nav li a {
+				color: #333;
+			}
+			nav li a:hover {
+				color: #000;
+				text-decoration: underline;
+			}
+			.content {
+				background-color: #fff;
+				padding: 20px;
+				margin: 20px 0;
+				border-radius: 15px;
+				box-shadow: 5px 5px 2px #666;
+			}
+			.content::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			.banner {
+				height: 350px;
+				border-left: 1px solid #ddd;
+				border-right: 1px solid #ddd;
+				border-bottom: 2px solid #ccc;
+				border-radius: 5px;
+				padding: 10px 0 0 60px;
+				background: url(images/html5.png) no-repeat 450px top;
+			}
+			.banner h2 {
+				font-family: sans-serif;
+				font-size: 66px;
+				margin-bottom: 30px;
+			}
+			.banner p {
+				font: 24px status-bar;
+				width: 450px;
+				opacity: 0.8;
+				filter: opacity(80%);
+				margin-bottom: 50px;
+			}
+			.banner a {
+				font: 14px;
+				color: #000;
+				border: 8px solid #000;
+				border-radius: 30px;
+				padding: 10px 20px;
+				word-spacing: 5px;
+			}
+			.banner a:hover {
+				color: #666;
+				border: 8px solid #666;
+			}
+			.left-content {
+				float: left;
+				width: 670px;
+			}
+			.left-content .classic {
+				text-align: center;
+				width: 210px;
+				float: left;
+				/* clear: both; */
+			}
+			.left-content h3 {
+				font-weight: normal;
+				padding: 20px 0 10px 20px;
+			}
+			.left-content .classic {
+				opacity: 0.5;
+				margin-right: 10px;
+			}
+			.left-content .classic:hover {
+				opacity: 1;
+			}
+			.left-content .classic.active {
+			}
+			.left-content .classic h4 {
+				font-weight: normal;
+				font-size: 15px;
+				opacity: 0.8;
+				margin: 10px 0;
+			}
+			.left-content .classic img {
+				width: 100%;
+			}
+			.left-content .classic img:hover {
+				opacity: 1;
+				cursor: pointer;
+			}
+			.left-content .classic p {
+				font-size: 13px;
+				opacity: 0.5;
+				line-height: 1.5em;
+			}
+			.right-content {
+				float: right;
+				width: 210px;
+				border-radius: 10px;
+				height: 270px;
+				background: #eee;
+				background: linear-gradient(to top, #fff 0%, #f7f7f7 84%, #e8e8e8 100%);
+				margin-top: 10px;
+				border: 1px solid #ccc;
+			}
+			.right-content h3 {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+					Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+				font-weight: normal;
+				color: #fff;
+				padding: 8px 0 8px 15px;
+				background-color: #333;
+				border-radius: 10px 10px 0 0;
+			}
+			.right-content ul {
+				margin-left: 11px;
+			}
+			.right-content ul li {
+				list-style-type: circle;
+				list-style-position: inside;
+			}
+			.right-content ul li a {
+				font-size: 12px;
+				opacity: 0.7;
+				line-height: 1.5em;
+				margin: 5px 0 5px 0px;
+			}
+			.right-content ul li a:hover {
+				opacity: 1;
+				color: #000;
+			}
+		</style>
+		<div class="container">
+			<!-- 页首  -->
+			<header>
+				<!-- logo -->
+				<img src="images/logo.png" width="105" height="46" alt="" srcset="" />
+				<!-- nav -->
+				<nav>
+					<ul class="nav">
+						<li><a href="#">导航1</a></li>
+						<li><a href="#">导航2</a></li>
+						<li><a href="#">导航3</a></li>
+						<li><a href="#">导航4</a></li>
+						<li><a href="#">导航5</a></li>
+						<li><a href="#">导航6</a></li>
+						<li><a href="#">导航7</a></li>
+					</ul>
+				</nav>
+			</header>
+			<!-- 页面主体内容  -->
+			<div class="content">
+				<!-- banner -->
+				<div class="banner">
+					<h2>HTML5</h2>
+					<p>
+						介绍部分文字介绍部分文字介绍部 分文字介绍部分文字 介绍部分文字介绍部 分文字介绍部分文字
+						介绍部分文字介绍部分文字介绍部分文字
+					</p>
+					<a href="#">READ MORE</a>
+				</div>
+				<!-- 左侧内容 -->
+				<div class="left-content">
+					<h3>Latest Works</h3>
+					<div class="classic">
+						<img src="images/car.png" alt="" srcset="" />
+						<h4>title</h4>
+						<p>duanluoduanjluo duanluo dasdfs fdsafsa s</p>
+					</div>
+					<div class="classic active">
+						<img src="images/mobile.png" alt="" srcset="" />
+						<h4>title</h4>
+						<p>duanluoduanjluo duanluo dasdfs fdsafsa s</p>
+					</div>
+					<div class="classic">
+						<img src="images/bird.png" alt="" srcset="" />
+						<h4>title</h4>
+						<p>duanluoduanjluo duanluo dasdfs fdsafsa s</p>
+					</div>
+				</div>
+				<!-- 右侧内容 -->
+				<div class="right-content">
+					<h3>why gravis?</h3>
+					<ul>
+						<li><a href="#">biaoti1</a></li>
+						<li><a href="#">biaoti2</a></li>
+						<li><a href="#">biaoti3</a></li>
+						<li><a href="#">biaoti4</a></li>
+						<li><a href="#">biaoti5</a></li>
+						<li><a href="#">biaoti6</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
