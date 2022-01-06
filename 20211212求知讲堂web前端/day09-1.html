@@ -7,8 +7,186 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<!-- flex演示 -->
+		<!-- web字体 -->
 		<style>
+			@font-face {
+				font-family: xun;
+				src: url('./css/font/aaa.ttf') format('truetype');
+			}
+			p {
+				font-family: xun;
+				font-size: 30px;
+			}
+		</style>
+		<div>
+			<p>字体演示</p>
+		</div>
+
+		<!-- 媒体查询 -->
+		<!-- 弹性模型设置不换行，子元素100%，这样当可以换行时，会自动填充满行 -->
+		<!-- <style>
+			section {
+				overflow: hidden;
+			}
+			.row1 div,
+			.row2 div,
+			.row3 div,
+			.row4 div {
+				float: left;
+			}
+			.row1 div {
+				width: 49%;
+				background-color: #666;
+			}
+			.row1 div:first-child {
+				margin-right: 2%;
+			}
+			.row2 {
+				margin-top: 10px;
+			}
+			.row2 div {
+				width: 100%;
+				background-color: #999;
+			}
+			.row3 {
+				margin-top: 10px;
+			}
+			.row3 div {
+				width: 32%;
+				background-color: #ff9381;
+				margin-left: 2%;
+			}
+			.row3 div:first-child {
+				margin-left: 0;
+			}
+			.row4 {
+				margin-top: 10px;
+			}
+			.row4 {
+				display: flex;
+				flex-wrap: nowrap;
+			}
+			.row4 div {
+				background-color: #4174ff;
+				width: 100%;
+				margin-right: 10px;
+			}
+			.row4 div:last-child {
+				margin-right: 0px;
+			}
+			@media screen and (max-width: 600px) {
+				.row1 div,
+				.row3 div,
+				.row4 div {
+					width: 100%;
+					margin-bottom: 10px;
+				}
+				.row1 div:last-child,
+				.row3 div:last-child {
+					margin-bottom: 0px;
+				}
+				.row3 div + div {
+					margin-left: 0px;
+				}
+				.row4 {
+					flex-wrap: wrap;
+				}
+				.row4 div {
+					margin-right: 0px;
+				}
+			}
+		</style>
+		<body>
+			<section class="row1">
+				<div>1</div>
+				<div>2</div>
+			</section>
+			<section class="row2">
+				<div>3</div>
+			</section>
+			<section class="row3">
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+			</section>
+			<section class="row4">
+				<div>7</div>
+				<div>8</div>
+				<div>9</div>
+				<div>10</div>
+			</section>
+		</body> -->
+
+		<!-- 响应式布局示例 -->
+		<!-- <link rel="stylesheet" href="css/screen480.css" media="screen and (max-width:480px)" />
+		<link
+			rel="stylesheet"
+			href="css/screen800.css"
+			media="screen and (min-width:480px) and (max-width:800px)"
+		/>
+		<style>
+			.container {
+				width: 100%;
+				padding: 0px;
+				display: flex;
+			}
+			.container div {
+				height: 400px;
+			}
+			.box1 {
+				width: 20%;
+				background-color: #f00;
+			}
+			.box2 {
+				width: 70%;
+				background-color: #ff0;
+			}
+			.box3 {
+				width: 10%;
+				background-color: #0f0;
+			}
+			@media screen and (min-width: 800px) {
+				body {
+					background-color: green;
+				}
+			}
+			.menu::after {
+				display: block;
+				content: '';
+				clear: both;
+			}
+			li {
+				list-style-type: none;
+				float: left;
+				width: 20%;
+				text-align: center;
+				background-color: #f00;
+			}
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			@media screen and (max-width: 480px) {
+				.menu {
+					display: none;
+				}
+			}
+		</style>
+		<ul class="menu">
+			<li><a href="#">菜单项1</a></li>
+			<li><a href="#">菜单项2</a></li>
+			<li><a href="#">菜单项3</a></li>
+			<li><a href="#">菜单项4</a></li>
+			<li><a href="#">菜单项5</a></li>
+		</ul>
+		<div class="container">
+			<div class="box1"></div>
+			<div class="box2"></div>
+			<div class="box3"></div>
+		</div> -->
+
+		<!-- flex演示 -->
+		<!-- <style>
 			.box {
 				width: 100%;
 				height: 600px;
@@ -32,7 +210,7 @@
 			<div class="box1">box1</div>
 			<div class="box2">box2</div>
 			<div class="box3">box3</div>
-		</div>
+		</div> -->
 
 		<!-- 基本弹性盒子 -->
 		<!-- <style>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>第九天课后实训</title>
+	</head>
+	<body>
+		<style>
+			@font-face {
+				font-family: economica;
+				src: url(/css/font/aaa.otf) format('openType');
+			}
+			@font-face {
+				font-family: kaushan;
+				src: url(/css/font/bbb.otf) format('openType');
+			}
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font: 12px Arial;
+				background-image: url('images/ambitios_header_bg.png'),
+					url('images/ambitios_first_row_bg.png'), url('images/ambitios_footer_bg.png');
+				background-repeat: repeat-x, repeat-x, repeat-x;
+				background-position: center top, center 64px, center 925px;
+			}
+			.wrapper {
+				width: 960px;
+				margin: 0 auto;
+				height: 100%;
+				overflow: auto;
+			}
+			header {
+				height: 64px;
+				overflow: hidden;
+			}
+			header h1 {
+				font: 40px normal econnomica;
+				color: #eee;
+				text-shadow: 3px 3px 5px #000;
+				padding-top: 8px;
+				float: left;
+			}
+			header ul {
+				list-style-type: none;
+				padding-top: 15px;
+				float: right;
+			}
+			header ul li {
+				display: inline-block;
+				font-size: 15px;
+				text-transform: capitalize;
+			}
+			header a {
+				color: #eee;
+				text-decoration: none;
+				display: block;
+				padding: 8px 10px;
+			}
+			header a:hover {
+				background-color: #09598a;
+			}
+			header .active {
+				background-color: #fff;
+				color: #000;
+				border-radius: 5px;
+			}
+			.banner {
+				padding-top: 35px;
+				height: 400px;
+				overflow: hidden;
+			}
+			.banner .leftimg {
+				float: left;
+				margin-right: 40px;
+				border-radius: 10px;
+				border: 10px solid #fff;
+				box-shadow: 0 28px 30px #a7a7a7;
+			}
+			.banner h2 {
+				font: normal 36px/1em kaushan;
+				color: #fff;
+				margin-bottom: 20px;
+				word-spacing: 5px;
+			}
+			.banner p {
+				font-size: 15px;
+				color: #fff;
+				margin-bottom: 20px;
+			}
+			.banner a {
+				margin-left: 60px;
+			}
+			.banner .button {
+				margin-top: 12px;
+				box-shadow: 10px 18px 10px #cecece;
+				border-radius: 5px;
+			}
+			.content {
+				padding: 20px;
+
+				display: flex;
+			}
+			.content h2 {
+				font: normal 24px Arial;
+				color: #fff;
+				height: 80px;
+				line-height: 1em;
+				vertical-align: middle;
+				text-align: center;
+				padding-top: 10px;
+				border-radius: 10px 10px 0 0;
+				background-color: #70b0e0;
+				background-image: linear-gradient(to bottom, #70b0e0 0%, #115fa3 100%);
+			}
+			.content p {
+				color: #666;
+				line-height: 1.5em;
+				margin: 20px 0;
+			}
+			.content ul {
+				margin-left: 20px;
+				color: #666;
+			}
+			.content ul li {
+				margin: 5px 0;
+			}
+			.box1,
+			.box2 {
+				flex: 1;
+				width: 225px;
+				height: 400px;
+				margin-right: 20px;
+				border-radius: 10px;
+				background-color: #eee;
+				box-shadow: 2px 2px 5px #999;
+			}
+			.box2:last-child {
+				margin-right: 0;
+			}
+			footer {
+				padding: 15px 0 15px 5px;
+				color: #fff;
+				margin-top: 20px;
+				background-color: #115fa3;
+			}
+		</style>
+		<div class="wrapper">
+			<!-- 页首 -->
+			<header>
+				<h1>AMBIRIOUS</h1>
+				<nav>
+					<ul>
+						<li><a href="#" class="active">Home</a></li>
+						<li><a href="#">features</a></li>
+						<li><a href="#">Pages</a></li>
+						<li><a href="#">News</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Contacts</a></li>
+					</ul>
+				</nav>
+			</header>
+			<!-- 主体内容 -->
+			<div class="container">
+				<!-- banner -->
+				<div class="banner">
+					<img class="leftimg" src="images/ambitios_pic1.png" alt="banner" srcset="" />
+					<h2>Women Prefer</h2>
+					<h2>Pastel Colored Flowers</h2>
+					<p>
+						Flowers Flowers Flowers Flowers Flowers Flowers Flowers Flowers Flowers Flowers Flowers
+						Flowers
+					</p>
+					<p>Everyone love flowers, but some just don't know that they do.</p>
+					<a href="#"
+						><img
+							src="images/ambitios_footer_button.png"
+							alt="button"
+							srcset=""
+							width="200"
+							height="62"
+							class="button"
+					/></a>
+				</div>
+				<!-- 核心内容区 -->
+				<div class="content">
+					<div class="box1">
+						<h2>Wide Range Of Header Sliders</h2>
+						<div class="box">
+							<p>We already have 3 absolutely different sliders ,such as:</p>
+							<ul>
+								<li>Simple but stylish Jcycle</li>
+								<li>Carousel slider</li>
+								<li>Famous 3d slider</li>
+							</ul>
+							<p>
+								Lorem ipsum dolor sit amet,counsectetur adipiscing elit. Vivamus condimentum, massa
+								ed
+							</p>
+						</div>
+					</div>
+					<div class="box2">
+						<h2>Variety Of Portfolio Layouts</h2>
+						<div class="box">
+							<p>Currently we have 3 protolfio layouts</p>
+							<p>Simple image gallery, that is perfect for photos</p>
+							<p>
+								Big image preview with description, perfect for designers to show their works in all
+							</p>
+							<p>Medium layout is good for mixed content, such as :video,images ,and etc.</p>
+						</div>
+					</div>
+					<div class="box2">
+						<h2>Variety Of Portfolio Layouts</h2>
+						<div class="box">
+							<p>Currently we have 3 protolfio layouts</p>
+							<p>Simple image gallery, that is perfect for photos</p>
+							<p>
+								Big image preview with description, perfect for designers to show their works in all
+							</p>
+							<p>Medium layout is good for mixed content, such as :video,images ,and etc.</p>
+						</div>
+					</div>
+					<div class="box2">
+						<h2>Variety Of Portfolio Layouts</h2>
+						<div class="box">
+							<p>Currently we have 3 protolfio layouts</p>
+							<p>Simple image gallery, that is perfect for photos</p>
+							<p>
+								Big image preview with description, perfect for designers to show their works in all
+							</p>
+							<p>Medium layout is good for mixed content, such as :video,images ,and etc.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 页尾 -->
+			<footer><p>&copy;2022 ambitious.All rights reserved.</p></footer>
+		</div>
+	</body>
+</html>

@@ -1,3 +1,8 @@
+### 知讲堂 web 前端 20 天
+
+F:\code-tencent\html-study\求知讲堂 web 前端
+https://www.bilibili.com/video/BV1i7411Z7d8?p=50
+
 #### css 第三天
 
 11. 属性选择器:属性选择器可以根据元素的属性及属性值来选择元素
@@ -773,7 +778,7 @@ inherit 从父元素继承 box-sizing 属性的值。
        - row-reverse:反转横向排列，右对齐，从后往前排，最后一项排在最前面
        - column：纵向排列
        - column-reverse：反转纵向排列，从后往前排，最后一项排在最上面
-     - flex-wrap:定义如果一条主轴线排不下，如果换行。
+     - flex-wrap:定义如果一条主轴线排不下，是否换行。
        flex-wrap: nowrap 不换行 | wrap 换行，第一行在上方 | wrap-reverse 第一行在下方
      - flex-flow:是 flex-direction 和 flex-wrap 的简写形式，默认为 row nowrap
        flex-flow:<flex-direction> <flex-wrap>
@@ -860,14 +865,89 @@ inherit 从父元素继承 box-sizing 属性的值。
 
    - 响应式布局概念：Responsive Design，实现在不同屏幕分辨率的终端上浏览网页
    - 实现方法：
-     a) 媒体查询
-     b) 百分百布局
-     c) rem 布局（相对于根节点 html 的字号布局）
-     d) 视口单位布局（vw/vh）
+
+     - a) 媒体查询：通过不同的媒体类型和条件定义样式表规则。
+
+       - 步骤 1:设置 meta 标签
+
+       ```
+       		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       ```
+
+       - 步骤 2：设置 ie 渲染方式为最高版本
+
+       ```
+       		<meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1" />
+       ```
+
+       - 步骤 3：引入兼容的 js 文件,因为 IE8 及 IE8 一下版本既不支持 html5，也不支持 css3 Media,所以需要引入 js 文件来处理这个兼容。
+
+       ```
+       	<!-- [if lt IE9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js></script>
+          <script src="https://oss.maxcdn.com/libs/responed.js//responed.min.js></script>
+        <!endif>-->
+       ```
+
+       - 步骤 4：使用 css3 提供的媒体查询 @Media
+
+       ```
+          // 方式一，外部引入
+        		<link rel="stylesheet" href="css/screen480.css" media="screen and (max-width:480px)" />
+            <link
+              rel="stylesheet"
+              href="css/screen800.css"
+              media="screen and (min-width:480px) and (max-width:800px)"
+            />
+          // 方式二 在样式表内部使用
+          @media screen and (min-width:480px) {
+            body {
+              background-color: green;
+            }
+          }
+        <!endif>-->
+       ```
+
+       - Media Type 媒体类型的值：screen 屏幕\print 打印设备\all 所有设备\handheld 便携设备、笔记本电脑\tv 电视\speech 音频合成器\braille 盲人点触设备\embossed 盲人打印机、\projection 投影设备\tty 虚拟设备、固定密度字母栅格设备
+       - Media Query 媒体特性的值：
+         设备的宽和高 device-width，device-height
+         渲染窗口的宽和高 width，height
+         设备的手持方向，横向还是竖向 orientation（portrait|lanscape）和打印机等
+         画面比例 aspect-ratio 点阵打印机等
+         设备比例 device-aspect-radio 等
+         对象颜色或颜色列表 color，color-index 显示屏幕等
+         设备的分辨率 resolution 等
+       - 媒体选择条件:not and only
+         语法：@media 设备名 only(选取条件) not(选取条件) and（设备选取条件），设备二{sRules}
+
+     - b) 百分百布局
+     - c) rem 布局（相对于根节点 html 的字号布局）
+     - d) 视口单位布局（vw/vh）
+
    - 响应式设计步骤
-     a) 设置 meta 标签
-     b) 通过媒体查询来设置样式
-     c) 设置多种视图的宽度
-     - i) 宽度需要是哦那个百分比、rem、vw/vh 等
-     - ii) 处理图片缩放
-     - iii) 其他属性处理，如 pre、iframe、video 等，都要缩放其窗口大小；table 建议不要增加 padding 属性，低分辨率下要使用内容居中操作。
+     - a) 设置 meta 标签
+     - b) 通过媒体查询来设置样式
+     - c) 设置多种视图的宽度
+       - i) 宽度需要是哦那个百分比、rem、vw/vh 等
+       - ii) 处理图片缩放
+       - iii) 其他属性处理，如 pre、iframe、video 等，都要缩放其窗口大小；table 建议不要增加 padding 属性，低分辨率下要使用内容居中操作。
+
+4. web 字体
+   - 引入字体,可以同时引入多个字体文件，便于浏览器兼容，如 eot、svg、base64 等等
+   ```
+   	<style>
+   		@font-face {
+   			font-family: xun;
+   			src: url('./css/font/aaa.ttf') format('truetype');
+   		}
+   		p {
+   			font-family: xun;
+   			font-size: 30px;
+   		}
+   	</style>
+   	<div>
+   		<p>字体演示</p>
+   	</div>
+   ```
+5. iconfont 图标字体
+   - 步骤：
