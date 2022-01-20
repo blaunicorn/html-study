@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>超时空背景的登录界面</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #000;
+				overflow: hidden;
+			}
+			.container {
+				/* 设置视距 */
+				perspective: 5px;
+				/* 设置3d元素的基点位置 */
+				perspective-origin: 50% 50%;
+			}
+			.wrap {
+				position: absolute;
+				width: 1000px;
+				height: 1000px;
+				left: -500px;
+				top: -500px;
+				/* 开启3d效果 */
+				transform-style: preserve-3d;
+				animation: move 20s linear infinite;
+			}
+			.wall {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: url('space1.jpg') no-repeat;
+				background-size: cover;
+			}
+			/* 为各个墙设置角度和距离 */
+			.wall-top {
+				transform: rotateX(90deg) translateZ(500px);
+			}
+			.wall-bottom {
+				transform: rotateX(-90deg) translateZ(500px);
+			}
+			.wall-left {
+				transform: rotateY(-90deg) translateZ(500px);
+			}
+			.wall-right {
+				transform: rotateY(90deg) translateZ(500px);
+			}
+			.wall-back {
+				transform: rotateX(180deg) translateZ(500px);
+			}
+			.form-box {
+				position: relative;
+				background-color: rgba(255, 255, 255, 0.1);
+				width: 400px;
+				height: 500px;
+				border-radius: 15px;
+				border-top: 1px solid rgba(255, 255, 255, 0.5);
+				border-left: 1px solid rgba(255, 255, 255, 0.5);
+				display: flex;
+				justify-content: start;
+				align-items: center;
+				flex-direction: column;
+				/* 背景模糊 */
+				backdrop-filter: blur(20px);
+				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+			}
+			.form-box .tit {
+				color: #fff;
+				font-size: 40px;
+				font-weight: bold;
+				text-transform: uppercase;
+				letter-spacing: 10px;
+				text-indent: 10px;
+				margin: 95px auto 50px auto;
+			}
+			.form-box input {
+				width: 300px;
+				height: 30px;
+				background: transparent;
+				text-indent: 8px;
+				border: none;
+				outline: none;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+				color: #fff;
+				margin: 15px auto;
+			}
+			.form-box input::placeholder {
+				color: rgba(255, 255, 255, 0.8);
+			}
+			.form-box button {
+				width: 300px;
+				height: 40px;
+				margin: 35px auto 40px auto;
+				border: none;
+				background: #00addd;
+				color: #fff;
+				border-radius: 8px;
+				letter-spacing: 20px;
+				text-indent: 20px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			.form-box button:hover {
+				background: #0098d4;
+			}
+			.form-box span {
+				font-size: 14px;
+				color: #fff;
+			}
+			.form-box a {
+				color: #00addd;
+				text-decoration: none;
+			}
+			/* 定义动画 */
+			@keyframes move {
+				0% {
+					transform: rotate(0deg) translateZ(-500px);
+				}
+				100% {
+					transform: rotate(90deg) translateZ(500px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="wrap">
+				<div class="wall wall-top"></div>
+				<div class="wall wall-bottom"></div>
+				<div class="wall wall-left"></div>
+				<div class="wall wall-right"></div>
+				<div class="wall wall-back"></div>
+			</div>
+			<div class="form-box">
+				<div class="tit">login</div>
+				<input type="text" placeholder="username" name="" id="" />
+				<input type="password" placeholder="password" name="" id="" />
+				<button>login in</button>
+				<span>no count?<a href="#">regit</a></span>
+			</div>
+		</div>
+	</body>
+</html>
