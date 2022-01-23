@@ -2,13 +2,19 @@ a {
 	text-decoration: none;
 	color: #000;
 }
-
+.active {
+	color: #01a1ff !important;
+}
+body {
+	width: 1200px;
+	margin: 0 auto;
+}
 header {
 	width: 1200px;
 	height: 80px;
 	line-height: 80px;
 	margin: 0 auto;
-	background-color: #f00;
+	/* background-color: #f00; */
 
 	/* display: flex; */
 }
@@ -28,7 +34,7 @@ header .logo img {
 	/* width: 100%; */
 	vertical-align: middle;
 	width: 90px;
-	height: 35px;
+	height: 55px;
 }
 header .nav {
 	display: inline-block;
@@ -37,14 +43,140 @@ header .nav {
 }
 header .nav li {
 	float: left;
-	width: 125px;
+	/* width: 125px; */
+	margin-right: 55px;
 	font-size: 16px;
+}
+header .nav li a.active::after {
+	content: '';
+	display: block;
+	margin-top: -4px;
+	border-bottom: 4px solid #01a1ff;
+}
+header .nav li a {
+	color: #333;
+}
+header .nav li a.active {
+	color: #01a1ff;
+}
+header .nav li:hover a {
+	color: #01a1ff;
+	cursor: pointer;
+}
+header .nav li:hover::after {
+	content: '';
+	display: block;
+	margin-top: -4px;
+	border-bottom: 4px solid #01a1ff;
 }
 header .language {
 	display: inline-block;
 	overflow: hidden;
-	vertical-align: top;
+	vertical-align: middle;
 }
 header .language li {
+	text-align: center;
+	line-height: 40px;
 	float: left;
+	width: 50px;
+	height: 40px;
+	border: 1px solid transparent;
+}
+header .language li.active {
+	border: 1px solid #ccc;
+}
+header .language li:hover {
+	cursor: pointer;
+
+	border: 1px solid #ccc;
+}
+
+/* banner */
+.banner {
+	width: 100%;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+}
+
+.banner .imgs {
+	/* position: absolute; */
+	width: 300%;
+}
+.banner .imgs li {
+	width: 33.33%;
+
+	float: left;
+}
+.banner img {
+	min-width: 1200px;
+	width: 100%;
+	height: 400px;
+}
+.banner:hover .button {
+	display: block;
+}
+.banner .button {
+	position: relative;
+	z-index: 100;
+	height: 100%;
+	display: none;
+}
+.banner .button .prev,
+.banner .button .next {
+	cursor: pointer;
+	width: 30px;
+	height: 103px;
+	position: absolute;
+
+	top: 50%;
+	transform: translateY(-50%);
+}
+.banner .button .prev {
+	left: 40px;
+	background: url(../images/index-xb2.png) no-repeat;
+}
+.banner .button .next {
+	background: url(../images/index-xb1.png) no-repeat;
+	right: 40px;
+}
+.banner .button .prev:hover {
+	left: 40px;
+	background: url(../images/index-xb2.png) no-repeat;
+	box-shadow: 2px 1px 2px 0px #888;
+}
+.banner .button .next:hover {
+	background: url(../images/index-xb1.png) no-repeat;
+	right: 40px;
+	box-shadow: 2px 1px 2px 0px #888;
+}
+.banner .count {
+	width: 100%;
+	height: 20px;
+	position: absolute;
+	z-index: 100;
+	bottom: 10px;
+	text-align: center;
+}
+.banner .count li {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #000;
+	opacity: 0.2;
+	margin: 0px 5px;
+	filter: alpha(opacity=20);
+	display: inline-block;
+}
+.banner .count li:hover {
+	box-shadow: 1px 1px 2px #888;
+	cursor: pointer;
+	background-color: #01a1ff;
+	opacity: 0.8;
+}
+.banner .count li.active {
+	box-shadow: 1px 1px 2px #888;
+	cursor: pointer;
+	background-color: #01a1ff;
+	opacity: 0.8;
 }
