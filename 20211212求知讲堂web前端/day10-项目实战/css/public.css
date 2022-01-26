@@ -6,8 +6,9 @@ a {
 	color: #01a1ff !important;
 }
 body {
-	width: 1200px;
+	/* width: 1200px; */
 	margin: 0 auto;
+	overflow-x: hidden;
 }
 header {
 	width: 1200px;
@@ -93,10 +94,11 @@ header .language li:hover {
 
 /* banner */
 .banner {
-	width: 100%;
+	width: 1200px;
 	height: 400px;
 	position: relative;
 	overflow: hidden;
+	margin: 0 auto;
 }
 
 .banner .imgs {
@@ -179,4 +181,40 @@ header .language li:hover {
 	cursor: pointer;
 	background-color: #01a1ff;
 	opacity: 0.8;
+}
+/* 标题公共样式 */
+.title {
+	font: 34px 'Franklin Gothic Medium';
+	text-transform: uppercase;
+	text-align: center;
+	margin: 10px auto;
+}
+
+.title::after {
+	width: 42px;
+	/* height: 4px; */
+	content: '';
+	display: block;
+	border-bottom: 4px solid #01a1ff;
+	margin: 5px auto;
+	/* background: #01a1ff; */
+}
+
+/* 首页p样式 */
+.index-p {
+	font-family: 微软雅黑;
+	font-size: 14px;
+	color: #666;
+	padding: 0 85px 10px 85px;
+	line-height: 24px;
+	text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+	body {
+		overflow: auto;
+	}
+	.pro-center .pro-list ul {
+		max-width: 1505px;
+	}
 }
