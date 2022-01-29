@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculator | Dark and Light Mode</title>
+	</head>
+	<body>
+		<style>
+			body {
+				background-color: #333;
+			}
+			body.light .btn strong:nth-child(1) {
+				display: none;
+			}
+			body.light .btn strong:nth-child(2) {
+				display: block;
+			}
+			body.light {
+				background-color: #f8f8f8;
+			}
+			body.light .btn {
+				background-color: #fafafa;
+				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.01), 5px 5px 30px rgba(0, 0, 0, 0.01),
+					inset -2px -2px 5px rgba(0, 0, 0, 0.01), inset 2px 2px 5px rgba(0, 0, 0, 0.01);
+			}
+			body.light strong {
+				color: red;
+			}
+			.btn {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				width: 60px;
+				height: 60px;
+				background-color: #333;
+				font-size: 1.5em;
+				box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25), 5px 5px 30px rgba(0, 0, 0, 0.25),
+					inset -2px -2px 5px rgba(0, 0, 0, 0.25), inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				border-radius: 10px;
+			}
+
+			.btn strong {
+				display: none;
+				color: yellow;
+			}
+			.btn strong:nth-child(1) {
+				display: block;
+			}
+			.container {
+				max-width: 400px;
+				margin: 10vh auto 0 auto;
+				box-shadow: 0px 0px 43px 17px rgba(153, 153, 153, 1);
+				padding: 10px 10px;
+				border-radius: 10px;
+			}
+			#display {
+				text-align: right;
+				height: 70px;
+				line-height: 70px;
+				padding: 10px 10px;
+				margin: 10px 10px 0px 10px;
+				font-size: 25px;
+				background-color: rgb(6, 253, 253);
+				border: 1px solid #333;
+				border-radius: 5px;
+				box-sizing: border-box;
+			}
+			.buttons {
+				display: grid;
+				/* border-bottom: 1px solid #999;
+				border-left: 1px solid #999; */
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+			}
+			.buttons > div {
+				/* border-top: 1px solid #999;
+				border-right: 1px solid #999; */
+			}
+			.button {
+				margin: 8px;
+				border: 0.5px solid transparent;
+				line-height: 60px;
+				text-align: center;
+				font-size: 25px;
+				cursor: pointer;
+				user-select: none;
+				background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
+				box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15), inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+					0 0 0 2px rgba(0, 0, 0, 0.75), 10px 20px 25px rgba(0, 0, 0, 0.4);
+				color: #fff;
+			}
+			.button::before {
+				content: '';
+				display: block;
+				background: linear-gradient(180deg, #2d2d2d, #4d4d4d);
+				box-shadow: -8px -5px 15px rgba(0, 0, 0, 0.15), inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+					0 0 0 2px rgba(0, 0, 0, 0.75), 10px 20px 25px rgba(0, 0, 0, 0.4);
+			}
+			/* body.light .button {
+				background: linear-gradient(180deg, #fafafa, #f4f4f4);
+				box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15), inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+					0 0 0 2px rgba(0, 0, 0, 0.75), 10px 20px 25px rgba(0, 0, 0, 0.4);
+			} */
+			#equal {
+				background-color: rgb(85, 85, 255);
+				color: white;
+			}
+			.button:hover {
+				background-color: #323330;
+				color: white;
+				transition: 0.5 ease-in-out;
+			}
+			.button:active {
+				filter: brightness(1.5);
+				/* border: 1px solid #323330; */
+				transition: 0.5 ease-in-out;
+			}
+		</style>
+		<div class="btn"><strong>☀</strong><strong>☾</strong></div>
+		<section>
+			<div class="container">
+				<div id="display"></div>
+				<div class="buttons">
+					<div class="button">C</div>
+					<div class="button">/</div>
+					<div class="button">*</div>
+					<div class="button">&larr;</div>
+					<div class="button">7</div>
+					<div class="button">8</div>
+					<div class="button">9</div>
+					<div class="button">-</div>
+					<div class="button">4</div>
+					<div class="button">5</div>
+					<div class="button">6</div>
+					<div class="button">+</div>
+					<div class="button">1</div>
+					<div class="button">2</div>
+					<div class="button">3</div>
+					<div class="button">.</div>
+					<div class="button">(</div>
+					<div class="button">0</div>
+					<div class="button">)</div>
+					<div id="equal" class="button">=</div>
+				</div>
+			</div>
+		</section>
+		<script src="math.js"></script>
+		<script>
+			// let display = document.getElementById('display');
+			// let buttons = Array.from(document.getElementsByClassName('button'));
+			let display = document.querySelector('#display');
+			let buttons = Array.from(document.querySelectorAll('.button'));
+			buttons.map((button) => {
+				button.addEventListener('click', (e) => {
+					console.log(e.target.innerText);
+					switch (e.target.innerText) {
+						case 'C':
+							display.innerText = '';
+							break;
+						case '=':
+							const precision = 14;
+							// display.innerText = Number(math.format(0.1 + 0.2, precision));
+							try {
+								// 解决精度问题
+								display.innerText = math.format(math.evaluate(display.innerText), precision);
+								// display.innerText = eval(display.innerText);
+							} catch {
+								display.innerText = 'Error';
+							}
+							break;
+						case '←':
+							if (display.innerText) {
+								display.innerText = display.innerText.slice(0, -1);
+							}
+							break;
+						default:
+							display.innerText += e.target.innerText;
+					}
+				});
+			});
+			// 背景切换
+			let body = document.querySelector('body');
+			let btn = document.querySelector('.btn');
+			body.classList.add('light');
+			btn.addEventListener('click', () => {
+				body.classList.toggle('light');
+			});
+		</script>
+	</body>
+</html>
