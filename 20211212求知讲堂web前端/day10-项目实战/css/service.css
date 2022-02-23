@@ -1,0 +1,72 @@
+.service-list {
+	margin: 20px;
+}
+.service-list li {
+	position: relative;
+	box-sizing: border-box;
+	/* display: flex; */
+	overflow: hidden;
+	color: #666;
+	line-height: 30px;
+}
+.service-list li::before {
+	content: '·';
+	line-height: 30px;
+	font-weight: bolder;
+}
+.service-list li:hover {
+	cursor: pointer;
+	color: #01a1ff;
+}
+.service-list li:hover .line {
+	border-color: #01a1ff;
+}
+.service-list span {
+	display: inline-block;
+}
+.service-list .service-item {
+	position: relative;
+	left: 0;
+	padding-right: 5px;
+	background-color: #fff;
+	z-index: 2;
+}
+.service-list .line {
+	position: absolute;
+	width: 100%;
+	top: 15px;
+	/* flex: 1; */
+	border-top: 1px dashed #666;
+}
+.service-list .service-date {
+	position: absolute;
+	right: 0;
+	padding-left: 5px;
+	background-color: #fff;
+}
+
+.question {
+	margin: 40px;
+	color: #333;
+}
+
+.question h2 {
+	margin: 47px 0 50px;
+	text-align: center;
+	font-size: 24px;
+	color: #333;
+	font-weight: bold;
+}
+.question strong {
+	display: block;
+	font-size: 14px;
+	text-indent: 2em;
+	line-height: 30px;
+	font-weight: bold;
+}
+.question ol li {
+	line-height: 30px;
+	text-indent: 2em;
+	font-size: 14px;
+	color: #666;
+}

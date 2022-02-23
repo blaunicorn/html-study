@@ -323,6 +323,7 @@
 }
 .video-center .video-list li a img {
 	width: 260px;
+	height: 200px;
 	object-fit: cover;
 }
 .video-center .video-list li a .play {
