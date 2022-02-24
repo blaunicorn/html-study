@@ -884,8 +884,8 @@ inherit 从父元素继承 box-sizing 属性的值。
 
        ```
        	<!-- [if lt IE9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js></script>
-          <script src="https://oss.maxcdn.com/libs/responed.js//responed.min.js></script>
+          <s src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js></script>
+          <s src="https://oss.maxcdn.com/libs/responed.js//responed.min.js></script>
         <!endif>-->
        ```
 
@@ -951,3 +951,256 @@ inherit 从父元素继承 box-sizing 属性的值。
    ```
 5. iconfont 图标字体
    - 步骤：
+
+# Javascript
+
+#### Javascript 引入的方式
+
+1. script 标签
+   defer：dom 加完后，再执行 js 代码
+   charset： 字符编码（utf-8）
+2. a 标签中调用 js
+
+```
+  1. a href="javascript:js_method();"
+  <a href="javascript:var a=10,b=20;alert('结果为：'+(a+b))">测试</>
+  这是我们平台上常用的方法，但是这种方法在传递this等参数的时候很容易出问题，而且javascript:协议作为a的href属性的时候不仅会导致不必要的触发window.onbeforeunload事件，在IE里面更会使gif动画图片停止播放。W3C标准不推荐在href里面执行javascript语句
+  2. a href="javascript:void(0);" οnclick="js_method()"
+  这种方法是很多网站最常用的方法，也是最周全的方法，onclick方法负责执行js函数，而void是一个操作符，void(0)返回undefined，地址不发生跳转。而且这种方法不会像第一种方法一样直接将js方法暴露在浏览器的状态栏。
+  3.a href="javascript:;" οnclick="js_method()"
+  这种方法跟跟2种类似，区别只是执行了一条空的js代码。
+  4.a href="#" οnclick="js_method()"
+  这种方法也是网上很常见的代码，#是标签内置的一个方法，代表top的作用。所以用这种方法点击后网页后返回到页面的最顶端。
+  5.a href="#" οnclick="js_method();return false;"
+  这种方法点击执行了js函数后return false，页面不发生跳转，执行后还是在页面的当前位置。
+  们的区别是每个href里的javascript方法都用try、catch包围。
+  综合上述，在a中调用js函数最适当的方法推荐使用：
+  a href="javascript:void(0);" οnclick="js_method()"
+  a href="javascript:;" οnclick="js_method()"
+  a href="#" οnclick="js_method();return false;"
+
+  <a href="javascript:void(document.body.style.backgroundColor='green');">测试</a>
+```
+
+3. 外部引入 js 文件
+
+```
+<s’cript src="demo.js" type="text/javascript"></script>
+// async 可选 ，异步执行脚本
+```
+
+4. 注意事项
+
+```
+alert('</script>')会错误，需要用+拆开
+alert('</s' + 'cript>')
+```
+
+#### Javascript 标识符
+
+1. 第一个字符必须是字母、下划线(\_)或($)
+2. 其他字符可以是字母、下划线、美元符号或数字
+3. 不能把关键字、保留字、true\false\null 作为标识符
+
+```
+关键字：
+break else new var case finally return void catch for switch while continue function this with default if throw delete in try do instanceof typeof ...
+保留字：
+abstract enum int short boolean export interface static byte extends long super char final native synchronized class float package throws const goto private transient debugger implements protected volatile double import public
+```
+
+#### Javascript 注释
+
+```
+单行注释
+  // 注释内容  vscode快捷键ctrl+/
+
+多行注释
+/*
+  注释内容
+  注释内容  vscode快捷键alt+ shift + a
+ */
+```
+
+#### Javascript 变量和常量
+
+- 常量：在程序中直接给出具体的数据，常量不可以改变
+- 变量：在内存中开辟一段空间用于存放某个某个数据
+
+1. 只定义变量
+   var x；
+   var a,b,c
+2. 定义变量且赋值
+   var x1 = true;
+   var y1 - 100
+   说明： 因为是弱语言，① 定义变量时可以不指定变量类型；② 可以重复定义；③ 可以不定义变量直接赋值，默认是为 window 对象添加了属性；④ 定义的变量如果没有赋值，系统将自动赋值为 undefined;⑤ 一条语句可以已分号结束，也可以不加分号；如果是多条语句写在同一行上，必须用分号隔开。
+
+#### Javascript 数据类型
+
+数据类型：在内存存储的方式
+
+1. 基本数据类型:7 种原始类型
+
+   ```
+   undefined：typeof instance === "undefined"
+   Boolean：typeof instance === "boolean"
+   Number：typeof instance === "number"
+   String：typeof instance === "string
+   BigInt：typeof instance === "bigint"
+   Symbol ：typeof instance === "symbol"
+   null：typeof instance === "object"。
+   ```
+
+   number：数值型，区分整型和浮点型
+
+   ```
+     // 二进制 Binary system
+     // 以0b或0B开头
+     var FLT_SIGNBIT  = 0b10000000000000000000000000000000; // 2147483648
+     var FLT_EXPONENT = 0b01111111100000000000000000000000; // 2139095040
+     var FLT_MANTISSA = 0B00000000011111111111111111111111; // 8388607
+     // 二进制展示（方便展示，理解上却更难了）
+     // 正数：就是正数的原码
+     // 负数：负号+正数的原码
+     // 不是数值的二进制补码
+     parseInt(-10).toString(2) // -1010
+
+     // 十进制 Decimal system
+     // 以0开头，但是后面跟8以下会当作八进制处理
+     var d = 1234567890;
+     var l = 0888; // 888 十进制
+     var o = 0777; // 511 八进制
+
+     // 八进制 Octal number system
+     // 以0开头，ECMAScript 6支持0o
+     0123 八进制
+     var n = 0755; // 493
+     var m = 0644; // 420
+     var e = 0o755; // 493 ECMAScript 6规范
+
+
+     // 十六进制 Hexadecimal
+     // 以0x或0X开头
+     0xFFFFFFFFFFFFFFFFF // 295147905179352830000
+     0x123456789ABCDEF   // 81985529216486900
+     0XA                 // 10
+
+     isNaN() 用来判断是不是不是一个数，返回Boolean值
+     NaN： 非数值（not a number）的一个特殊值
+     注意 true '25' 这样能转成数值的 isNaN()为true。
+   ```
+
+   string：字符型
+
+   ```
+     // 在字符数据中输出引号，需要加\转义符
+     var a = "a\"bc"
+     var b = "a\'bc"
+     console.log(a,b)
+     // js里面怎么转二进制？ 字符通过 charCodeAt 转成 Unicode 码十进制，然后通过 Number 对象 toString 方法转成不同进制。
+     console.log('0'.charCodeAt()) // "48" 十进制
+     console.log('0'.charCodeAt().toString(16)) // "30" 十六进制
+     console.log(0x0030.toString(10)) // "48" 十进制
+     console.log(String.fromCharCode(48)) // "0"
+
+     console.log('万'.charCodeAt().toString(16)) // "4e07" 十六进制
+     console.log(String.fromCharCode(0x4e07)) // "万"
+
+     console.log('万'.charCodeAt().toString(2)) // "100111000000111" 二进制
+     console.log(String.fromCharCode(0b100111000000111)) // "万"
+
+     利用 toString() 方法可以把数值转换为字符串。如果转换的内容为空会报错:可以用 + "" 进行强制转换。
+     使用 parseInt() 和 parseFloat() 方法可以把字符串转换为数值
+     要把任何值转换为布尔型数据，在值的前面增加两个 !! 感叹号即可，!!0 为 False，其余的均为 True。
+
+     在 JavaScript 中, null 用于对象, undefined 用于变量，属性和方法。
+     对象只有被定义才有可能为 null，否则为 undefined。
+   ```
+
+   boolean：布尔型
+   null：空,用于对象
+   undefined：未定义,用于变量，属性和方法。
+   Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值。
+
+2. 引用数据类型
+   object：用来声明或存储一个对象（对象、函数、正则、字符、数值等）
+   typeof instance === "object"。任何 constructed 对象实例的特殊非数据结构类型，也用做数据结构：new Object，new Array，new Map，new Set，new WeakMap，new WeakSet，new Date，和几乎所有通过 new keyword 创建的东西
+
+   ```
+   var a = new Number(10)  // object
+   var b = 10 // number
+   console.log(typeof a, typeof b)  // typeof获取数据类型
+   console.log(a == b) // true ;==只比较值，不比较数据类型
+   console.log( a === b ) // false
+
+   ```
+
+基本类型的变量是存放在栈内存（Stack）里的
+引用类型的值是保存在堆内存（Heap）中的对象（Object）
+
+#### Javascript 运算符
+
+1. 算术运算符
+
+```
+// 加减乘除取余 自增 自减
+  + - / % ++ --
+
+  var y=5;
+	var x=y++; // x=5,y=6，相当于 x=y;y+1
+  var x=++y;  // x=6 ,y=6 ; 相当于 y+1; x=y;
+
+  -13 % 5 // -3
+  -13 % -5 // -3
+  13 % -5 //3 除法取决于被除数的符号
+
+  console.log(123+'bbb')  // 123bbb
+  console.log('aaa'+'bbb')  // aaabbb
+  console.log(('aaa'+'bbb').length)  // 6  获取最总字符串的长度
+```
+
+2. 关系运算符
+
+```
+  // 返回的一般是true或false
+  > < >= <= == === != !==
+  比较方法：
+  a. 数值比较，比较其大小  console.log(20>30)  // false
+  b. 字符比较，比较ascii码值得大小，按位比较,位置上没有的视为0；  console.log('a'<'AJ') // true
+  c. 汉字比较，比较其Unicode编码值的大小，可以通过charCodeAt() 获取汉字编码值
+```
+
+3. 逻辑运算符
+
+```
+逻辑非（取反）  逻辑与 逻辑或
+!               &&     ||
+! !true => false !false =>true
+&&  只要有个操作数为false，结果为false
+    注意：如果两个中任意一个操作数非逻辑值，第一个操作数的结果为true，返回第二个操作数的值；第一个操作数的结果为false时，返回第一个操作数的值。
+    console.log('123' && 10+20) // 30
+    console.log(false && [])  // false
+    console.log(0 && 'aaa')  // aaa
+|| 只要有一个操作数为true，结果为true
+    注意：如果两个中任意一个操作数非逻辑值，第一个操作数的结果为true，返回第一个操作数的值；第一个操作数的结果为false时，返回第二个操作数的值。与&&相反
+```
+
+短路运算：&& 运算时，如果第一个操作数为 false 时，不需要计算第二个操作数
+短路运算：|| 运算时，如果第一个操作数为 true 时，不需要计算第二个操作数
+
+```
+var x=100
+var y = true && ++x
+console.log(x,y)  // 101 101
+
+var x=100
+var y = false && ++x
+console.log(x,y)  //100 false
+
+
+
+```
+
+4. 三目运算符
+
+5. 位运算符
