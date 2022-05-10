@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="d1" onclick="changeColor(this);">点我</div>
+		<a href="javascript:var a=10,b=20;alert('结果为：'+(a+b))">测试</a>
+		<a href="javascript:window.close();">&times;</a>
+		<a href="javascript:void(1);">test</a>
+		<a href="javascript:void(0);">test</a>
+		<a href="javascript:void(document.body.style.backgroundColor='green');">测试</a>
+		<a
+			href="javascript:var a = 0;void(console.log(this));void(document.getElementsByTagName['a'][a].style.color='green');"
+			>测试</a
+		>
+		<script>
+			// <script defer="defer">
+
+			// defer dom加载完后执行代码
+			function changeColor(self) {
+				console.log(self);
+				self.style.backgroundColor = 'green';
+			}
+			var a = 'a"bc';
+			var b = "a'bc";
+			console.log(a, b);
+			// var res = window.confirm('这里是要显示的内容');
+			// if (res == true) {
+			// 	alert('你点击了“确定”按钮');
+			// } else {
+			// 	alert('你点击了“取消”按钮');
+			// }
+
+			var s = '';
+			s += ' 网页可见区域宽：' + document.body.clientWidth;
+			s += ' 网页可见区域高：' + document.body.clientHeight;
+
+			s += ' 网页可见区域宽：' + document.body.offsetWidth + ' (包括边线和滚动条的宽)';
+			s += ' 网页可见区域高：' + document.body.offsetHeight + ' (包括边线的高)';
+
+			s += ' 网页正文全文宽：' + document.body.scrollWidth;
+			s += ' 网页正文全文高：' + document.body.scrollHeight;
+
+			s += ' 网页被卷去的高：' + document.body.scrollTop;
+			s += ' 网页被卷去的左：' + document.body.scrollLeft;
+
+			s += ' 网页正文部分上：' + window.screenTop;
+			s += ' 网页正文部分左：' + window.screenLeft;
+
+			s += ' 屏幕分辨率的高：' + window.screen.height;
+			s += ' 屏幕分辨率的宽：' + window.screen.width;
+
+			s += ' 屏幕可用工作区高度：' + window.screen.availHeight;
+			s += ' 屏幕可用工作区宽度：' + window.screen.availWidth;
+
+			s += ' 你的屏幕设置是 ' + window.screen.colorDepth + ' 位彩色';
+			s += ' 你的屏幕设置 ' + window.screen.deviceXDPI + ' 像素/英寸';
+
+			console.log(s);
+			/* 判断闰年
+						能被4整除却不能被100整除或能被400整除的年份就是闰年
+						 */
+			// var year = prompt('请输入一个年份:');
+			// console.log('year:', year, typeof year);
+			// year = Number(year);
+			// if (year != '' && ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)) {
+			// 	alert(year + '是闰年');
+			// } else if (typeof year === 'number' && year % 1 === 0) {
+			// 	alert(year + '是平年');
+			// } else {
+			// 	alert('请检查输入');
+			// }
+
+			/* 计算1-100之间所有数的和 */
+			//method one
+			// for (var i = 1, sum = 0; i <= 100; i++) {
+			// 	sum += i;
+			// }
+			// console.info({ sum });
+
+			/* 计算增加后的工资，要求工资满5年，增加20%工资；若2-4，增加15%；若小于2，则增加10%工作 */
+			// var salary = 5000,
+			// 	years = prompt('请输入工龄:');
+			// if (years >= 5) {
+			// 	salary *= 1.2;
+			// } else if (years10 >= 2 && years <= 4) {
+			// 	salary *= 1.15;
+			// } else {
+			// 	salary *= 1.1;
+			// }
+			// console.log({ salary });
+
+			/* 求1-100之间不能被7整除的整数的和 */
+			// for (var i = 1, sum = 0; i <= 100; i++) {
+			// 	if (i % 7 === 0) {
+			// 		continue;
+			// 	} else {
+			// 		sum += i;
+			// 	}
+			// }
+			// console.log({ sum });
+
+			/* 200-300之间第一个能被7整除的数 */
+			// for (let index = 200; index < 300; index++) {
+			// 	if (index % 7 === 0) {
+			// 		console.log(index);
+			// 		break;
+			// 	}
+			// }
+
+			// function show(a, b, c) {
+			// 	console.log(arguments);
+			// 	var sum = a + b;
+			// 	console.log('sum:', sum);
+			// }
+			// // 调用
+			// show(10, 20, 0);
+
+			// var str = 'a';
+			// var obj = { str: 'cc', a: 'aa' };
+			// console.log(obj['str']);
+			// console.log(obj[str]);
+
+			// function fn1() {
+			// 	console.log('function1');
+			// }
+
+			// var fn2 = function () {
+			// 	console.log('function2');
+			// };
+			// var fn3 = new Function();
+			// fn3 = function () {
+			// 	console.log('function3');
+			// };
+			// fn1();
+			// fn2();
+			// fn3();
+
+			name = 'aa'; //相当于window.name
+			var obj = {
+				name: 'bb',
+				age: 10,
+				fn: function () {
+					console.log(this.name + this.age);
+				},
+			};
+			console.log(this.name); // aa
+			obj.fn(); //  bb10
+		</script>
+	</body>
+</html>

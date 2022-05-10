@@ -1202,5 +1202,1470 @@ console.log(x,y)  //100 false
 ```
 
 4. 三目运算符
+   语法：表达式 1?表达式 2:表达式 3
+
+   ```
+    var a=3>2?'abc':'123'  // abc
+   ```
 
 5. 位运算符
+   位运算符用来对二进制位进行操作
+
+```
+运算符	描述	示例
+&	按位与：如果对应的二进制位都为 1，则该二进制位为 1	5 & 1 等同于 0101 & 0001 结果为 0001，十进制结果为 1
+|	按位或：如果对应的二进制位有一个为 1，则该二进制位为 1	5 | 1 等同于 0101 | 0001 结果为 0101，十进制结果为 5
+^	按位异或：如果对应的二进制位只有一个为 1，则该二进制位为 1	5 ^ 1 等同于 0101 ^ 0001 结果为 0100，十进制结果为 4
+~	按位非：反转所有二进制位，即 1 转换为 0，0 转换为 1	~5 等同于 ~0101 结果为 1010，十进制结果为 -6
+<<	按位左移：将所有二进制位统一向左移动指定的位数，并在最右侧补 0	5 << 1 等同于 0101 << 1 结果为 1010，十进制结果为 10
+>>	按位右移（有符号右移）：将所有二进制位统一向右移动指定的位数，并拷贝最左侧的位来填充左侧	5 >> 1 等同于 0101 >> 1 结果为 0010，十进制结果为 2
+>>>	按位右移零（无符号右移）：将所有二进制位统一向右移动指定的位数，并在最左侧补 0	5 >>> 1 等同于 0101 >>> 1 结果为 0010，十进制结果为 2
+```
+
+#### JS 输出语句
+
+使用 alert() 函数来弹出提示框；
+使用 confirm() 函数来弹出一个对话框；
+使用 prompt() 函数来弹出一个输入框框；
+使用 document.write() 方法将内容写入到 HTML 文档中；
+使用 innerHTML 将内容写入到 HTML 标签中；
+使用 console.log() 在浏览器的控制台输出内容。
+
+```
+    <script type="text/javascript">
+        var res = window.confirm("这里是要显示的内容");
+        if(res == true){
+            alert("你点击了“确定”按钮");
+        }else{
+            alert("你点击了“取消”按钮");
+        }
+    </script>
+```
+
+#### JS 流程控制
+
+##### 顺序结构
+
+if 语句；
+if else 语句；
+if else if else 语句；
+switc case 语句。
+提示：if else if else 语句在执行过程中，当遇到成立的条件表达式时，会立即执行其后{ }中的代码，然后退出整个 if else if else 语句，若后续代码中还有成立的条件表达式，则不会执行。
+
+```
+if (条件表达式 1) {
+    // 条件表达式 1 为真时执行的代码
+} else if (条件表达式 2) {
+    // 条件表达式 2 为真时执行的代码
+}
+...
+  else if (条件表达式N) {
+    // 条件表达式 N 为真时执行的代码
+} else {
+    // 所有条件表达式都为假时要执行的代码
+}
+```
+
+##### 条件结构(分支、选择)
+
+不同形式的条件判断语句：
+if 语句；
+if else 语句；
+if else if else 语句；
+switc case 语句。
+
+```
+   <script type="text/javascript">
+        var now = new Date();           // 获取当前的完整日期
+        var dayOfWeek = now.getDay();   // 获取一个 0-6 之间的数字，用来表示当前是星期几，0 表示星期日、1 表示星期一、以此类推
+        if(dayOfWeek == 0) {            // 判断当前是星期几
+            alert("星期日")
+        } else if(dayOfWeek == 1) {
+            alert("星期一")
+        } else if(dayOfWeek == 2) {
+            alert("星期二")
+        } else if(dayOfWeek == 3) {
+            alert("星期三")
+        } else if(dayOfWeek == 4) {
+            alert("星期四")
+        } else if(dayOfWeek == 5) {
+            alert("星期五")
+        } else {
+            alert("星期六")
+        }
+    </script>
+```
+
+switch 语句根据表达式的值，依次与 case 子句中的值进行比较：
+
+switch case 语句的语法格式如下：
+
+```
+switch (表达式){
+    case value1:
+        statements1  // 当表达式的结果等于 value1 时，则执行该代码
+        break;
+    case value2:
+        statements2  // 当表达式的结果等于 value2 时，则执行该代码
+        break;
+    ......
+    case valueN:
+        statementsN  // 当表达式的结果等于 valueN 时，则执行该代码
+        break;
+    default :
+        statements  // 如果没有与表达式相同的值，则执行该代码
+}
+```
+
+- 如果两者相等，则执行其后的语句段，当遇到 break 关键字时则跳出整个 switch 语句。
+  如果不相等，则继续匹配下一个 case。
+- switch 语句包含一个可选的 default 关键字，如果在前面的 case 中没有找到相等的条件，则执行 default 后面的语句段。
+- 注意：switch 语句中，表达式是使用全等（===）来与各个 cese 子句中的值进行匹配的。由于使用的是全等运算符，因此不会自动转换每个值的类型。
+
+```
+var id = 1;
+switch (id) {
+    case 1 :
+        console.log("普通会员");
+        break;  //停止执行，跳出switch
+    case 2 :
+        console.log("VIP会员");
+        break;  //停止执行，跳出switch
+    case 3 :
+        console.log("管理员");
+        break;  //停止执行，跳出switch
+    default :  //上述条件都不满足时，默认执行的代码
+        console.log("游客");
+}
+```
+
+##### 循环结构(while / for /for ... in / forEach / do... while)
+
+##### for 循环适合在已知循环次数时使用，
+
+- for 语法格式如下：
+
+```
+for(initialization; condition; increment) {
+    // 要执行的代码
+}
+```
+
+for 循环中包含三个可选的表达式 initialization、condition 和 increment，其中：
+initialization：为一个表达式或者变量声明，我们通常将该步骤称为“初始化计数器变量”，在循环过程中只会执行一次；
+condition：为一个条件表达式，与 while 循环中的条件表达式功能相同，通常用来与计数器的值进行比较，以确定是否进行循环，通过该表达式可以设置循环的次数；
+increment：为一个表达式，用来在每次循环结束后更新（递增或递减）计数器的值。
+for 循环中括号中的三个表达式是可以省略的，但是用于分隔三个表达式的分号不能省略
+示例代码如下：
+
+```
+for (var i = 1; i <= 10; i++) {
+    document.write(i + " ");
+}
+运行结果：
+1 2 3 4 5 6 7 8 9 10
+
+// 省略第一个表达式
+var i = 0;
+for (; i < 5; i++) {
+    // 要执行的代码
+}
+// 省略第二个表达式
+for (var y = 0; ; y++) {
+    if(y > 5){
+        break;
+    }
+    // 要执行的代码
+}
+// 省略第一个和第三个表达式
+var j = 0;
+for (; j < 5;) {
+    // 要执行的代码
+    j++;
+}
+// 省略所有表达式
+var z = 0;
+for (;;) {
+    if(z > 5){
+        break;
+    }
+    // 要执行的代码
+    z++;
+}
+```
+
+- JS for in 循环是一种特殊类型的循环，也是普通 for 循环的变体，主要用来遍历对象，使用它可以将对象中的属性依次循环出来，其语法格式如下：
+  for (variable in object) {
+  // 要执行的代码
+  }
+
+其中，variable 为一个变量，每次循环时这个变量都会被赋予不同的值，我们可以在{ }中使用这个变量来进行一系列操作；object 为要遍历的对象，在每次循环中，会将 object 对象中的一个属性的键赋值给变量 variable，直到对象中的所有属性都遍历完。
+
+JS for in 循环示例代码：
+
+```
+// 定义一个对象
+var person = {"name": "Clark", "surname": "Kent", "age": "36"};
+// 遍历对象中的所有属性
+for(var prop in person) {
+document.write("<p>" + prop + " = " + person[prop] + "</p>");
+}
+```
+
+运行结果：
+name = Clark
+surname = Kent
+age = 36
+for in 循环是为遍历对象而创建的，虽然也可以遍历数组，但是并不推荐，若要遍历数组，可以使用 for 循环或者 for of 循环
+
+- JS for of 循环是 ECMAScript6 中新添加的一个循环方式，与 for in 循环类似，也是普通 for 循环的一种变体。使用 for of 循环可以轻松的遍历数组或者其它可遍历的对象，例如字符串、对象等。
+
+JS for of 循环的语法格式如下：
+for (variable of iterable) {
+// 要执行的代码
+}
+
+其中，variable 为一个变量，每次循环时这个变量都会被赋予不同的值，我们可以在后面的{ }中使用这个变量来进行一系列操作；iterable 为要遍历的内容，在每次循环中，会将 iterable 中的一个值赋值给变量 variable，直到 iterable 中的所有值都遍历完。
+
+##### while
+
+JS while 循环的语法格式如下：
+while (条件表达式) {
+// 要执行的代码
+}
+
+while 循环在每次循环之前，会先对条件表达式进行求值，如果条件表达式的结果为 true，则执行{ }中的代码，如果条件表达式的结果为 false，则退出 while 循环，执行 while 循环之后的代码。
+示例代码如下：
+
+```
+var i = 1;
+while( i <= 5) {
+    document.write(i+", ");
+    i++;
+}
+```
+
+运行结果：
+1, 2, 3, 4, 5,
+
+##### do while
+
+JS do while 循环的语法格式如下：
+do {
+// 需要执行的代码
+} while (条件表达式);
+
+提示：do while 循环与 while 循环还有一点不同，那就是 do while 循环的末尾需要使用分号;进行结尾，而 while 循环则不需要。
+使用 do while 循环计算 1~100 之间所有整数的和：
+
+```
+var i=1;
+var sum=0;
+do {
+    sum += i;
+    i++;
+} while (i <= 100);
+document.write("1 + 2 + 3 + ... + 98 + 99 + 100 = " + sum)
+```
+
+运行结果：
+1 + 2 + 3 + ... + 98 + 99 + 100 = 5050
+
+##### 跳出循环
+
+break 语句用来跳出整个循环，执行循环后面的代码；continue 语句用来跳过当次循环，继续执行下次循环。
+使用 continue 语句跳出 for 循环：
+
+```
+for (var i = 0; i < 10; i++) {
+    if(i % 2 == 0) {
+        continue;
+    }
+    document.write(i + "&nbsp;");
+}
+```
+
+运行结果：
+1 3 5 7 9
+
+##### 数组和对象遍历
+
+```
+
+data: {
+ arr:[11,22,234],
+ obj:{aa:1,bb:2,cc:3,dd:4}
+ },
+// 数组便利
+arrFuc() {
+      //1、 for
+      for (let i = 0; i < this.arr.length; i++) {
+        console.log(this.arr[i]); //11、22、234
+      }
+
+      //2、 for优化，长度缓存数组较大时对优化效果较明显
+      for (let j = 0, len = this.arr.length; j < len; j++) {
+        console.log(this.arr[j]); //11、22、234
+      }
+
+      //3、 for in
+      for (let k in this.arr) {
+        console.log(this.arr[k]); //11、22、234
+      }
+
+      //4、 for of ES6引进的新方法，对象需要通过和Object.keys()搭配使用，
+      // 可以正确响应break、continue和return语句
+      for (let l of this.arr) {
+        console.log(l); //11、22、234
+      }
+
+      //5、 forEach便利，参数：value数组中的当前项, index当前项的索引, array原始数组；
+      this.arr.forEach(item => {
+        console.log(item); //11、22、234
+      });
+
+      //6、 map的回调函数中支持return返回值可以return出来
+      // return的是啥，相当于把数组中的这一项变为啥（并不影响原来的数组，只是相当于把原数组克隆一份，把克隆的这一份的数组中的对应项改变了）；
+      var newArr = this.arr.map((item, ind, arr) => {
+        if (item == 22) {
+          return 33;
+        } else {
+          return item;
+        }
+      });
+      console.log("map", newArr); //map [11, 33, 234]
+
+      //7、 filter遍历,不会改变原始数组,返回新数组，关键在于正确实现一个“筛选”函数。
+      var newArr2 = this.arr.filter(item => {
+        return item != 22;
+      }); //返回数组项不等于22的
+      console.log(newArr2); //[11, 234]
+
+      //8、 every是对数组中的每一项运行给定函数，如果该函数对每一项返回true,则返回true，否则返回false[返回布尔值]
+      var everyResult = this.arr.every((item, index, array) => {
+        return item > 11;
+      });
+      console.log("every方法", everyResult); //every方法 false
+
+      //9、 some()是对数组中每一项运行指定函数，如果该函数对任一项返回true，则返回true【返回布尔值】
+      var someResult = this.arr.some((item, index, array) => {
+        return item == 11;
+      });
+      console.log("some方法", someResult); //some方法 true
+
+      //10、reduce() 方法接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始缩减，最终为一个值。
+      // reduce接受一个函数，函数有四个参数，分别是：上一次的值，当前值，当前值的索引，数组
+      console.log("reduce方法", this.arr.reduce((a, b) => a + b)); //reduce方法 267
+
+      //10.1、reduceRight()方法的功能和reduce()功能是一样的，不同的是reduceRight()从数组的末尾向前将数组中的数组项做累加
+
+      //11、find()方法返回数组中符合测试函数条件的第一个元素。正确返回该数值，否则返回undefined
+      console.log(
+        "find方法",
+        this.arr.find(ele => {
+          return ele == 11;
+        })
+      ); //find方法 11
+      console.log(
+        "find方法",
+        this.arr.find(ele => {
+          return ele == 111;
+        })
+      ); //find方法 undefined
+
+      // 11.1\findIndex()只返回符合要求的第一个数索引
+      console.log(
+        "findIndex",
+        this.arr.findIndex((item, index, arr) => {
+          console.log(item);
+          return item > 20;
+        }),
+        this.arr
+      ); //findIndex 1 (3) [11, 22, 234, __ob__: Observer]
+
+      //12、splice(start,length,item)删，增，替换数组元素，返回被删除数组，无删除则不返回【会改变原数组】
+      this.arr.splice(0, 1, 555);
+      console.log("splice方法", this.arr); //splice方法 (3) [555, 22, 234, __ob__: Observer]
+
+      // 13、ES6 提供三个新的方法 —— entries()，keys()和values() —— 用于遍历数组。它们都返回一个遍历器对象，可以用for...of循环进行遍历，唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历
+      for (let index of this.arr.keys()) {
+        console.log("keys()键名的遍历", index); //keys()键名的遍历 0 keys()键名的遍历 1 keys()键名的遍历 2
+      }
+      for (let elem of this.arr.values()) {
+        console.log("values()键值的遍", elem); //values()键值的遍 555 values()键值的遍 22 values()键值的遍 234
+      }
+      for (let [index, elem] of this.arr.entries()) {
+        console.log("entries()键值对的遍历", index, elem); //entries()键值对的遍历 0 555 entries()键值对的遍历 1 22 entries()键值对的遍历 2 234
+      }
+
+      //14、copyWithin，3个参数第一个参数表示替换到指定索引的位置，第二个参数表示开始复制的的位置，第三个参数是结束位置，23参数没有默认从头开始复制, 替换到结束
+      console.log("原数组", this.arr); //原数组 (3) [555, 22, 234, __ob__: Observer]
+      this.arr.copyWithin(1, 0);
+      console.log("copyWithin", this.arr); //copyWithin (3) [555, 555, 22, __ob__: Observer]
+
+      //15、fill
+      console.log("fill", this.arr.fill(11111, 0, 2)); //fill (3) [11111, 11111, 22, __ob__: Observer]
+      this.arr.push("undefined");
+      //16、indexOf、includes
+      console.log(
+        "indexOf",
+        this.arr.indexOf(22),
+        this.arr.indexOf("undefined")
+      ); //indexOf 2 3
+      console.log(
+        "includes",
+        this.arr.includes(22),
+        this.arr.includes("undefined")
+      ); //includes true true
+    },
+
+
+    // 对象便利
+    objFuc() {
+
+      // 1、let in
+      for (let item in this.obj) {
+        console.log("键名", item); // 键名name,键名age
+        console.log("键值", this.obj[item]); //键值yan,键值22
+      }
+
+      //2、Object.keys 键名的便利
+      console.log(Object.keys(this.obj)); //  ["name", "age"]
+
+      //3、Object.values 键值的便利
+      console.log(Object.values(this.obj)); // ["yan", 22]
+
+      //4、Object.entries 键值的便利
+      console.log(Object.entries(this.obj)); // 0: (2) ["name", "yan"] 1: (2) ["age", 22]
+      console.log(Object.getOwnPropertyNames(this.obj)); //["name", "age", "__ob__"]
+      for (let item of Object.keys(this.obj)) {
+        console.log(item); //name,age
+      }
+    }
+```
+
+### 函数
+
+定义：函数是定义一次但却可以调用或执行任意多次的一段 js 代码，可以带参数、可以有返回值。
+如果形参没有与实参匹配，那么形参的值默认为 undefined。
+格式一：
+
+```
+function 函数名 (形参列表) {
+  函数体：
+  [return<表达式>;]
+}
+```
+
+格式二：
+
+```
+var 变量名= function (形参列表) {
+  函数体：
+  [return<表达式>;]
+}
+```
+
+格式三：自运行函数( IIFE)
+
+```
+ (function (形参列表) {
+  函数体：
+  [return<表达式>;]
+})()
+```
+
+示例：
+
+```
+// 无参
+function show() {
+  console.log('这个是函数')
+}
+// 调用
+show()
+
+// 有参
+function show(a,b,c) {
+  console.log(arguments)
+  var sum = a+b
+  console.log('sum:',sum)
+}
+// 调用
+show(10,20)
+```
+
+函数可以通过 return 返回结果，如果 return 没有返回结果，表示结束函数的调用，且返回调用处。
+arguments 对象：返回实参列表的一个伪数组。一般用在不确定参数的传值。
+
+```
+// 实参参数
+function sum() {
+  console.log(arguments)
+}
+```
+
+可利用 arguments.length 属性，判断有多少个参数，并把参数进行合理的应用。
+比如要实现一个加法运算，将所有传过来的数字进行累加，而数字的个数又不确定。
+
+```
+function box() {
+  var sum = 0;
+  if (arguments.length===0) return sum;
+  for (var i=0;i<arguments.length;i++) {
+    sum +=arguments[i]
+  }
+  return sum
+  console.log(box(3,7.8))
+}
+```
+
+### 对象和数组
+
+#### 对象：其实就是一种类型，即引用类型，而对象的值就是引用类型的示例。对象由属性和方法组成，通常用键值对定义。
+
+object 类型的创建：一是使用 new 运算符，一是字面量表示
+
+```
+// new运算符方式
+var box = new Object()
+bax.name = "zhangsan"
+var box1 = new Object({
+  name: "zhangsan",
+  age:22
+})
+
+// 字面量
+var box = {
+  name:"zhangsan",  // 属性
+  fn:function() {   // 方法
+  }
+}
+```
+
+对象引用：
+
+```
+a) 对象名.属性名
+   对象名.方法名([实参列表])
+b) 对象名[属性名]
+   对象名['方法名([实参列表])']
+
+   var str ="a"
+   var obj = {str:"cc",a:'aa'}
+   console.log(obj['str'])   // 属性名为实参的 要用引号，也可以用. 即obj.str
+   console.log(obj[str])    // 属性名为变量的，不用引号
+```
+
+#### 数组(Array):将一组数组组合到一起，并存入到一个变量中，数组是有序排列的，占有一段连续的内存空间
+
+- 定义数组：
+
+```
+new Array([值列表])
+var arr = [值列表]
+const array = new Array(1,2,3,4)
+const array = [1,2,3,4]
+const array = new Array(9).fill('') //fill:使用固定值填充数组
+Array.from({length: 5}, (v, i) => i); // [0, 1, 2, 3, 4]
+```
+
+- 访问数组的方式：
+
+```
+数组名[下标]  // 下标可以是一个数值型常量，也可以是一个表达式或函数或变量
+var arr=[1,2,3,'aaa',true]
+var a=2
+console.log(arr)  // [1,2,3,'aaa',true]
+console.log(arr[3])   // true
+console.log(arr[a])   // aaa
+console.log(arr[true+1])   // 2
+console.log(arr[(function num(i){return i++})(0)])   // 1
+```
+
+- 遍历数组
+  一维数组用一个循环实现；多维数组必须用多重循环实现
+
+```
+var arr=[1,2,3,4,5,6]
+for(var i=0;i<arr.length;i++) {
+  console.log(i+':',arr[i])
+}
+// for ... of (for ... in) // 遍历的是值
+for (var i of arr) {
+  console.log(i)
+}
+for (var i in arr) {  // 遍历的是序号
+  console.log(i+':',arr[i])
+}
+// forEach
+function f(value,index,array) {
+    console.log("a[" + index + "] = " + value);
+}
+var a = ['a', 'b', 'c'];
+a.forEach(f);
+// forEach es6
+a.forEach((value,index,array)=> {
+   console.log("a[" + index + "] = " + value);
+})
+// 二维数组遍历
+var arr1=[[1,2,3],[4,5,6],[7,8,9]]
+for(var i=0;i<arr1.length;i++) {
+  for (var j=0;j<arr1[i].length;j++) {
+    console.log(arr1[i][j])
+  }
+}
+```
+
+- 数组的方法
+  |方法名 |对应版本| 功能 |原数组是否改变|
+  | ---- | ---- | ---- | ---- |
+  |pop() |ES5- |删除最后一位，并返回删除的数据 |y|
+  |shift() |ES5- |删除第一位，并返回删除的数据 |y|
+  |unshift() |ES5- |在第一位新增一或多个数据，返回长度| y|
+  |push() |ES5- |在最后一位新增一或多个数据，返回长度| y|
+  |reverse() |ES5- |反转数组，返回结果 |y|
+  |sort() |ES5- |排序（字符规则），返回结果 |y|
+  |splice() |ES5- |删除指定位置，并替换，返回删除的数据| y|
+  |slice() |ES5- |截取指定位置的数组，并返回 |n|
+  |concat()| ES5-| 合并数组，并返回合并之后的数据 |n|
+  |join() |ES5- |使用分隔符，将数组转为字符串并返回| n|
+  |toString() |ES5- |直接转为字符串，并返回| n|
+  |valueOf() |ES5- |返回数组对象的原始值| n|
+  |indexOf() |ES5| 查询并返回数据的索引| n|
+  |lastIndexOf() |ES5 |反向查询并返回数据的索引 |n|
+  |forEach() |ES5 |参数为回调函数，会遍历数组所有的项，回调函数接受三个参数，分别为 value，index，self；|forEach 没有返回值 |n|
+  |map() |ES5 |同 forEach，同时回调函数返回数据，组成新数组由 map 返回 |n|
+  |filter() |ES5 |同 forEach，同时回调函数返回布尔值，为 true 的数据组成新数组由 filter 返回 |n|
+  |every() |ES5 |同 forEach，同时回调函数返回布尔值，全部为 true，由 every 返回 true |n|
+  |some() |ES5 |同 forEach，同时回调函数返回布尔值，只要由一个为 true，由 some 返回 true| n|
+  |reduce() |ES5 |归并，同 forEach，迭代数组的所有项，并构建一个最终值，由 reduce 返回| n|
+  |reduceRight() |ES5| 反向归并，同 forEach，迭代数组的所有项，并构建一个最终值，由 reduceRight 返回 |n|
+
+  1.concat()
+  功能：用于连接两个或多个数组，该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+  参数：concat(data1,data2,...);所有参数可选，要合并的数据；data 为数组时，将 data 合并到原数组；data 为具体数据时直接添加到原数组尾部；省略时创建原数组的副本。
+
+```
+    var arr1 = [1,2,3]
+    var arr2 = arr1.concat();
+    console.log(arr1);           //[1,2,3]---原数组
+    console.log(arr1 === arr2);  //false
+    console.log(arr2);           //[1,2,3]---原数组的副本
+
+    console.log(arr1.concat("hello","world"));           //[1,2,3,"hello","world"]
+    console.log(arr1.concat(["a","b"],[[3,4],{"name":"admin"}]));   //[1,2,3,"a","b",[3,4],{"name":"admin"}]
+    console.log(arr1);           //[1,2,3]---原数组未改变
+```
+
+2.join()
+功能：根据指定分隔符将数组中的所有元素放入一个字符串，并返回这个字符串。
+参数：join(str);参数可选，默认为","号，以传入的字符作为分隔符。
+
+```
+    var arr = [1,2,3];
+    console.log(arr.join());         //1,2,3
+    console.log(arr.join("-"));      //1-2-3
+    console.log(arr);                //[1,2,3]---原数组未改变
+```
+
+3.pop()
+功能：方法用于删除并返回数组的最后一个元素。
+参数：无
+
+```
+    var arr = [1,2,3];
+    console.log(arr.pop());     //3
+    console.log(arr);           //[1,2]---原数组改变
+```
+
+4.shift()
+功能：方法用于删除并返回数组的第一个元素。
+参数：无
+
+```
+    var arr = [1,2,3]
+    console.log(arr.shift());       //1
+    console.log(arr);               //[2,3]---原数组改变
+```
+
+5.push()
+功能：向数组的末尾添加一个或更多元素，并返回新的长度。
+参数：push(newData1, newData2, ......)
+
+```
+    var arr = [1,2,3];
+    console.log(arr.push("hello"));  //4
+    console.log(arr);                //[1,2,3,"hello"]---原数组改变
+    console.log(arr.push("a","b"));  //6
+    console.log(arr);                //[1,2,3,"hello","a","b"]---原数组改变
+```
+
+6.unshift()
+功能：向数组的开头添加一个或更多元素，并返回新的长度。
+参数：unshift(newData1, newData2, ......)
+
+```
+    var arr = [1,2,3];
+    console.log(arr.unshift("hello"));  //4
+    console.log(arr);                   //["hello",1,2,3]---原数组改变
+    console.log(arr.unshift("a","b"));  //6
+    console.log(arr);                   //["a","b","hello",1,2,3]---原数组改变
+```
+
+7.reverse()
+功能：颠倒数组中元素的顺序。
+参数：无
+
+```
+    var arr = [1,2,3];
+    console.log(arr.reverse());     //[3,2,1]
+    console.log(arr);               //[3,2,1]---原数组改变
+```
+
+8.sort()
+功能：对数组中的元素进行排序，默认是升序。
+
+```
+    var arr = [6,1,5,2,3];
+    console.log(arr.sort());    //[1, 2, 3, 5, 6]
+    console.log(arr);           //[1, 2, 3, 5, 6]---原数组改变
+```
+
+但是在排序前，会默认先调用数组的 toString 方法，将每个元素都转成字符之后，再进行排序，此时会按照字符串的排序，逐位比较，进行排序。
+
+```
+    var arr = [6,1024,52,256,369];
+    console.log(arr.sort());    //[1024, 256, 369, 52, 6]
+    console.log(arr);           //[1024, 256, 369, 52, 6]---原数组改变
+```
+
+参数：sort(callback)
+如果需要按照数值排序，需要传参。sort(callback)，callback 为回调函数，该函数应该具有两个参数，比较这两个参数，然后返回一个用于说明这两个值的相对顺序的数字（a-b）。其返回值如下：
+若 a 小于 b，返回一个小于 0 的值。
+若 a 等于 b，则返回 0。
+若 a 大于 b，则返回一个大于 0 的值。
+
+```
+    var arr = [6,1024,52,256,369];
+    console.log(arr.sort(fn));  //[6, 52, 256, 369, 1024]
+    console.log(arr);           //[6, 52, 256, 369, 1024]---原数组改变
+    function fn(a,b){
+        return a-b;
+    }
+```
+
+9.splice()
+功能：向数组中添加，或从数组删除，或替换数组中的元素，然后返回被删除/替换的元素。
+参数：splice(start,num,data1,data2,...); 所有参数全部可选。
+1>不传参时：无操作
+
+```
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    console.log(arr.splice());      //[]
+    console.log(arr);               //["Tom","Jack","Lucy","Lily","May"]---无操作
+```
+
+2>只传入 start：表示从索引为 start 的数据开始删除，直到数组结束
+
+```
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    console.log(arr.splice(2));     //["Lucy", "Lily", "May"]
+    console.log(arr);               //["Tom", "Jack"]---原数组改变
+```
+
+3>传入 start 和 num：表示从索引为 start 的数据开始删除，删除 num 个
+
+```
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    console.log(arr.splice(2,2));   //["Lucy", "Lily"]
+    console.log(arr);               //["Tom", "Jack", "May"]---原数组改变
+```
+
+4>传入更多：表示从索引为 start 的数据开始删除，删除 num 个，并将第三个参数及后面所有参数，插入到 start 的位置
+
+```
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    console.log(arr.splice(2,2,"a","b"));  //["Lucy", "Lily"]
+    console.log(arr);                      //["Tom", "Jack", "a", "b", "May"]---原数组改变
+```
+
+5>传入更多：表示从索引为 start 的数据开始删除，删除 num 个，并将第三个参数及后面所有参数，插入到 start 的位置
+
+```
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    console.log(arr.splice(2,0,"a","b"));  //[]
+    console.log(arr);    //["Tom", "Jack", "a", "b", "Lucy", "Lily", "May"]---原数组改变
+```
+
+10.slice()
+功能：可从已有的数组中返回选定的元素。该方法接收两个参数 slice(start,end)，strat 为必选，表示从索引第几位开始；end 为可选，表示到第几位结束(不包含 end 位)，省略表示到最后一位；start 和 end 都可以为负数，负数时表示从最后一位开始算起，如-1 表示最后一位。
+参数：slice(startIndex, endIndex)
+
+```
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    console.log(arr.slice(1,3));        //["Jack","Lucy"]
+    console.log(arr.slice(1));          //["Jack","Lucy","Lily","May"]
+    console.log(arr.slice(-4,-1));      //["Jack","Lucy","Lily"]
+    console.log(arr.slice(-2));         //["Lily","May"]
+    console.log(arr.slice(1,-2));       //["Jack","Lucy"]
+    console.log(arr);                   //["Tom","Jack","Lucy","Lily","May"]---原数组未改变
+```
+
+11.toString()
+功能：转换成字符串，类似于没有参数的 join()。该方法会在数据发生隐式类型转换时被自动调用，如果手动调用，就是直接转为字符串。
+参数：无
+
+```
+    var arr = [1,2,3];
+    console.log(arr.toString());     //1,2,3
+    console.log(arr);                //[1,2,3]---原数组未改变
+```
+
+12.valueOf()
+功能：返回数组的原始值（一般情况下其实就是数组自身），一般由 js 在后台调用，并不显式的出现在代码中
+参数：无
+
+```
+    var arr = [1,2,3];
+    console.log(arr.valueOf());         //[1,2,3]
+    console.log(arr);                   //[1,2,3]
+    //为了证明返回的是数组自身
+    console.log(arr.valueOf() == arr);  //true
+```
+
+13.indexOf()
+功能：根据指定的数据，从左向右，查询在数组中出现的位置，如果不存在指定的数据，返回-1。该方法是查询方法，不会对数组产生改变。
+参数：indexOf(value, start);value 为要查询的数据；start 为可选，表示开始查询的位置，当 start 为负数时，从数组的尾部向前数；如果查询不到 value 的存在，则方法返回-1
+
+```
+    var arr = ["h","e","l","l","o"];
+    console.log(arr.indexOf("l"));        //2
+    console.log(arr.indexOf("l",3));      //3
+    console.log(arr.indexOf("l",4));      //-1
+    console.log(arr.indexOf("l",-1));     //-1
+    console.log(arr.indexOf("l",-3));     //2
+```
+
+14.lastIndexOf()
+功能：根据指定的数据，从右向左，查询在数组中出现的位置，如果不存在指定的数据，返回-1。该方法是查询方法，不会对数组产生改变。
+参数：lastIndexOf(value, start);value 为要查询的数据；start 为可选，表示开始查询的位置，当 start 为负数时，从数组的尾部向前数；如果查询不到 value 的存在，则方法返回-1
+
+```
+    var arr = ["h","e","l","l","o"];
+    console.log(arr.lastIndexOf("l"));        //3
+    console.log(arr.lastIndexOf("l",3));      //3
+    console.log(arr.lastIndexOf("l",1));      //-1
+    console.log(arr.lastIndexOf("l",-3));     //2
+    console.log(arr.lastIndexOf("l",-4));     //-1
+```
+
+15.forEach()
+功能：ES5 新增方法，用来遍历数组，该方法没有返回值。forEach 接收的回调函数会根据数组的每一项执行，该回调函数默认有三个参数，分别为：遍历到的数组的数据，对应的索引，数组自身。
+参数：forEach(callback);callback 默认有三个参数，分别为 value，index，self。
+
+```
+
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    var a = arr.forEach(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr === self));
+    })
+    // 打印结果为：
+    // Tom--0--true
+    // Jack--1--true
+    // Lucy--2--true
+    // Lily--3--true
+    // May--4--true
+    console.log(a);     //undefined---forEach没有返回值
+    //该方法为遍历方法，不会修改原数组
+```
+
+16.map()
+功能：1.同 forEach 功能；2.map 的回调函数会将执行结果返回，最后 map 将所有回调函数的返回值组成新数组返回。
+参数：map(callback);callback 默认有三个参数，分别为 value，index，self。
+
+```
+    //功能1：同forEach
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    var a = arr.map(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr === self))
+    })
+    // 打印结果为：
+    // Tom--0--true
+    // Jack--1--true
+    // Lucy--2--true
+    // Lily--3--true
+    // May--4--true
+
+    //功能2：每次回调函数的返回值被map组成新数组返回
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    var a = arr.map(function(value,index,self){
+        return "hi:"+value;
+    })
+    console.log(a);     //["hi:Tom", "hi:Jack", "hi:Lucy", "hi:Lily", "hi:May"]
+    console.log(arr);   //["Tom", "Jack", "Lucy", "Lily", "May"]---原数组未改变
+```
+
+17.filter()
+功能：1.同 forEach 功能；2.filter 的回调函数需要返回布尔值，当为 true 时，将本次数组的数据返回给 filter，最后 filter 将所有回调函数的返回值组成新数组返回（此功能可理解为“过滤”）。
+参数：filter(callback);callback 默认有三个参数，分别为 value，index，self。
+
+```
+    //功能1：同forEach
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    var a = arr.filter(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr === self))
+    })
+    // 打印结果为：
+    // Tom--0--true
+    // Jack--1--true
+    // Lucy--2--true
+    // Lily--3--true
+    // May--4--true
+
+    //功能2：当回调函数的返回值为true时，本次的数组值返回给filter，被filter组成新数组返回
+    var arr = ["Tom","Jack","Lucy","Lily","May"];
+    var a = arr.filter(function(value,index,self){
+        return value.length > 3;
+    })
+    console.log(a);         //["Jack", "Lucy", "Lily"]
+    console.log(arr);       //["Tom", "Jack", "Lucy", "Lily", "May"]---原数组未改变
+```
+
+18.every()
+功能：判断数组中每一项是否都满足条件，只有所有项都满足条件，才会返回 true。
+参数：every()接收一个回调函数作为参数，这个回调函数需要有返回值，every(callback);callback 默认有三个参数，分别为 value，index，self。
+
+```
+// 功能1：当回调函数的返回值为true时，类似于forEach的功能，遍历所有；如果为false，那么停止执行，后面的数据不再遍历，停在第一个返回false的位置。
+
+    //demo1:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.every(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr == self))
+    })
+    // 打印结果为：
+    // Tom--0--true
+    //因为回调函数中没有return true，默认返回undefined，等同于返回false
+
+    //demo2:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.every(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr == self))
+        return value.length < 4;
+    })
+    // 打印结果为：
+    // Tom--0--true
+    // abc--1--true
+    // Jack--2--true
+    //因为当遍历到Jack时，回调函数到return返回false，此时Jack已经遍历，但是后面数据就不再被遍历了
+
+    //demo3:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.every(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr == self))
+        return true;
+    })
+    // 打印结果为：
+    // Tom--0--true
+    // abc--1--true
+    // Jack--2--true
+    // Lucy--3--true
+    // Lily--4--true
+    // May--5--true
+    //因为每个回调函数的返回值都是true，那么会遍历数组所有数据，等同于forEach功能
+// 功能2：当每个回调函数的返回值都为true时，every的返回值为true，只要有一个回调函数的返回值为false，every的返回值都为false
+
+
+    //demo1:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.every(function(value,index,self){
+        return value.length > 3;
+    })
+    console.log(a);           //false
+
+    //demo2:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.every(function(value,index,self){
+        return value.length > 2;
+    })
+    console.log(a);           //true
+```
+
+19.some()
+功能：判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回 true。
+参数：some()接收一个回调函数作为参数，这个回调函数需要有返回值，some(callback);callback 默认有三个参数，分别为 value，index，self。
+
+```
+// 功能1：因为要判断数组中的每一项，只要有一个回调函数返回true，some都会返回true，所以与every正好相反，当遇到一个回调函数的返回值为true时，可以确定结果，那么停止执行，后面都数据不再遍历，停在第一个返回true的位置；当回调函数的返回值为false时，需要继续向后执行，到最后才能确定结果，所以会遍历所有数据，实现类似于forEach的功能，遍历所有。
+
+    //demo1:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.some(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr == self))
+        return value.length > 3;
+    })
+    // 打印结果为：
+    // Tom--0--true
+    // abc--1--true
+    // Jack--2--true
+
+    //demo2:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.some(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr == self))
+        return true;
+    })
+    // 打印结果为：
+    // Tom--0--true
+
+    //demo3:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.some(function(value,index,self){
+        console.log(value + "--" + index + "--" + (arr == self))
+        return false;
+    })
+    // 打印结果为：
+    // Tom--0--true
+    // abc--1--true
+    // Jack--2--true
+    // Lucy--3--true
+    // Lily--4--true
+    // May--5--true
+// 功能2：与every相反，只要有一个回调函数的返回值都为true，some的返回值为true，所有回调函数的返回值为false，some的返回值才为false
+
+
+    //demo1:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.some(function(value,index,self){
+        return value.length > 3;
+    })
+    console.log(a);             //true
+
+    //demo2:
+    var arr = ["Tom","abc","Jack","Lucy","Lily","May"];
+    var a = arr.some(function(value,index,self){
+        return value.length > 4;
+    })
+    console.log(a);             //false
+```
+
+19.reduce()
+功能：从数组的第一项开始，逐个遍历到最后，迭代数组的所有项，然后构建一个最终返回的值。
+
+参数：reduce()接收一个或两个参数：第一个是回调函数，表示在数组的每一项上调用的函数；第二个参数（可选的）作为归并的初始值，被回调函数第一次执行时的第一个参数接收。
+reduce(callback,initial);callback 默认有四个参数，分别为 prev，now，index，self。
+callback 返回的任何值都会作为下一次执行的第一个参数。
+如果 initial 参数被省略，那么第一次迭代发生在数组的第二项上，因此 callback 的第一个参数是数组的第一项，第二个参数就是数组的第二项。
+
+```
+    //demo1:不省略initial参数，回调函数没有返回值
+    var arr = [10,20,30,40,50];
+    arr.reduce(function(prev,now,index,self){
+        console.log(prev + "--" + now + "--" + index + "--" + (arr == self))
+    }, 2019)
+    // 打印结果为：
+    // 2019--10--0--true
+    // undefined--20--1--true
+    // undefined--30--2--true
+    // undefined--40--3--true
+    // undefined--50--4--true
+    // 此时回调函数没有return，所以从第二次开始，prev拿到的是undefined
+
+    //demo2:省略initial参数，回调函数没有返回值
+    var arr = [10,20,30,40,50];
+    arr.reduce(function(prev,now,index,self){
+        console.log(prev + "--" + now + "--" + index + "--" + (arr == self))
+    })
+    // 打印结果为：第一次，回调函数的第一个参数是数组的第一项。第二个参数就是数组的第二项
+    // 10--20--1--true
+    // undefined--30--2--true
+    // undefined--40--3--true
+    // undefined--50--4--true
+    // 此时回调函数没有return，所以从第二次开始，prev拿到的是undefined
+
+    //demo3:不省略initial参数，回调函数有返回值
+    var arr = [10,20,30,40,50];
+    arr.reduce(function(prev,now,index,self){
+        console.log(prev + "--" + now + "--" + index + "--" + (arr == self));
+        return "hello";
+    }, 2019)
+    // 打印结果为：
+    // 2019--10--0--true
+    // hello--20--1--true
+    // hello--30--2--true
+    // hello--40--3--true
+    // hello--50--4--true
+    // 此时回调函数有return，所以从第二次开始，prev拿到的是回调函数return的值
+
+    //demo4:省略initial参数，回调函数有返回值
+    var arr = [10,20,30,40,50];
+    arr.reduce(function(prev,now,index,self){
+        console.log(prev + "--" + now + "--" + index + "--" + (arr == self));
+        return "hello";
+    })
+    // 打印结果为：第一次，回调函数的第一个参数是数组的第一项。第二个参数就是数组的第二项
+    // 10--20--1--true
+    // hello--30--2--true
+    // hello--40--3--true
+    // hello--50--4--true
+    // 此时回调函数有return，所以从第二次开始，prev拿到的是回调函数return的值
+
+    //demo5：使用reduce计算数组中所有数据的和
+    var arr = [10,20,30,40,50];
+    var sum = arr.reduce(function(prev,now,index,self){
+        return prev + now;
+    })
+    console.log(sum);      //150
+    // 回调函数的最后一次return的结果被返回到reduce方法的身上
+
+    //demo6：使用reduce计算数组中所有数据的和
+    var arr = [10,20,30,40,50];
+    var sum = arr.reduce(function(prev,now,index,self){
+        return prev + now;
+    }, 8)
+    console.log(sum);      //158
+    // 回调函数的最后一次return的结果被返回到reduce方法的身上
+    // 因为reduce有第二个参数initial，在第一次执行时被计算，所以最终结果被加上8
+```
+
+20.reduceRight()
+功能：（与 reduce 类似）从数组的最后一项开始，向前逐个遍历到第一位，迭代数组的所有项，然后构建一个最终返回的值。
+参数：同 reduce。
+demo：同 reduce
+
+#### ES6 中 新增的数组 API
+
+一、静态方法
+
+1.Array.from(); 将类数组对象转换为数组
+
+一般具有指向对象元素的数字索引下标和 length 属性的对象为类数组对象；
+常见的类数组对象有
+document.getElementsByClassName() 的返回结果（实际上许多 DOM 方法的返回值都是类数组）；
+特殊变量 arguments 对象
+
+```
+let arr1 = Array.from('hello')
+console.log(arr1);                // [ 'h', 'e', 'l', 'l', 'o' ]
+```
+
+而在 ES5 中，我们需要通过 Array.prototype.slice.call('类数组对象') 来转化。
+
+2.Array.of(); 将传入的参数转换为数组
+Array.of 总是返回参数值组成的数组。如果没有参数，就返回一个空数组。
+
+```
+Array.of(3, 11, 8) // [3,11,8]
+
+Array.of(3) // [3]
+
+Array.of(3).length // 1
+
+Array.of() // []
+```
+
+二、实例方法
+
+1.Array.prototype.find() 查找第一个符合条件的元素
+参数是一个回调函数.
+该方法返回第一个满足条件的元素 或者 undefined
+
+```
+  let arr=[1,2,3,2,3];
+    let result=arr.find((value)=>{undefined
+        return item>2
+    })
+    console.log(result)        //3
+```
+
+2.Array.prototype.findIndex(); 查找第一个符合条件的元素的下标
+参数为回调函数
+返回第一个满足条件的元素的索引或者-1
+
+```
+let arr=[1,2,3,2,3];
+let result=arr.findIndex((value)=>{undefined
+    return value>2
+})
+console.log(result)        //2   索引
+```
+
+3.Array.prototype.includes(); 检查数组是否包含某个元素
+返回 true/false
+
+```
+let arr = [1,2,3,4,5];
+console.log(arr.includes(8))        //false
+```
+
+4.Array.prototype.fill(); 用来填充数组
+
+```
+console.log(new Array(5).fill(8))        //[ 8, 8, 8, 8, 8 ]
+```
+
+5.Array.prototype.keys(); Array.prototype.values(); Array.prototype.entries()
+
+```
+let arr = [2, 3, 4, 5, 6, 2];
+
+let keys=arr.keys();
+
+let values = arr.values();
+
+let entries = arr.entries();
+
+console.log(keys, values, entries);
+
+//keys,values,entries 变量当前是迭代器对象,
+
+// 迭代器对象实现了 Iterator 接口，只要有实现了 Iterator 接口就可以 for-of 遍历
+
+//通过 for-of 循环，循环出数组的索引
+for(let i of keys){
+        console.log(i)
+} //0 1 2 3 4 5
+//通过 for-of 循环，循环出数组的索引
+
+for(let v of values){
+        console.log(v)
+} //2 3 4 5 6 2
+
+//同时输出数组的索引和内容
+
+for(let e of entries){
+console.log(e)
+}
+//结果：
+//[ 0, 2 ]
+[ 1, 3 ]
+[ 2, 4 ]
+[ 3, 5 ]
+[ 4, 6 ]
+[ 5, 2 ]
+```
+
+6.Array.prototype.copyWithin(target, start?, end?): 在数组内部完成复制,不改变数组长度
+
+```
+const arr = [1, 2, 3, 4, 5, 6];
+//从下标2开始，改变数组的数据，数据来自于下标0位置开始
+arr.copyWithin(2); // [1, 2, 1, 2, 3, 4]
+// arr.copyWithin(2, 1); // [1, 2, 2, 3, 4, 5]
+// arr.copyWithin(2, 1, 3); // [1, 2, 2, 3, 5, 6]
+console.log(arr);
+
+```
+
+- length 属性
+  获取数组的长度
+- toString() 把数组转换为数组值（逗号分隔）的字符串。
+
+```
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+
+```
+
+制作黑白图片
+
+```
+// html
+ <div style="display: flex;">
+        <img src="./img/liao.jpg" alt="">
+        <button onclick="change()">转换</button>
+        <canvas width="100" height="117"></canvas>
+    </div>
+// js
+/*
+* 画布中的1个图像是由多个像素点组成，每个像素点拥有4个数据：红、绿、蓝、alpha
+* 把一个图像变成黑白，只需要将图像的每个像素点设置成为红绿蓝的平均数即可
+*/
+
+function change() {
+  const img = document.querySelector("img");
+  const cvs = document.querySelector("canvas");
+  const ctx = cvs.getContext("2d");
+
+  ctx.drawImage(img, 0, 0);
+  //得到画布某一个区域的图像信息
+  const imageData = ctx.getImageData(0, 0, img.width, img.height);
+  console.log(imageData);
+  for (let i = 0; i < imageData.data.length; i += 4) {
+      //循环一个像素点
+      const r = imageData.data[i];
+      const g = imageData.data[i + 1];
+      const b = imageData.data[i + 2];
+      const avg = (r + g + b) / 3;
+
+      imageData.data[i] = imageData.data[i + 1] = imageData.data[i + 2] = avg;
+  }
+  //将图像数据设置到画布
+  ctx.putImageData(imageData, 0, 0);
+}
+```
+
+### Function 类型
+
+#### 创建函数
+
+```
+// 普通方式
+function fn1() {
+  console.log('function1');
+}
+// 使用变量初始化函数
+var fn2 = function () {
+  console.log('function2');
+};
+// new 创建
+var fn3 = new Function();
+fn3 = function () {
+  console.log('function3');
+};
+fn1();
+fn2();
+fn3();
+// 结果
+function1
+function2
+function3
+
+```
+
+#### 函数传参
+
+参数可以匿名，可以是变量、对象、数组、表达式、函数等
+在定义函数时，您可以为函数的参数设置一个默认值，这样当我们在调用这个函数时，如果没有提供参数，就会使用这个默认值作为参数值，如下例所示：
+
+```
+function sayHello(name = "World"){
+    document.write("Hello " + name);
+}
+sayHello();                 // 输出：Hello World
+sayHello('c.biancheng.net');     // 输出：Hello c.biancheng.net
+```
+
+#### 函数返回值
+
+在函数中可以使用 return 语句将一个值（函数的运行结果）返回给调用函数的程序，这个值可以是任何类型，例如数组、对象、字符串等。对于有返回值的函数，我们可以会使用一个变量来接收这个函数的返回值，示例代码如下：
+
+```
+function getSum(num1, num2){
+    return num1 + num2;
+}
+var sum1 = getSum(7, 12);      // 函数返回值为：19
+var sum2 = getSum(-5, 33);     // 函数返回值为：28
+```
+
+提示：return 语句通常在函数的末尾定义，当函数运行到 return 语句时会立即停止运行，并返回到调用函数的地方继续执行。
+
+#### 函数内部属性
+
+arguments 和 this
+callee 是 arguments 对象的一个属性。它可以用于引用该函数的函数体内当前正在执行的函数。这在函数的名称是未知时很有用，例如在没有名称的函数表达式 (也称为“匿名函数”)内。
+警告：在严格模式下，第 5 版 ECMAScript (ES5) 禁止使用 arguments.callee()。当一个函数必须调用自身的时候, 避免使用 arguments.callee(),
+
+```
+// 需求：求3!
+function fact(n) {
+  if (n===1) {
+    return 1
+  } else {
+    return n*fact(n-1)
+  }
+}
+console.log(fact(3))
+// 需求：求1!+2!+3!....
+function fact1(n) {
+  if (n===1) {
+    return 1
+  } else {
+    return n*(fact1(n-1)+1)
+  }
+}
+ var sum = 0;
+ for (var i=1;i<=6;i++) {
+   sum+=fact(i)
+ }
+
+```
+
+```js
+//  正则表达式验证密码，只能输入6-20个字母、数字、下划线
+var password="sdfsdfe"
+var reg = /^[A-Za-z0-9_]{6,20}$/
+if (reg.test(password)) {
+  console.log(true)
+} else {
+  console.log(false)
+}
+
+// 把稀疏数组变成不稀疏数组 
+var arr = []
+arr[2]=2343
+arr[10]="hello"
+arr[23]=true
+var newArr=[]
+for (var i=0;i<arr.length;i++) {
+  if (arr[i])
+  newArr.push(arr[i])
+}
+console.log(newArr)
+
+// 需求：将[1,2,2,3,4,5,5,6,,7,7,7]数组去重复 
+newArr=[]
+for (var i=0;i<arr.length;i++) {
+  if (newArr.indexOf(arr[i])<0) {
+      newArr.push(arr[i])
+  }
+}
+```
+
+### 对象类型
+
+- 内置对象、面向对象、基本包装类型、变量、作用域及内存
+
+#### 内置对象
+
+- Global 对象
+  在 js 中没有 global 对象，web 中 将 global 作为 window 对象的一部分加以使用。
+
+```js
+// 最外层的this 默认指向的window
+name = 'aa'; //相当于window.name
+var obj = {
+  name: 'bb',
+  age: 10,
+  fn: function () {
+    console.log(this.name + this.age);
+  },
+};
+console.log(this.name); // aa
+obj.fn(); //  bb10
+```
+
+- 方法：
+  a.encodeURIComponent() 对 unicode 进行编码处理
+  b.decodeURIComponent() 对 unicode 编码进行解密处理
+  encode(str) // 只编码中文
+  decodeURI()
+
+  ```js
+   var str ="我是一个人,oh,yeah!"
+   console.log(str);
+   console.log(encodeURIComponent(str));
+   console.log(decodeURIComponent(encodeURIComponent(str)));
+  ```
+
+### 时间和日期
+
+```
+
+```
+
+```
+
+```

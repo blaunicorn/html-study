@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas星空科技动态背景</title>
+  </head>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    #canvas {
+      /* 防止出现滚动条 */
+      display: block;
+      background-color: black;
+      width: 100%;
+      height: 100vh;
+      /* 设置为背景 */
+      position: absolute;
+      z-index: -1;
+    }
+    #draw-canvas {
+      height: 400px;
+      width: 600px;
+      margin: 10px auto;
+      background-color: white;
+    }
+    .tools {
+      position: fixed;
+      top: 20px;
+      left: calc(50% - 200px + 10px);
+      transform: translate(-50%, 0);
+      line-height: 20px;
+      height: 20px;
+      vertical-align: middle;
+    }
+    .tools .brush {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      background-image: url(images/pencil.png);
+      background-size: contain;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    .tools .eraser {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-image: url(images/eraser.ico);
+      background-size: contain;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    .tools .active {
+      /* box-shadow: 0 0 5px black; */
+      transform: scale(1.4);
+    }
+    .colors {
+      position: fixed;
+      top: 40px;
+      left: calc(50% - 300px + 20px);
+      transform: translate(-50%, 0);
+      line-height: 20px;
+      height: 20px;
+      vertical-align: middle;
+      list-style: none;
+    }
+    .colors .active {
+      transform: scale(1.4);
+    }
+    .colors > li {
+      margin: 10px auto;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      box-shadow: 0px 0px 3px black;
+    }
+    .colors > li {
+      cursor: pointer;
+    }
+    .colors > li.black {
+      background-color: black;
+    }
+    .colors > li.red {
+      background-color: red;
+    }
+    .colors > li.orange {
+      background-color: orange;
+    }
+    .colors > li.green {
+      background-color: green;
+    }
+    .colors > li.blue {
+      background-color: blue;
+    }
+    .black {
+      cursor: url("images/black.ico") 8 20, auto;
+    }
+    .red {
+      cursor: url("images/red.ico") 8 20, auto;
+    }
+    .orange {
+      cursor: url("images/orange.ico") 8 20, auto;
+    }
+    .green {
+      cursor: url("images/green.ico") 8 20, auto;
+    }
+    .blue {
+      cursor: url("images/blue.ico") 8 20, auto;
+    }
+    .xiangpica {
+      cursor: url("images/eraser.ico") 8 20, auto;
+    }
+  </style>
+  <body>
+    <div>
+      <canvas id="canvas"></canvas>
+      <canvas id="draw-canvas" class="black"></canvas>
+      <div class="tools">
+        <a class="brush active"></a>
+        <span class="eraser"></span>
+        <input type="button" class="clear" value="清除" />
+        <input type="button" class="save" value="保存" />
+      </div>
+      <ol class="colors">
+        <li class="black active"></li>
+        <li class="red"></li>
+        <li class="orange"></li>
+        <li class="green"></li>
+        <li class="blue"></li>
+      </ol>
+      <!-- <canvas id="draw-canvas" width="600" height="400"></canvas> -->
+    </div>
+  </body>
+  <script>
+    // canvas 科技动画背景
+    // canvas画图及切换画笔、擦除、清除、保存
+
+    // speed 变化速度,数值越大速度越快
+    // step 步长
+    function init(speed = 8000, step = 20) {
+      speed /= 4000;
+      let canvas = document.getElementById("canvas"),
+        ctx = canvas.getContext("2d"),
+        width = document.body.scrollWidth,
+        height = document.body.scrollHeight;
+      // width = window.innerWidth,
+      // height = window.innerHeight;
+      ctx.clearRect(0, 0, width, height);
+      // console.log(
+      //   "屏幕尺寸，包含滚动条",
+      //   width,
+      //   height,
+      //   canvas.width,
+      //   canvas.height,
+      //   canvas.style.width,
+      //   canvas.style.height
+      // );
+      // 制定图形重叠混合的地方，颜色由相加值决定
+      ctx.globalCompositeOperation = "lighter";
+      // 设置填充颜色
+      for (let n = 0; n < 3; n++) {
+        if (n == 0) {
+          ctx.fillStyle = "#f00";
+        }
+        if (n == 1) {
+          ctx.fillStyle = "#0f0";
+        }
+        if (n == 2) {
+          ctx.fillStyle = "#00f";
+        }
+
+        for (let i = 0; i < height; i += step) {
+          for (let j = 0; j < width / 2; j += step) {
+            let index = i * width + j;
+            // 设置透明度
+            ctx.globalAlpha = Math.tan(index * index - speed);
+            // 填充矩形
+            ctx.fillRect(
+              Math.tan(i * j - Math.sin(index + n / 100) + speed) * j +
+                width / 2 -
+                step / 2,
+              i,
+              ((Math.tan(index + i / j + speed + n / 100) / 2) * step) / 2,
+              (Math.tan(index * index - speed) * step) / 2
+            );
+          }
+        }
+      }
+      //  无限循环
+      requestAnimationFrame(init);
+    }
+
+    init();
+
+    // 鼠标画图
+    function drawWords() {
+      let canvas = document.getElementById("draw-canvas");
+      let ctx = canvas.getContext("2d"),
+        width = canvas.offsetWidth,
+        height = canvas.offsetHeight;
+      // 同步设置画布的宽高，防止比例失调
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      //  canvas.width = document.documentElement.clientWidth //网页可见区域宽
+      //   canvas.height = document.documentElement.clientHeight//网页可见区域高
+      // 自定义画板
+      // 画一个黑色矩形
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, width, height);
+
+      // 按下的标记,以及鼠标移动后的坐标
+      let painting = false,
+        last = [10, 10];
+      let lineColor = "black",
+        lineWidth = 4;
+      ctx.strokeStyle = lineColor;
+      ctx.lineCap = "round";
+
+      // 擦除
+      let eraserEnabled = false;
+      let eraser = document.querySelector(".eraser");
+      let brush = document.querySelector(".brush");
+      eraser.onclick = function () {
+        eraserEnabled = true;
+        eraser.classList.add("active");
+        brush.classList.remove("active");
+        canvas.classList.add("xiangpica");
+      };
+
+      // 点击笔刷
+      brush.onclick = function () {
+        eraserEnabled = false;
+        eraser.classList.remove("active");
+
+        brush.classList.add("active");
+        canvas.classList.remove("xiangpica");
+      };
+
+      // 点击颜色，切换笔刷颜色
+      let colorList = document.querySelectorAll(".colors li");
+      colorList.forEach((item) => {
+        item.onclick = function () {
+          colorList.forEach((e) => {
+            e.classList.remove("active");
+          });
+          eraserEnabled = false;
+          eraser.classList.remove("active");
+          canvas.className = "";
+          // className = item.classList;
+          className = item.getAttribute("class");
+          console.log(item, className);
+          lineColor = className;
+          ctx.strokeStyle = lineColor;
+          item.classList.add("active");
+          canvas.classList.add(className);
+        };
+      });
+
+      let isTouchDevice = "ontouchstart" in document.documentElement;
+      if (isTouchDevice) {
+        canvas.ontouchstart = (f) => {
+          let x = f.touches[0].clientX;
+          let y = f.touches[0].clientY;
+          last = [x, y];
+        };
+        canvas.ontouchmove = (f) => {
+          f.preventDefault();
+          let x = f.touches[0].clientX;
+          let y = f.touches[0].clientY;
+          drawLine(last[0], last[1], x, y);
+          last = [x, y];
+        };
+      } else {
+        canvas.addEventListener("mousemove", mousemove, true);
+        canvas.addEventListener("mousedown", down, false);
+        canvas.addEventListener("mouseup", up, false);
+      }
+
+      function mousemove(e) {
+        let x = e.offsetX;
+        let y = e.offsetY;
+        if (painting === true) {
+          if (eraserEnabled) {
+            ctx.clearRect(x - 15, y - 15, 30, 30);
+          } else {
+            drawLine(last[0], last[1], e.offsetX, e.offsetY);
+          }
+
+          last = [e.offsetX, e.offsetY];
+        }
+      }
+      function down(e) {
+        console.log("down", e);
+        let x = e.offsetX;
+        let y = e.offsetY;
+        painting = true;
+        if (eraserEnabled) {
+          ctx.clearRect(x - 15, y - 15, 30, 30);
+        }
+        last = [e.offsetX, e.offsetY];
+      }
+      function up() {
+        // console.log("up", event);
+        painting = false;
+      }
+      function drawLine(x1, y1, x2, y2) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.closePath();
+        ctx.stroke();
+      }
+    }
+    drawWords();
+
+    // 清除
+    let clear = document.querySelector(".clear");
+    clear.addEventListener("click", function () {
+      let canvas = document.getElementById("draw-canvas");
+      let ctx = canvas.getContext("2d"),
+        width = document.body.scrollWidth,
+        height = document.body.scrollHeight;
+      // width = window.innerWidth,
+      // height = window.innerHeight;
+      ctx.clearRect(0, 0, width, height);
+    });
+
+    // 保存
+    let save = document.querySelector(".save");
+    save.addEventListener("click", function () {
+      let canvas = document.getElementById("draw-canvas");
+      let url = canvas.toDataURL("image/jpg");
+      let a = document.createElement("a");
+      a.href = url;
+      a.download = "草稿";
+      // a.setAttribute('download',"草稿")
+      a.target = "_blank";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+
+    // 增加颜色
+    window.onload = function () {
+      let colors = document.querySelector(".colors");
+
+      let backEndList = ["yellow", "deeppink"];
+      backEndList.forEach((item) => {
+        let li = document.createElement("li");
+        document.styleSheets[0].addRule(
+          ".colors > li." + item,
+          "background-color: " + item
+        );
+        // document.styleSheets[0].insertRule(".box {height: 100px}", 0);
+        li.classList.add(item);
+        colors.appendChild(li);
+      });
+    };
+  </script>
+</html>

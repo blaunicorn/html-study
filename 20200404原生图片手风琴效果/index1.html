@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      @import url(iconfont/iconfont.css);
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding: 0px;
+        margin: 0px;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        display: flex;
+        min-width: 500px;
+        width: 900px;
+        height: 500px;
+        /* border: 1px solid red; */
+        overflow: hidden;
+      }
+      .container .item {
+        cursor: pointer;
+        position: relative;
+        width: 60px;
+        margin: 10px;
+        height: calc(100% - 20px);
+        border-radius: 25px;
+        background-image: url(image/01.jpg);
+        background-size: cover;
+        background-position: center;
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+      .container .item .shadow {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        border-radius: 25px;
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.25) 60%,
+          transparent
+        );
+      }
+      .container .item .content {
+        display: flex;
+        /* align-items: center; */
+        position: absolute;
+        left: 10px;
+        right: 0px;
+        bottom: 10px;
+        height: 40px;
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+      .container .item .content .icon {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 50%;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container .item .content .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+        color: #fff;
+        width: 100%;
+      }
+      .container .item .content .text div {
+        width: calc(100% - 70px);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        opacity: 0;
+        transition: all 0.5s ease-out;
+      }
+      .container .item .content .text .title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .container .item .content .text .sub-title {
+        transition-delay: 0.1s;
+      }
+      .item.active {
+        flex: 1;
+      }
+      .item.active .content {
+        left: 25px;
+      }
+      .item.active .content .text div {
+        opacity: 1;
+      }
+      .item:nth-child(1) .icon {
+        color: #fc6e51;
+      }
+      .item:nth-child(2) .icon {
+        color: #ffce54;
+      }
+      .item:nth-child(3) .icon {
+        color: #2ecc71;
+      }
+      .item:nth-child(4) .icon {
+        color: #5d9cec;
+      }
+      .item:nth-child(5) .icon {
+        color: #ac92ec;
+      }
+      .item:nth-child(2) {
+        background-image: url(image/02.jpg);
+      }
+      .item:nth-child(3) {
+        background-image: url(image/03.jpg);
+      }
+      .item:nth-child(4) {
+        background-image: url(image/04.jpg);
+      }
+      .item:nth-child(5) {
+        background-image: url(image/05.jpg);
+      }
+      .item:nth-child(6) {
+        background-image: url(image/06.jpg);
+      }
+    </style>
+    <div class="container">
+      <div class="item active">
+        <div class="shadow"></div>
+        <div class="content">
+          <div class="icon">
+            <i class="iconfont icon-duoyun"></i>
+          </div>
+          <div class="text">
+            <div class="title">title1</div>
+            <div class="sub-title">sub-title1</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="shadow"></div>
+        <div class="content">
+          <div class="icon">
+            <i class="iconfont icon-duoyun"></i>
+          </div>
+          <div class="text">
+            <div class="title">title2</div>
+            <div class="sub-title">sub-title2</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="shadow"></div>
+        <div class="content">
+          <div class="icon">
+            <i class="iconfont icon-duoyun"></i>
+          </div>
+          <div class="text">
+            <div class="title">title3</div>
+            <div class="sub-title">sub-title3</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="shadow"></div>
+        <div class="content">
+          <div class="icon">
+            <i class="iconfont icon-duoyun"></i>
+          </div>
+          <div class="text">
+            <div class="title">title4</div>
+            <div class="sub-title">sub-title4</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="shadow"></div>
+        <div class="content">
+          <div class="icon">
+            <i class="iconfont icon-duoyun"></i>
+          </div>
+          <div class="text">
+            <div class="title">title5</div>
+            <div class="sub-title">sub-title5</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="shadow"></div>
+        <div class="content">
+          <div class="icon">
+            <i class="iconfont icon-duoyun"></i>
+          </div>
+          <div class="text">
+            <div class="title">title6</div>
+            <div class="sub-title">sub-title6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let items = document.querySelectorAll(".item");
+
+      let setActive = function () {
+        items.forEach((item) => {
+          item.classList.remove("active");
+        });
+        this.classList.add("active");
+      };
+      items.forEach((item) => {
+        item.addEventListener("click", setActive);
+      });
+    </script>
+  </body>
+</html>
