@@ -12,6 +12,19 @@
       console.log(str);
       console.log(encodeURIComponent(str));
       console.log(decodeURIComponent(encodeURIComponent(str)));
+
+      function createObj(name, age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.fn = function () {
+          return this.name + this.age;
+        };
+
+        return obj;
+      }
+      obj1 = createObj("name", 23);
+      obj2 = createObj("zhangsna", 30);
     </script>
   </body>
 </html>

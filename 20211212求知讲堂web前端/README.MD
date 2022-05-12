@@ -2595,31 +2595,30 @@ function fact1(n) {
 
 ```js
 //  正则表达式验证密码，只能输入6-20个字母、数字、下划线
-var password="sdfsdfe"
-var reg = /^[A-Za-z0-9_]{6,20}$/
+var password = "sdfsdfe";
+var reg = /^[A-Za-z0-9_]{6,20}$/;
 if (reg.test(password)) {
-  console.log(true)
+  console.log(true);
 } else {
-  console.log(false)
+  console.log(false);
 }
 
-// 把稀疏数组变成不稀疏数组 
-var arr = []
-arr[2]=2343
-arr[10]="hello"
-arr[23]=true
-var newArr=[]
-for (var i=0;i<arr.length;i++) {
-  if (arr[i])
-  newArr.push(arr[i])
+// 把稀疏数组变成不稀疏数组
+var arr = [];
+arr[2] = 2343;
+arr[10] = "hello";
+arr[23] = true;
+var newArr = [];
+for (var i = 0; i < arr.length; i++) {
+  if (arr[i]) newArr.push(arr[i]);
 }
-console.log(newArr)
+console.log(newArr);
 
-// 需求：将[1,2,2,3,4,5,5,6,,7,7,7]数组去重复 
-newArr=[]
-for (var i=0;i<arr.length;i++) {
-  if (newArr.indexOf(arr[i])<0) {
-      newArr.push(arr[i])
+// 需求：将[1,2,2,3,4,5,5,6,,7,7,7]数组去重复
+newArr = [];
+for (var i = 0; i < arr.length; i++) {
+  if (newArr.indexOf(arr[i]) < 0) {
+    newArr.push(arr[i]);
   }
 }
 ```
@@ -2633,39 +2632,554 @@ for (var i=0;i<arr.length;i++) {
 - Global 对象
   在 js 中没有 global 对象，web 中 将 global 作为 window 对象的一部分加以使用。
 
-```js
-// 最外层的this 默认指向的window
-name = 'aa'; //相当于window.name
-var obj = {
-  name: 'bb',
-  age: 10,
-  fn: function () {
-    console.log(this.name + this.age);
-  },
-};
-console.log(this.name); // aa
-obj.fn(); //  bb10
-```
+  ```js
+  // 最外层的this 默认指向的window
+  name = "aa"; //相当于window.name
+  var obj = {
+    name: "bb",
+    age: 10,
+    fn: function () {
+      console.log(this.name + this.age);
+    },
+  };
+  console.log(this.name); // aa
+  obj.fn(); //  bb10
+  ```
 
-- 方法：
-  a.encodeURIComponent() 对 unicode 进行编码处理
-  b.decodeURIComponent() 对 unicode 编码进行解密处理
+````
+
+- Global内置方法：
+  a. encodeURIComponent() 对 unicode 进行编码处理
+  b. decodeURIComponent() 对 unicode 编码进行解密处理
   encode(str) // 只编码中文
   decodeURI()
+  escape() 已废弃
 
   ```js
    var str ="我是一个人,oh,yeah!"
    console.log(str);
    console.log(encodeURIComponent(str));
    console.log(decodeURIComponent(encodeURIComponent(str)));
+````
+
+c. eval()方法 - 主要是字符串解析器，可以直接执行 js 代码(先解析后执行，性能比较差，且比较危险)
+
+```js
+eval("var box = 2");
+console.log(box);
+eval(console.log(box));
+eval("function box(){return 123}");
+alert(box());
+```
+
+- Math 对象
+  主要提供了大量的计算方法
+  Math.E 自然对数的底数，即常量 e 的值
+  Math.PI π 的值·
+  Math.min() 最小值
+  Math.Max() 最大值
+  Math.round() 四舍五入
+  Math.ceil() 向上取整
+  Math.floor() 向下取整 toFiexd()保留小数 ，但结果为字符型数据
+  Math.random() 产生[0-1]之间的随机小数，包含 0 ，不包含 1
+  Math.random(2) random 的随机种子
+
+  ```js
+  // 函数返回 min（包含）～ max（不包含）之间的数字：
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  // 函数返回 min（包含）～ max（包含）之间的数字：
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
   ```
 
-### 时间和日期
+  Math.abs(num) 返回 num 的绝对值
+  Math.exp(num) 返回 Math.E 的 num 次幂
+  Math.log(num) 返回 num 的自然对数
+  Math.pow(num,power) 返回 num 的 power 次幂
+  Math.sqrt(num) 返回 num 的平方根
+  Math.acos(x) 返回 x 的反余弦值
+  Math.asin(x) 返回 x 的反正弦值
+  Math.atan(x) 返回 x 的反正切值
+  Math.atan2(x) 返回 y/x 的反正确值
+  Math.cos(x) 返回 x 的余弦值
+  Math.sin(x) 返回 x 的正弦值 x 为弧度，如果 x 为角度，需要 (x\*Math.PI/180)
+  Math.tan(x) 返回 x 的正切值
+  Math.LN10 10 的自然对数
+  Math.LN2 2 的自然对数
+  Math.LOG2E 以 2 为底 e 的对数
+  Math.LOG10E 以 10 为底 e 的对数
+  Math.SQRT1_2 1/2 的平方根
+  Math.SQRT2 2 的平方根
+
+  ```js
+    // 浮点运算精度存在不准确的问题
+    解决方案：
+
+    //方法一： 通过 toFixed(num) 方法来保留小数。因为这个方法是根据四舍五入来保留小数的，所以最后的计算结果不精确。
+
+    (1.0-0.9).toFixed(digits)  // toFixed() 精度参数须在 0 与20 之间(digits是精确的小数点后的位数)
+    parseFloat((1.0-0.9).toFixed(10)) === 0.1 // 结果为True
+    parseFloat((1.0-0.8).toFixed(10)) === 0.2 // 结果为True
+    parseFloat((1.0-0.7).toFixed(10)) === 0.3 // 结果为True
+    parseFloat((11.0-11.8).toFixed(10)) === -0.8 // 结果为True
+    parseFloat((2.22 + 0.1).toFixed(10)) ===2.23 //结果为True
+    //方法二：把要计算的数字升级（乘以10的n次幂）成计算机能够精确识别的整数，计算完以后再降级。具体的我没有实现过。
+
+    //方法三： Math.floor( xxx * 10 ) / 10 // 精确到小数点后一位
+    1.11*10
+    11.100000000000001 //精度不准确
+    Math.floor(1.11*10)/10 // 精确到小数点后一位
+    1.1
+
+  ```
+
+#### 时间和日期
+
+    javascript提供了Date对象来进行时间和日期的计算。
+
+    Date对象有多种构造函数：
+
+    1、dateObj=new Date() //当前时间
+
+    2、dateObj=new Date(milliseconds) //距离起始时间1970年1月1日的毫秒数
+
+    3、dateObj=new Date(datestring) //字符串代表的日期与时间。比如"2012-12-21"、"Jannuary 1, 1998 20:13:15"
+
+    4、dateObj=new Date(year, month-1, day, hours, minutes, seconds, microseconds) //时间数值，可以不用全部写，不写则默认为0。月份值是从0开始，所以减一。如果输入值超出合理范围，函数会自动折算。
+
+    下面是Date对象的函数列表：
+
+    获取类函数：
+    getDate() 函数 -- 返回日值(1-31)
+    getDay()函数 -- 返回星期值(0-6)
+    getFullYear() 函数 -- 返回四位数年份值
+    getHours()函数 -- 返回小时值(0-23)
+    getMilliseconds() 函数 -- 返回时间date对象的当前毫秒值(0-999)
+    getMinutes() 函数 -- 返回分钟值(0-59)
+    getMonth() 函数 -- 返回月份值(0-11)
+    getSeconds() 函数 -- 返回秒值(0-59)
+    getTime() 函数 -- 返回1970年1月1日零点以来的毫秒数，即毫秒时间戳
+    getYear() 函数 -- 返回年份值(真实年份减去1900)
+
+    计算两个日期的差：
+    d1=new Date(y1,m1-1,d1);
+    d2=new Date(y2,m2-1,d2);
+    相差天数：(d2.getTime()-d1.getTime())/86400000;
+    相差天数：(d2.getTime()-d1.getTime())/(24*60*60*1000) ;
+
+    设置类函数： 多个参数时可以不写全，不写默认为0。
+
+    setDate(thedate) 函数 -- 设置月份的日值(1~31)
+    setFullYear(year,month,thedate) 函数 -- 设置的年份、月份(0~11)和日值
+    setHours(hours,minutes,seconds,milliseconds) 函数 -- 设置小时，分钟，秒和毫秒
+    setMilliseconds() 函数 -- 设置毫秒数
+    setMinutes(minutes,seconds,milliseconds) 函数 -- 设置分钟，秒，毫秒
+    setMonth(month,thedate) 函数 -- 设置月份，天
+    setSeconds() 函数 -- 设置秒
+    setTime() 函数 -- 使用1970年以来的毫秒数设置date对象
+    setYear() 函数 -- 设置年份(真实年份减去1900)
+
+    转化类函数：
+    toLocaleString() 函数 -- 返回本地时间字符串表示
+    toLocaleDateString函数 -- 返回日期部分的本地时间字符串
+    toLocaleTimeString函数 -- 返回时间部分的本地时间字符串
+    示例：toLocaleTimeString("zh",{hour12: false})，显示12进制时间
+
+    以下几个函数返回utc时间：
+    toString()
+    toDateString()
+    toTimeString()
+
+    日期解析函数parse() 比如：
+
+    var ms=Date.parse("Jul 8, 2005")
+
+    解析一个日期的字符串，并返回该日期距1970年1月1日午夜以来的毫秒数
+
+    时区相关的部份请看javascript时区函数
+
+    计时
+    console.time和console.timeEnd
+
+    console.time和console.timeEnd是用来测试一段js代码执行时间的。比如：
+
+    console.time('tag');
+
+    //js代码
+
+    console.timeEnd('tag');
+    此二函数只能输出到控制台，无法被调用。
+
+    performance.now()
+
+    测试执行时间
+
+    t0 = performance.now();
+
+    //执行代码
+
+    console.log(performance.now()- t0);
+    此函数取时精度较高。但老的浏览器可能不支持。
+
+````js
+
+#### 面向对象模式
+- new 操作符 + Object 创建对象
+- 用字面量法创建对象
+- 工厂模式
+- 构造函数模式
+- 原型模式
+- 构造函数和原型组合模式
+- 动态原型模式
+- 寄生构造模式
+- 稳妥构造模式
+- ES6中的class方法
+
+1、new 操作符 + Object 创建对象
+```js
+var person = new Object();
+    person.name = "lisi";
+    person.age = 21;
+    person.family = ["lida","lier","wangwu"];
+    person.say = function(){
+        alert(this.name);
+    }
+// Object()是JavaScript内部的对象
+````
+
+2、用字面量法创建对象
+
+```js
+var 对象={name:“小明”,age:20,sex:“男”…} 这是字面量表示法的语法 ，缺点:一次性对象，不方便修改，不利于提高效率，一般不建议使用
+// 传统模式创建类似对象： 缺陷：代码重复率比较高
+var obj1 = new Object({
+name:'tom',
+age:15,
+fn:function() {
+return this.name + this.age;
+}
+})
+var obj2 = new Object({
+name:'zhangsna',
+age:15,
+fn:function() {
+return this.name + this.age;
+}
+})
+console.log(obj1,obj2)
+```
+
+3、通过工厂模式创建对象
+
+```js
+   
+      // 工厂模式创建对象：工厂模式抽象了创建具体对象的过程函数， 用函数来封装以特定接口创建对象的细节，工厂模式解决了复用性和重复的缺点，但是无法识别对象的类型，是数组还是日期还是正则还是函数？为了解决这个问题就出现了构造函数。
+      function createObj(name, age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.fn = function () {
+          return this.name + this.age;
+        };
+
+        return obj;
+      }
+      obj1 = createObj("name", 23);
+      obj2 = createObj("zhangsna", 30);
+```
+
+4、构造函数
+ Object和Array,Date都是原生构造函数，我们也可以自己创建一个构造函数，然后用new 构造函数创造一个实例，每个实例就是一个创建的对象，这个过程就是实例化，new 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。new 关键字会进行如下的操作：1、创建一个新的对象 2、将构造函数的作用域给新的对象。因此，this指向新对象. 3、执行构造函数中的代码 4、返回一个新对象。
+优点： 通过 constructor 或者 instanceof 可以识别对象实例的类别 可以通过 new 关键字来创建对象实例，更像 OO 语言中创建对象实例 缺点： 多个实例的 say 方法都是实现一样的效果，但是却存储了很多次（两个对象实例的 say 方法是不同的，因为存放的地址不同） 注意： 构造函数模式隐试的在最后返回 return this 所以在缺少 new 的情况下，会将属性和方法添加给全局对象，浏览器端就会添加给 window 对象。 也可以根据 return this 的特性调用 call 或者 apply 指定 this。这一点在后面的继承有很大帮助。
+
+```js
+  function Person() {
+  this.name = 'hanmeimei';
+  this.say = function() {
+  alert(this.name)
+  }
+  }
+  var person1 = new Person();
+```
+
+5、原型模式
+
+```js
+function Person() {}
+Person.prototype.name = 'hanmeimei';
+Person.prototype.say = function() {
+  alert(this.name);
+}
+Person.prototype.friends = ['lilei'];
+var person1 = new Person();
+```
+
+ 优点：  say方法是共享的了，所有的实例的say方法都指向同一个。  可以动态的添加原型对象的方法和属性，并直接反映在对象实例上。
+```js
+var person1 = new Person()
+Person.prototype.showFriends = function() {
+  console.log(this.friends)
+}
+person1.showFriends()  //['lilei']
+```
+   缺点：  出现引用的情况下会出现问题具体见下面代码：
+```js
+var person1 = new Person();
+var person2 = new Person();
+person1.friends.push('xiaoming');
+console.log(person2.friends)  //['lilei', 'xiaoming']
+```
+
+ 因为js对引用类型的赋值都是将地址存储在变量中，所以person1和person2的friends属性指向的是同一块存储区域。  第一次调用say方法或者name属性的时候会搜索两次，第一次是在实例上寻找say方法，没有找到就去原型对象(Person.prototype)上找say方法，找到后就会在实力上添加这些方法or属性。  所有的方法都是共享的，没有办法创建实例自己的属性和方法，也没有办法像构造函数那样传递参数。   注意：  优点②中存在一个问题就是直接通过对象字面量给Person.prototype进行赋值的时候会导致constructor改变，所以需要手动设置，其次就是通过对象字面量给Person.prototype进行赋值，会无法作用在之前创建的对象实例上
+
+```js
+var person1 = new Person()
+Person.prototype = {
+ name: 'hanmeimei2',
+   setName: function(name){
+      this.name = name
+   }
+}
+person1.setName()   //Uncaught TypeError: person1.set is not a function(…)
+```
+
+ 这是因为对象实例和对象原型直接是通过一个指针链接的，这个指针是一个内部属性[[Prototype]]，可以通过__proto__访问。我们通过对象字面量修改了Person.prototype指向的地址，然而对象实例的__proto__，并没有跟着一起更新，所以这就导致，实例还访问着原来的Person.prototype，所以建议不要通过这种方式去改变Person.prototype属性   
+ 
+ 6、构造函数和原型组合模式
+
+```js
+function Person(name) {
+  this.name = name
+  this.friends = ['lilei']
+}
+Person.prototype.say = function() {
+  console.log(this.name)
+}
+var person1 = new Person('hanmeimei')
+person1.say() //hanmeimei复制代码
+```
+
+ 优点：  解决了原型模式对于引用对象的缺点 解决了原型模式没有办法传递参数的缺点 解决了构造函数模式不能共享方法的缺点 
+ 缺点： 
+ 
+ 7、动态原型模式
+
+```js
+function Person(name) {
+  this.name = name
+  if(typeof this.say != 'function') {
+    Person.prototype.say = function(
+    alert(this.name)
+  }
+}
+```
+
+ 优点：  可以在初次调用构造函数的时候就完成原型对象的修改 修改能体现在所有的实例中
+ 缺点：红宝书都说这个方案完美了。。。。 
+ 注意：  只用检查一个在执行后应该存在的方法或者属性就行了 不能用对象字面量修改原型对象  
+ 
+8、寄生构造函数模式
+
+```js
+function Person(name) {
+  var o = new Object()
+  o.name = name
+  o.say = function() {
+    alert(this.name)
+  }
+  return o
+}
+var peron1 = new Person('hanmeimei')
+```
+
+9、稳妥构造模式
+
+```js
+function Person(name) {
+  var o = new Object()
+  o.say = function() {
+    alert(name)
+  }
+  return o
+}
+var person1 = new Person('hanmeimei');
+person1.name  // undefined
+person1.say() //hanmeimei复制代码
+```
+
+优点：  安全，那么好像成为了私有变量，只能通过say方法去访问  缺点：
+不能区分实例的类别
+
+
+10、ES6中的class方法。
+es6为了更接近传统语法，引入了Class这个概念，作为对象的模板，可以看作是一个语法糖，本质上是和原型模式创建对象是一样的。
+
+```js
+// 原型模式创建对象
+function student(name, age) {
+  this.name = name;
+  this.age = age;
+}
+student.prototype.sayHi = function() {
+  console.log("i am " + this.name + ",i am " + this.age + " years old");
+};
+student1 = new student('小明', 18);
+student1.sayHi() //i am 小明,i am 18 years old
+
+// class创建对象
+class Student {
+// 构造函数写属性
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+// 公用方法直接写
+  sayHi () {
+    console.log("i am " + this.name + ",i am " + this.age + " years old");
+  }
+student1 = new Student ('小明', 18);
+student1.sayHi() //i am 小明,i am 18 years old
+}
+```
+
+注： 构造函数尽可能使用首字母大写
+
+#### 基本包装类型
+为了便于操作基本类型值，ECMAScript 还提供了 3 个特殊的引用类型：Boolean、Number 和String。这些类型与本章介绍的其他引用类型相似，但同时也具有与各自的基本类型相应的特殊行为。实际上，每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而让我们能够调用一些方法来操作这些数据。来看下面的例子
+```js
+var s1 = "some text";
+var s2 = s1.substring(2);
+```
+这个例子中的变量 s1 包含一个字符串，字符串当然是基本类型值。而下一行调用了 s1 的substring()方法，并将返回的结果保存在了 s2 中。我们知道，基本类型值不是对象，因而从逻辑上讲它们不应该有方法（尽管如我们所愿，它们确实有方法）。其实，为了让我们实现这种直观的操作，后台已经自动完成了一系列的处理。当第二行代码访问 s1 时，访问过程处于一种读取模式，也就是要从内存中读取这个字符串的值。而在读取模式中访问字符串时，后台都会自动完成下列处理:
+
+创建 String 类型的一个实例；
+在实例上调用指定的方法；
+销毁这个实例；
+1.Boolean类型
+Boolean 类型的实例重写了valueOf()方法，返回基本类型值true 或false；重写了toString()方法，返回字符串"true"和"false"。可是，Boolean 对象在 ECMAScript 中的用处不大，因为它经常会造成人们的误解。
+2.Number类型
+静态属性：
+MAX_VALUE   表示最大值
+MIN_VALUE  表示最小值
+NaN  非数值
+NEGATIVE_INFINITY  负无穷大，溢出返回该值
+POSITIVE_INFINITY  无穷大，溢出返回该值
+prototype   原型，用于增加新属性和方法
+
+```js
+ console.log(Number.MAX_VALUE)
+ console.log(Number.MIN_VALUE)
+ console.log(Number("abc"))   // NaN
+ console.log(Number("234"))   // 234，将字符串转换为数值型数据
+ console.log(isNaN(123))  // true  用来判断是不是不是一个数值型
+ console.log(Number.NEGATIVE_INFINITY)   // -Infinity
+ console.log(789/0)    // -Infinity  除数为0会返回无穷大
+ console.log(Number.POSITIVE_INFINITY)
+ console.log(Number.prototype)
 
 ```
 
+方法：
+Number 类型也重写了 valueOf()、toLocaleString()和 toString()等方法
+重写后的 valueOf()方法返回对象表示的基本类型的数值，另外两个方法则返回字符串形式的数值。
+toString()  将数值转化为字符串，并且可以转换进制。
+
+```js
+var num = 10
+console.log(num.toString())  //  "10"
+console.log(num.toString(4))  //  "1010"
+console.log(num.toString(8))  //  "12"
+console.log(num.toString(10))  //  "10"
+console.log(num.toString(16))  //  "a"
 ```
 
+toFixed()  按照指定的小数位返回数值的字符串
+
+```js
+var num = 10
+console.log(num.toFixed(2))  // "10.00"
+
+var num1 = 10.005
+console.log(num.toFixed(2))  // "10.01"  具有能够自动四舍五入的特性
 ```
 
+toExponential()    指数形式（也称 e 表示法），传参会保留小数点
+
+```js
+var num = 300
+console.log(num.toExponential(6))    // "3.000000e+2"
 ```
+
+toPrecision() 把数字格式化为指定的长度:
+
+```js
+var num = new Number(13.3714);
+var n=num.toPrecision(2);
+n 输出结果:13
+
+
+使用不同进制把数字格式化为指定的长度:
+var num = new Number(13.3714);
+var a = num.toPrecision();
+var b = num.toPrecision(2);
+var c = num.toPrecision(3);
+var d = num.toPrecision(10);
+a、b、c 和 d 输出结果:
+13.3714
+13
+13.4
+13.37140000
+参数超出 100 会报错.
+```
+
+valueOf()   可以字符串返回数字。字符串的输出通常等于该数字。
+
+```js
+var num = 300
+num.valueOf() //  300
+```
+
+toLocaleString()    指数或点形式，传参会保留小数点
+
+```js
+字符串：
+
+var a = 6666;
+a.toLocaleString();
+//"6,666"
+a.toString();
+//"6666"
+可以看到，当数字是三位以上时，会每三位出现一个分隔号；
+
+数组：
+
+var c = [1,2,3];
+console.log(c.toLocaleString());
+//1,2,3
+console.log(c.toString());
+//1,2,3
+没有区别
+
+日期：
+
+var dt = new Date();
+console.log(dt.toLocaleString());
+//2018/1/4 下午10:32:18
+console.log(dt.toString());
+//Thu Jan 04 2018 22:32:18 GMT+0800 (中国标准时间)
+结论：
+
+1、LocaleString()会根据你机器的本地环境来返回字符串，它和toString()返回的值在不同的本地环境下使用的符号可能变化；
+
+2、使用toString()是保险的方法，它不会因为本地环境（例如国家）改变而改变；
+
+3、为了返回时间类型的值的话，使用toLocaleString()；
+```
+
+
+
+
