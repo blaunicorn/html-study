@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div"></div>
+    <div class="wrapper">
+      <div class="box">
+        <div id="content" title="标题">111</div>
+        <p style="color: red; background-color: gray; font-size: larger">
+          sfasdf
+        </p>
+      </div>
+    </div>
+    <script>
+      let node1 = document.createElement("p"); // 创建元素节点
+      let text = document.createTextNode("这是一段文字"); // 创建文本节点
+      node1.appendChild(text); // 把文本节点添加到node1元素节点上
+      let element = document.getElementById("div"); // 获取页面上已有的元素节点
+      element.appendChild(node1); // 把创建的node1元素节点增加到页面上。
+
+      console.log(document.getElementById("content").nodeName);
+      console.log(document.getElementById("content").nodeType);
+      console.log(document.getElementById("content").nodeValue);
+      console.log(document.getElementById("content").getAttributeNode("title"));
+      console.log(
+        document.getElementById("content").getAttributeNode("title").nodeName
+      ); // title
+      console.log(
+        document.getElementById("content").getAttributeNode("title").nodeValue
+      ); // 标题
+      console.log(document.getElementById("content").getAttribute("title"));
+      console.log(document.getElementById("content").textContent);
+      console.log(document.getElementById("content").innerText);
+      console.log(document.getElementById("content").innerHTML);
+      // 子节点;
+      console.log(document.getElementById("content").childNodes[0].nodeName);
+      console.log(document.getElementById("content").childNodes[0].nodeValue); // #text
+      // 文档节点
+      console.log(document); // 整个文档
+      console.log(document.nodeName); // #document
+      // 获取p标签 style
+      console.log(
+        document.getElementsByTagName("p")[1].getAttributeNode("style")
+          .nodeValue
+      );
+      console.log(
+        document.getElementsByTagName("p")[1].getAttributeNode("style").nodeType
+      );
+    </script>
+    <p id="p1">这是p1</p>
+    <p id="p2" name="p2_name" class="pp">这是p2<span>这是内部span</span></p>
+    <h2>这是h2</h2>
+    <p class="pp" name="p2_name">这是p3</p>
+    <span>这是span标签</span>
+
+    <script>
+      var p2 = document.getElementById("p2");
+      console.log(p2);
+      p2.style.color = "red";
+      // 打印我们返回的元素对象，这样可以更好的查看里面的属性和方法
+      console.dir(p2);
+    </script>
+    <script>
+      // 创建元素
+      var p = document.createElement("p");
+      p.innerHTML = "这是一个p标签!";
+      // 添加元素
+      document.body.appendChild(p);
+
+      // 删除元素
+      //  document.body.removeChild(p);
+      // 通过自身调用父元素删除自己
+      p.parentNode.removeChild(p);
+    </script>
+    <style>
+      .wrapper {
+        color: red;
+      }
+      .background {
+        background-color: aqua;
+      }
+    </style>
+    <script>
+      // 在内存空间创建元素节点
+      var p4 = document.createElement("p");
+      // 创建文本节点
+      var p_Text = document.createTextNode("我是新创建的p标签4.5");
+
+      //将文本节点加入到p标签里
+      p4.appendChild(p_Text);
+
+      //创建节点属性
+      attr_class = document.createAttribute("class");
+      p_alg = document.createAttribute("align");
+
+      // 给节点属性赋值
+      attr_class.value = "wrapper";
+      p_alg.value = "center";
+
+      // 将节点属性加入到对应的文本节点中
+      p4.setAttributeNode(attr_class);
+      p4.setAttributeNode(p_alg);
+      p4.className = "background";
+      p4.className = "background wrapper";
+      p4.classList.add("pink");
+
+      //将创建的元素加入到body中
+      document.body.appendChild(p4);
+    </script>
+
+    <div id="div-input">
+      <input type="text" id="txt_input" value="4" />
+      <input type="button" id="leftInsert" value="左侧入" />
+      <input type="button" id="rightInsert" value="右侧入" />
+    </div>
+    <div id="container">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+    </div>
+    <script>
+      var inputValue = document.getElementById("txt_input").value;
+      document.getElementById("leftInsert").onclick = function () {
+        inputValue = document.getElementById("txt_input").value;
+        //左侧入
+        var span = document.createElement("span"); //1、创建元素
+        span.innerHTML = inputValue;
+        var container = document.getElementById("container"); //2、找到父级元素
+        container.insertBefore(span, container.childNodes[0]); //插入到最左边
+      };
+      document.getElementById("rightInsert").onclick = function () {
+        //右侧入
+        inputValue = document.getElementById("txt_input").value;
+        var span = document.createElement("span"); //1、创建元素
+        span.innerHTML = inputValue;
+        span.innerHTML += "<button class='del'>删除</button>";
+        var container = document.getElementById("container"); //2、找到父级元素
+        container.appendChild(span); //3、在末尾中添加元素
+        addDelBtn();
+      };
+
+      let addDelBtn = function () {
+        let btns = document.querySelectorAll(".del");
+        btns.forEach((item) => {
+          // item.removeEventListener("click");
+          item.onclick = function (e) {
+            console.log(e);
+            item.parentNode.remove();
+            // item.parentNode.parentNode.removeChild(item.parentNode);
+            addDelBtn();
+          }; // 用addEventListener 会出现多次增加点击。每次删除后需要重新赋予click函数，避免节点索引值变化
+        });
+      };
+
+      // for(var i = childs.length - 1; i >= 0; i--) {
+      //   alert(childs[i].nodeName);
+      //   f.removeChild(childs[i]);
+      // }
+      //  this.parentNode.removeChild(this)  删除自身
+    </script>
+
+    <input type="text" id="username" value="张三" />
+    <input type="button" value="测试" id="btn" />
+    <script>
+      let btn = document.querySelector("#btn");
+      let username = document.querySelector("#username");
+
+      btn.onclick = function () {
+        username.setAttribute("value", "李四");
+        console.log(username.value); // 李四
+      };
+    </script>
+
+    <style>
+      div,
+      p {
+        width: 400px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        background-color: pink;
+      }
+    </style>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>1123</p>
+
+    <script>
+      // 当我们点击了按钮，  div里面的文字会发生变化
+      // 1. 获取元素
+      var btn1 = document.querySelector("button");
+      var div = document.querySelector("div");
+      // 2.注册事件
+      btn1.onclick = function () {
+        // div.innerText = '2022-5-10';
+        div.innerHTML = getDate();
+      };
+
+      function getDate() {
+        var date = new Date();
+        // 我们写一个 2022年 5月 10日 星期二
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var dates = date.getDate();
+        var arr = [
+          "星期日",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六",
+        ];
+        var day = date.getDay();
+        return (
+          "今天是：" + year + "年" + month + "月" + dates + "日 " + arr[day]
+        );
+      }
+      // 元素也可以不用添加事件，直接赋值
+      var p = document.querySelector("p");
+      p.innerHTML = getDate();
+    </script>
+
+    <button id="btn"><span>这是</span>切换图片</button>
+    <form name="test2" action="" method="post">
+      <input type="text" name="txt" id="" value="这是表单文本框的内容" />
+      <input type="radio" name="sex" id="" value="1" />男
+      <input type="radio" name="sex" id="" value="0" />女<br />
+      <input type="checkbox" name="hobby" id="" value="0" />编程
+      <input type="checkbox" name="hobby" id="" value="1" />音乐
+      <input type="checkbox" name="hobby" id="" value="2" />游戏
+      <input type="checkbox" name="hobby" id="" value="4" />其他
+      <br />
+      <input type="button" value="提交" id="ok" />
+    </form>
+    <script>
+      document.querySelector("form[name='test2']").sex.value = "1";
+      document.querySelector("form[name='test2']").hobby.value = "1"; // 不能通过value设置复选框的某项被选中
+      document.querySelector("form[name='test2']").hobby[1].checked = true;
+      document.querySelector("form[name='test2']").hobby[2].checked = false;
+      // 单击提交按钮 获取所有复选框被选中的值
+      document.querySelector("#ok").onclick = function () {
+        var chks = document.querySelectorAll(
+          "form[name='test2'] input[type='checkbox']"
+        );
+        console.log(chks);
+        var arr = [];
+        var txt = [];
+        for (var i in chks) {
+          if (chks[i].checked) {
+            arr.push(chks[i].value);  // 值
+            txt.push(chks[i].nextSibling.nodeValue);  //  文本内容
+          }
+        }
+        console.log(arr, txt);
+      };
+    </script>
+  </body>
+</html>

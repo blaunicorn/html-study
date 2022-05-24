@@ -1818,29 +1818,29 @@ for(var i=0;i<arr1.length;i++) {
 ```
 
 - 数组的方法
-  |方法名 |对应版本| 功能 |原数组是否改变|
-  | ---- | ---- | ---- | ---- |
-  |pop() |ES5- |删除最后一位，并返回删除的数据 |y|
-  |shift() |ES5- |删除第一位，并返回删除的数据 |y|
-  |unshift() |ES5- |在第一位新增一或多个数据，返回长度| y|
-  |push() |ES5- |在最后一位新增一或多个数据，返回长度| y|
-  |reverse() |ES5- |反转数组，返回结果 |y|
-  |sort() |ES5- |排序（字符规则），返回结果 |y|
-  |splice() |ES5- |删除指定位置，并替换，返回删除的数据| y|
-  |slice() |ES5- |截取指定位置的数组，并返回 |n|
-  |concat()| ES5-| 合并数组，并返回合并之后的数据 |n|
-  |join() |ES5- |使用分隔符，将数组转为字符串并返回| n|
-  |toString() |ES5- |直接转为字符串，并返回| n|
-  |valueOf() |ES5- |返回数组对象的原始值| n|
-  |indexOf() |ES5| 查询并返回数据的索引| n|
-  |lastIndexOf() |ES5 |反向查询并返回数据的索引 |n|
-  |forEach() |ES5 |参数为回调函数，会遍历数组所有的项，回调函数接受三个参数，分别为 value，index，self；|forEach 没有返回值 |n|
-  |map() |ES5 |同 forEach，同时回调函数返回数据，组成新数组由 map 返回 |n|
-  |filter() |ES5 |同 forEach，同时回调函数返回布尔值，为 true 的数据组成新数组由 filter 返回 |n|
-  |every() |ES5 |同 forEach，同时回调函数返回布尔值，全部为 true，由 every 返回 true |n|
-  |some() |ES5 |同 forEach，同时回调函数返回布尔值，只要由一个为 true，由 some 返回 true| n|
-  |reduce() |ES5 |归并，同 forEach，迭代数组的所有项，并构建一个最终值，由 reduce 返回| n|
-  |reduceRight() |ES5| 反向归并，同 forEach，迭代数组的所有项，并构建一个最终值，由 reduceRight 返回 |n|
+  | 方法名        | 对应版本 | 功能                                                                                  | 原数组是否改变     |
+  | ------------- | -------- | ------------------------------------------------------------------------------------- | ------------------ |
+  | pop()         | ES5-     | 删除最后一位，并返回删除的数据                                                        | y                  |
+  | shift()       | ES5-     | 删除第一位，并返回删除的数据                                                          | y                  |
+  | unshift()     | ES5-     | 在第一位新增一或多个数据，返回长度                                                    | y                  |
+  | push()        | ES5-     | 在最后一位新增一或多个数据，返回长度                                                  | y                  |
+  | reverse()     | ES5-     | 反转数组，返回结果                                                                    | y                  |
+  | sort()        | ES5-     | 排序（字符规则），返回结果                                                            | y                  |
+  | splice()      | ES5-     | 删除指定位置，并替换，返回删除的数据                                                  | y                  |
+  | slice()       | ES5-     | 截取指定位置的数组，并返回                                                            | n                  |
+  | concat()      | ES5-     | 合并数组，并返回合并之后的数据                                                        | n                  |
+  | join()        | ES5-     | 使用分隔符，将数组转为字符串并返回                                                    | n                  |
+  | toString()    | ES5-     | 直接转为字符串，并返回                                                                | n                  |
+  | valueOf()     | ES5-     | 返回数组对象的原始值                                                                  | n                  |
+  | indexOf()     | ES5      | 查询并返回数据的索引                                                                  | n                  |
+  | lastIndexOf() | ES5      | 反向查询并返回数据的索引                                                              | n                  |
+  | forEach()     | ES5      | 参数为回调函数，会遍历数组所有的项，回调函数接受三个参数，分别为 value，index，self； | forEach 没有返回值 | n |
+  | map()         | ES5      | 同 forEach，同时回调函数返回数据，组成新数组由 map 返回                               | n                  |
+  | filter()      | ES5      | 同 forEach，同时回调函数返回布尔值，为 true 的数据组成新数组由 filter 返回            | n                  |
+  | every()       | ES5      | 同 forEach，同时回调函数返回布尔值，全部为 true，由 every 返回 true                   | n                  |
+  | some()        | ES5      | 同 forEach，同时回调函数返回布尔值，只要由一个为 true，由 some 返回 true              | n                  |
+  | reduce()      | ES5      | 归并，同 forEach，迭代数组的所有项，并构建一个最终值，由 reduce 返回                  | n                  |
+  | reduceRight() | ES5      | 反向归并，同 forEach，迭代数组的所有项，并构建一个最终值，由 reduceRight 返回         | n                  |
 
   1.concat()
   功能：用于连接两个或多个数组，该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
@@ -3059,7 +3059,7 @@ var s2 = s1.substring(2);
 创建 String 类型的一个实例；
 在实例上调用指定的方法；
 销毁这个实例；
-1.Boolean类型
+##### 1.Boolean类型
 Boolean 类型的实例重写了valueOf()方法，返回基本类型值true 或false；重写了toString()方法，返回字符串"true"和"false"。可是，Boolean 对象在 ECMAScript 中的用处不大，因为它经常会造成人们的误解。
 2.Number类型
 静态属性：
@@ -3180,6 +3180,1539 @@ console.log(dt.toString());
 3、为了返回时间类型的值的话，使用toLocaleString()；
 ```
 
+### 3. String类型
+
+String 类型是字符串的对象包装类型，可以像下面这样使用 String 构造函数来创建
+```js
+var stringObject = new String("hello world");
+```
+String 对象的方法也可以在所有基本的字符串值中访问到。其中，继承valueOf()、toLocaleString()和 toString()方法，都返回对象所表示的基本字符串值
+
+String 类型的每个实例都有一个 length 属性，表示字符串中包含多个字符
+```js
+var stringValue = "hello world"; 
+alert(stringValue.length); //"11"
+```
+
+字符方法
+charAt(n)      返回指定索引位置的字符
+chartCodeAt(n)  以Unicode编码形式返回指定索引位置的字符
+```js
+var box = "Mr. Lee";
+alert(box.charAt(1)); //r
+alert(box.charCodeAt(1));  // 114
+alert(box[1])  //r  Ie浏览器会有兼容器问题显示undefined
+```
+
+字符串操作方法
+concat()方法
+用于将一或多个字符串拼接起来，返回拼接得到的新字符串
+```js
+var stringValue = "hello "; 
+var result = stringValue.concat("world"); 
+alert(result); //"hello world" 
+alert(stringValue); //"hello"
+```
+concat()方法可以接受任意多个参数，也就是说可以通过它拼接任意多个字符串
+```js
+var stringValue = "hello "; 
+var result = stringValue.concat("world", "!"); 
+alert(result); //"hello world!" 
+alert(stringValue); //"hello"
+```
+虽然 concat()是专门用来拼接字符串的方法，但实践中使用更多的还是加号操作符（+）。而且，使用加号操作符在大多数情况下都比使用concat()方法要简便易行（特别是在拼接多个字符串的情况下）
+
+slice()、substr()和 substring()
+基于子字符串创建新字符串的方法
+
+这三个方法都会返回被操作字符串的一个子字符串，而且也都接受一或两个参数。第一个参数指定子字符串的开始位置，第二个参数（在指定的情况下）表示子字符串到哪里结束。具体来说，slice()和substring()的第二个参数指定的是子字符串最后一个字符后面的位置。而 substr()的第二个参数指定的则是返回的字符个数。如果没有给这些方法传递第二个参数，则将字符串的长度作为结束位置。与concat()方法一样，slice()、substr()和 substring()也不会修改字符串本身的值——它们只是返回一个基本类型的字符串值，对原始字符串没有任何影响
+```js
+var stringValue = "hello world"; 
+alert(stringValue.slice(3)); //"lo world" 
+alert(stringValue.substring(3)); //"lo world" 
+alert(stringValue.substr(3)); //"lo world" 
+alert(stringValue.slice(3, 7)); //"lo w" 
+alert(stringValue.substring(3,7)); //"lo w" 
+alert(stringValue.substr(3, 7)); //"lo worl"
+alert(stringValue.substr(-2)); //"ld"  如果为负数，从后面开始截取
+```
+字符串位置方法
+从字符串中查找子字符串的方法：indexOf()和 lastIndexOf()
+这两个方法都是从一个字符串中搜索给定的子字符串，然后返子字符串的位置（如果没有找到该子字符串，则返回-1）。这两个方法的区别在于：indexOf()方法从字符串的开头向后搜索子字符串，而 lastIndexOf()方法是从字符串的末尾向前搜索子字符串
+```
+var stringValue = "hello world"; 
+alert(stringValue.indexOf("o")); //4 
+alert(stringValue.lastIndexOf("o")); //7
+```
+这两个方法都可以接收可选的第二个参数，表示从字符串中的哪个位置开始搜索。换句话说，indexOf()会从该参数指定的位置向后搜索，忽略该位置之前的所有字符；而 lastIndexOf()则会从指定的位置向前搜索，忽略该位置之后的所有字符
+```
+var stringValue = "hello world"; 
+alert(stringValue.indexOf("o", 6)); //7 
+alert(stringValue.lastIndexOf("o", 6)); //4
+```
+trim()方法
+法会创建一个字符串的副本，删除前置及后缀的所有空格，然后返回结果
+```
+var stringValue = " hello world "; 
+var trimmedStringValue = stringValue.trim(); 
+alert(stringValue); //" hello world " 
+alert(trimmedStringValue); //"hello world"
+```
+
+字符串大小写转换方法
+toLowerCase(str)  将字符串全部转换为小写
+toUpperCase(str)   将字符串全部转换为大写
+toLocaleLowerCase(str)   将字符串全部转换为小写，并本地化
+toLocaleUpperCase(str)   将字符串全部转换为大写，并本地化
+```
+var stringValue = "hello world"; 
+alert(stringValue.toUpperCase()); //"HELLO WORLD" 
+alert(stringValue.toLowerCase()); //"hello world"
+```
+localeCompare()方法
+与操作字符串有关的最后一个方法是 localeCompare()，这个方法比较两个字符串，并返回下列值中的一个：
+
+如果字符串在字母表中应该排在字符串参数之前，则返回一个负数（大多数情况下是-1，具体的值要视实现而定）；
+如果字符串等于字符串参数，则返回 0；
+如果字符串在字母表中应该排在字符串参数之后，则返回一个正数（大多数情况下是 1，具体的值同样要视实现而定）；
+```
+var stringValue = "yellow"; 
+alert(stringValue.localeCompare("brick")); //1 
+alert(stringValue.localeCompare("yellow")); //0 
+alert(stringValue.localeCompare("zoo")); //-1
+```
+fromCharCode()方法
+这个方法的任务是接收一或多个字符编码，然后将它们转换成一个字符串。从本质上来看，这个方法与实例方法 charCodeAt()
+执行的是相反的操作
+```
+alert(String.fromCharCode(104, 101, 108, 108, 111)); //"hello"
+```
+
+字符串匹配方法 
+| 方法                         | 描述                              |
+| ---------------------------- | --------------------------------- |
+| match(pattern)               | 返回pattern中的字串或null         |
+| replace(pattern,replacement) | 用replacement 替代pattern         |
+| search(pattern)              | 返回字符串中pattern开始位置       |
+| split(pattern)               | 返回字符串按指定pattern拆分的数组 |
+
+```js
+var box = "how old are you??"
+console.log(box.match("are"))  // ["are",index:8,input:"how old are you??",groups:undefined] 返回的是数组对象
+console.log(box.match("are")[0])  // "are" 返回匹配内容
+console.log(box.match("are").index)  // 8 返回匹配内容的开始下标
+console.log(box.match("ared"))  // null 如果没有匹配内容
+console.log(box.match(/y/))  // 可以匹配正则表达式
+
+console.log(box.replace("?","..."))  // how old are you...??  只替换第一个
+console.log(box.replace(/\?/g,"..."))  //  how old are you...... 正则可以全部替换 i为忽略字母大小写 g为全局
+console.log(box.replace("","..."))  //  ...how old are you??  实现前面添加
+console.log(box.replace("??","..."))  //  ...how old are you...  实现替换添加
 
 
+console.log(box.search("are"))  // 8  表示从字符串下标为8的位置开始匹配到
+console.log(box.search(/\?/))  // 16  特殊符号需要正则匹配
+console.log(box.split(""))    // 把字符串中每个字符切割成一个数组元素，组成数组。
+console.log(box.split(" "))  // ["how","old","are","you??"] 转换成数组 
+```
 
+4. 变量、作用域及内存
+   1) 变量
+      a. 基本类型的变量
+        基本类型的变量的值存储在栈中
+      b. 引用类型的变量
+        引用类型的变量的值存储在堆中，在栈中存储的是引用类型的变量的地址（指针）
+      ```js
+      // 引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址，当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后，从堆中获得实体。
+      var obj = {x : 0};
+          obj.x = 100;    
+          var o = obj;    //实际拷贝的是obj的内存地址
+          o.x = 1;
+          console.log(obj.x)       // 1,   obj被修改
+          o = {x:100};  //等同于重新开辟内存，不是修改
+          console.log(obj,o)         //{x:1} {x:100}
+      ```
+    2) 作用域
+        js作用域（es6）之前分为：全局变量和局部变量：(1)全局变量只有浏览器关闭的时候1才会销毁，比较占内存资源；(2)局部变量，当程序执行完毕就会销毁，比较节约内存资源
+        在代码中任何地方都能访问到的对象拥有全局作用域，一般来说以下几种情形拥有全局作用域：
+最外层函数和在最外层函数外面定义的变量拥有全局作用域
+
+```js
+var outVariable = "我是最外层变量"; //最外层变量
+function outFun() { //最外层函数
+    var inVariable = "内层变量";
+    function innerFun() { //内层函数
+        console.log(inVariable);
+    }
+    innerFun();
+}
+console.log(outVariable); //我是最外层变量
+outFun(); 
+//内层变量
+console.log(inVariable); //inVariable is not defined
+innerFun(); //innerFun is not defined
+```
+
+所有未定义直接赋值的变量，自动声明为拥有全局作用域
+```js
+function outFun2() {
+    variable = "未定义直接赋值的变量";
+    var inVariable2 = "内层变量2";
+}
+outFun2();//要先执行这个函数，否则根本不知道里面是啥
+console.log(variable); //未定义直接赋值的变量
+console.log(inVariable2); //inVariable2 is not defined
+```
+所有 window 对象的属性拥有全局作用域
+一般情况下，window 对象的内置属性都拥有全局作用域，例如 window.name、window.location、window.top 等等。
+全局作用域有个弊端：如果我们写了很多行 JS 代码，变量定义都没有用函数包括，那么它们就全部都在全局作用域中。这样就会污染全局命名空间, 容易引起命名冲突。
+
+  js中没有块级作用域，es6才新增了块级作用域let const 声明，块级作用域 {} if{} for{}
+ let/const 声明并不会被提升到当前代码块的顶部，因此你需要手动将 let/const 声明放置到顶部，以便让变量在整个代码块内部可用。
+```js
+function getValue(condition) {
+    if (condition) {
+        let value = "blue";
+        return value;
+    } else {
+        // value 在此处不可用
+        return null;
+    }
+        // value 在此处不可用
+```
+
+如果一个标识符已经在代码块内部被定义，那么在此代码块内使用同一个标识符进行 let 声明就会导致抛出错误。例如：
+```js
+var count = 30;
+let count = 40; // Identifier 'count' has already been declared
+```
+    3)  垃圾回收机制
+       js有自动回收垃圾的功能，在项目开发过程中，也可以手动将变量设为null
+       JavaScript执行环境中的垃圾回收器怎样才能检测到哪块内存可以被回收呢？
+
+通常有两种方式：标记清除（mark and sweep）、引用计数（reference counting）
+标记清除
+这是JavaScript中最常用的垃圾回收方式。
+（1）当变量进入执行环境时（函数中声明变量），就标记这个变量为“进入环境”，当变量离开环境时（函数执行结束），则将其标记为“离开环境”，离开环境之后还有的变量则是需要被删除的变量。
+（2）垃圾回收器在运行的时候会给存储在内存中的所有变量都加上标记。
+（3）去掉环境中的变量以及被环境中变量引用的变量的标记。
+（4）之后再被加上标记的变量即是需要回收的变量（因为环境中的变量已经无法访问到这些变量）
+（5）最后，垃圾收集器完成内存清除工作，销毁那些带标记的值，并回收他们所占用的内存空间。
+引用计数
+这种方式常常会引起内存泄漏，低版本的IE使用这种方式。机制就是跟踪一个值的引用次数，当声明一个变量并将一个引用类型赋值给该变量时该值引用次数加1，当这个变量指向其他一个时该值的引用次数便减一。当该值引用次数为0时，则说明没有办法再访问这个值了，被视为准备回收的对象，每当过一段时间开始垃圾回收的时候，就把被引用数为0的变量回收。引用计数方法可能导致循环引用，类似死锁，导致内存泄露。
+例如：
+```js
+function problem() {
+    var objA = new Object();
+    var objB = new Object();
+
+    objA.someOtherObject = objB;
+    objB.anotherObject = objA;
+```
+objA和objB相互引用，两个对象的引用次数都是2。函数执行完成之后，objA和objB还将会继续存在，因为他们的引用次数永远不会是0。这样的相互引用如果说很大量的存在就会导致大量的内存泄露。
+补充：
+常见内存泄漏的原因：
+（1）全局变量引起的内存泄露
+（2）闭包引起的内存泄露：慎用闭包
+（3）dom清空或删除时，事件未清除导致的内存泄漏
+（4）循环引用带来的内存泄露
+
+## json和dom操作
+
+* json
+* dom介绍
+* 节点操作
+* 节点文本操作
+* dom节点样式操作
+  
+1. json(javascription object notation)js对象表达法，是一种轻量级的数据交换格式
+    与xml比较，json书写或解析时是一个对象，更容易解析，而xml是用标签存储数据。
+    JSON 是 JS 对象的字符串表示法，它使用文本表示一个 JS 对象的信息，本质是一个字符串。
+    ps: json不支持undefine
+```js
+var obj = {a: 'Hello', b: 'World'}; //这是一个对象，注意键名也是可以使用引号包裹的
+
+var json = '{"a": "Hello", "b": "World"}'; //这是一个 JSON 字符串，本质是一个字符串
+```
+JSON 和 JS 对象互转
+要实现从JSON字符串转换为JS对象，使用 JSON.parse() 方法：
+```js
+var obj = JSON.parse('{"a": "Hello", "b": "World"}'); //结果是 {a: 'Hello', b: 'World'}
+// 要实现从JS对象转换为JSON字符串，使用 JSON.stringify() 方法：
+var json = JSON.stringify({a: 'Hello', b: 'World'}); //结果是 '{"a": "Hello", "b": "World"}'
+```
+在独立的json文件中写json时， 文件扩展名必须是.json，数据不能用=赋值给某个变量必须要用双引号引用键名
+```js
+//前后端分离，推荐后端返回给前端数据格式
+// data.json
+{
+"status" : 0 ,          //执行状态码
+"msg"    : "SUCCESS",   //说明文字信息，没有为NULL
+"data"   :[{            //对象中嵌套数组，数组是返回的数据，
+"id"    : 1 ,
+"name"  : "xiaohong"
+},{
+"id"    : 2,
+"name"  : "xiaoming"
+}]
+}
+```
+读取json文件
+```js
+      // 需要服务器支持
+      let xhr = null;
+      if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+      } else {
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xhr.open("get", "./data.json", true);
+      // xhr.onload = function () {
+      //   console.log(xhr.response);
+      // };
+      xhr.onreadystatechange = function (e) {
+        if ((xhr.readyState === 4 && xhr.status == 200) || xhr.status === 304) {
+          console.log(JSON.parse(xhr.responseText));
+        } else {
+          console.log("Error json - XMLHttpRequest status: " + xhr.status);
+          console.log("Error json - File config not found");
+        }
+      };
+
+      xhr.send();
+      console.log(xhr);
+```
+
+(三) dom操作
+   Document Object Model 文档对象模型，是html和xml文档的编程接口，定义了访问和操作html文档的方法
+   dom以树形目录结构表达html和xml文档，每个节点就是一个dom元素
+   document->html->head/body->element->element/attribute/text
+   DOM全称为Document Object Model，即文档对象模型
+  Document节点就是文档本身
+  DOM规定页面中所有的元素都是节点
+  Document节点在页面加载时自动创建
+  1. 节点是对象的另外一种叫法，在DOM规则中规定对象都称为节点
+   1) 节点层次
+     节点层次分为父子节点和同胞节点两种。
+     每个节点都有父节点、除了根（它没有父节点）
+     一个节点可以拥有任意数量的子节点
+     同胞是拥有相同父节点的节点。
+   2) 节点分类(nodeType)：
+     > 元素节点：html中的标签
+     > 属性节点：标签带的属性
+     > 文本节点：标签中间的内容  
+     > 文档节点：document
+    1) 节点的名称(nodeName)： nodeName是只读的，不能被重新赋值修改
+      元素节点 大写的标签名
+      属性节点 小写的属性名
+      文本节点 #text
+      文档节点 #document
+     4)节点的值（nodeValue)
+       元素节点 是undefined 或null
+       文本节点是  文本本身
+       属性节点是 属性值
+    2) 节点的类型
+      | 元素类型 | nodeType |
+      | ------ | -------|
+      | 元素  | 1 |
+      | 属性 | 2 |
+      | 文本 | 3|
+      | 注释 | 8|
+      | 文档| 9|
+       （1,2,3用于判断节点类型，比如if(i.nodeType ==3){}等）。 
+          appendChild()  增添元素节点
+          ```js
+        let node1 = document.createElement("p") // 创建元素节点
+        let text = document.createTextNode("这是一段文字")  // 创建文本节点
+        node1.appendChild(text)  // 把文本节点添加到node1元素节点上
+        let element = document.getElementById("div")  // 获取页面上已有的元素节点
+        element.appendChild(node1)  // 把创建的node1元素节点增加到页面上。
+        ```
+2 document节点属性
+2.1 返回文档内部的某个节点
+2.1.1 document.doctype
+对于HTML文档来说document对象一般有两个子节点，第一个子节点就是doctype。doctype节点是一个对象，包含了当前文档类型信息。如果当前网页没有声明DTD，该属性返回null。
+对于HTML5文档，doctype节点就代表
+```js
+ <script>
+ 		var doctype = document.doctype;
+        console.log(doctype);// <!DOCTYPE html>
+        console.log(doctype.name);// html
+</script>
+```
+2.1.2 document.documentElement
+document.documentElement属性，表示当前文档的根节点。通常是document节点的第二个子节点，紧跟在document.doctype节点后面。
+对于HTML网页，该属性返回HTML节点。但是对我们来说一般都是通过documentElement节点来访问页面当中的其他子节点。
+documentElement代表的是html标签(html元素)
+语法：document.documentElement
+```js
+ <script>
+        console.log(document.documentElement);
+</script>
+```
+html并不代表整个文档，docoment代表的是文档本身也就是整个文档
+```js
+ <script>
+        console.log(document);
+</script>
+```
+2.1.3 document.body
+body属性返回当前文档的body或frameset节点，如果不存在这样的节点，就返回null。
+该属性是可写的，如果对其写入一个新的节点会导致原有的所有子节点被移除。
+语法：document.body
+```js
+ <script>
+        console.log(document.body);  // body节点
+</script>
+```
+2.1.4 document.head
+head属性返回当前文档的head节点。如果当前文档有多个head，则返回第一个。
+```js
+ <script>
+        console.log(document.head);
+</script>
+```
+2.2 返回文档的固有属性
+documentURI：返回当前文档的网址。
+document.documentURI属性所有文档都具备
+语法：document.documentURI
+IE浏览器不支持documentURI属性
+document.documentURI === document.URI
+2.2.1 document.documentURI
+```js
+<script>
+        console.log(document.documentURI);
+ </script>
+```
+
+2.2.2 document.URL
+URL
+注意：本属性是只读
+返回当前文档的网址
+document.URL只有HTML文档才具备
+```hs
+<script>
+        document.URL = 'http://www.baidu.com'; //无效
+        console.log(document.URL);
+</script>
+```
+2.2.3 document.domain
+返回当前文档的域名
+如果无法获取域名，则返回null
+```js
+<script>
+        console.log(document.domain);
+		
+		//如果当前域名是百度，就关闭当前页面
+        var baidu = "www.baidu.com";
+        if (document.domain === baidu) {
+            window.close();
+        }
+</script>
+```
+
+2.2.4 document.lastModified
+lastModified：返回当前文档（网页）最后修改的时间戳，格式为字符串。
+lastModified属性的值是字符串，所以不能直接用来比较。若想比较两个文档谁的日期更新，则需要转换成时间戳格式才能进行比较(if(Date.parse(doc1.lastModified) > Date.parse(doc2.lastModified)) {//…}) Date.parse()能够将时间格式字符串转换成时间戳格式
+```js
+<script>
+        console.log(document.lastModified); //04/10/2021 13:52:32
+</script>
+```
+
+2.2.5 document.location
+location：返回一个只读对象，提供了当前文档的URL信息
+```js
+ <script>
+        console.log(document.location);
+        //实现页面跳转
+        document.location.href = 'http://www.baidu.com';
+        console.log(document.location.href);
+ </script>
+```
+document.location.href 返回完整的url
+document.location.protocol 返回当前遵守的协议
+document.location.host 返回当前页面域名和端口号
+document.location.hostname  返回当前页面域名
+document.location.port 返回当前页面的端口号，如果不存在则返回空
+document.location.pathname 返回当前页面在服务器中路径
+document.location.search 返回当前页面url中的查询字符串
+document.location.assign("http://www.baidu.com")
+注意：search是获取url中保存的信息
+```js
+ 	<form action="">
+        <input type="text" name="userName" />
+        <input type="submit" />
+    </form>
+    <button id="but">获取发送信息</button>
+```
+```js
+<script>
+        document.getElementById("but").onclick = function() {
+            console.log(document.location.search);
+        }
+</script>
+```
+
+2.2.6 document.title
+返回当前文档的标题，该属性是可写的
+```js
+ <title>我是标题头</title>
+
+ <script>
+        var title = document.title;
+        title = "我是新的标题头";
+        console.log(title);
+</script>
+```
+2.2.7 document.characterSet
+返回渲染当前文章的字符集
+```js
+ <script>
+        var character = document.characterSet;
+        console.log(character); //UTF-8
+</script>
+```
+2.2.8 document.readyState
+返回当前文档的状态
+共有三种可能： 加载HTML代码阶段(尚未解析完成)是“loading”；加载外部资源的阶段是"interactive"；全部加载完成是"complete"。
+```js
+<script>
+        if (document.readyState === "complete") {
+            console.log("当前页面已经加载完毕");
+        }      
+  //这种判断方式只能判断一次，如果页面在判断时没有加载完成，那么就无法确定页面究竟是何时加载完毕
+	  console.log(document.readyState);
+        var timer = setInterval(function() {
+            console.log(document.readyState);//loading  interactive  complete
+            if (document.readyState == 'complete') {
+                clearInterval(timer); //清楚定时器
+            }
+        }, 20);
+</script>
+```
+2.3返回页面中指定元素的集合
+2.3.1 document.anchors
+返回页面中带有name属性的a标签的集合
+```js
+  	<a href="#">链接1</a>
+    <a href="#" name="anchors2">链接2</a>
+    <a href="#" name="anchors3">链接3</a>
+    <a href="#">链接4</a>
+    <a href="#">链接5</a>
+
+<script>
+        var collection = document.anchors;
+        console.log(collection);//
+        console.log(collection.length);//
+        console.log(collection[0]);//
+</script>
+```
+
+2.3.2 document.forms
+返回网页中所有表单
+```js
+<script>
+        var forms = document.forms;
+        if (forms !== 0) {
+            console.log("网页中有表单"); //网页中有脚本
+        } else {
+            console.log("网页中没有表单");
+        }
+</script>
+```
+
+2.3.3 document.images
+返回网页中所有图片
+```js
+<script>
+        var imgs = document.images;
+        if (imgs !== 0) {
+            console.log("网页中有图片"); //网页中有脚本
+        } else {
+            console.log("网页中没有图片");
+        }
+</script>
+```
+2.3.4 document.links
+返回网页中所有链接元素(即带有href属性的a标签)
+```js
+<script>
+        var links = document.links;
+        if (links !== 0) {
+            console.log("网页中有链接"); //网页中有脚本
+        } else {
+            console.log("网页中没有链接");
+        }
+</script>
+```
+2.3.5 document.scripts
+返回网页中所有的脚本
+```js
+<script>
+        var scripts = document.scripts;
+        if (scripts !== 0) {
+            console.log("网页中有脚本"); //网页中有脚本
+        } else {
+            console.log("网页中没有脚本");
+        }
+</script>
+
+```
+3. document节点选中页面元素
+3.1 querySelector()
+描述：本方法用来选中页面元素，根据指定的选择器进行筛选
+如果有多个节点满足匹配条件则返回第一个匹配的节点
+如果没有发现匹配的节点则返回null
+querySelector是匹配的选择器，如果是id选择器那么则应为 document.querySelector(‘#名’);
+标签:document.querySelector("p"), class选择器: document.querySelector(".class")
+语法：document.querySelector(‘选择器名’);
+```js
+ 	<p id="p1">这是p1</p>
+    <p id="p2" name="p2_name" class="pp">这是p2<span>这是内部span</span></p>
+    <h2>这是h2</h2>
+    <p class="pp" name="p2_name">这是p3</p>
+    <span>这是span标签</span>
+
+<script>
+        var p = document.querySelector('.pp');
+        var p2_span = p.querySelector('span');
+        console.log(p2_span);
+</script>
+```
+3.2 querySelectorAll()
+描述：本方法用来选中页面元素，根据指定的选择器进行筛选。
+如果有多个元素满足条件，则返回这些元素构成的集合
+语法：document.querySelectorAll(‘选择器名’);
+注意：
+
+返回的结果是一个节点列表，不是数组，但能够像数组一样使用列表
+如果查找失败不是返回null，而是返回一个空的节点列表
+```js
+	<p id="p1">这是p1</p>
+   <p id="p2" name="p2_name" class="pp">这是p2<span>这是内部span</span></p>
+   <h2>这是h2</h2>
+   <p class="pp" name="p2_name">这是p3</p>
+   <span>这是span标签</span>
+
+  <script>
+        var pList = document.querySelectorAll('.pp');
+        console.log(pList[1]);
+ </script>
+```
+3.3 getElementById()
+返回匹配指定ID属性的元素节点（返回的是一个对象）
+参数 id 是一个大小写敏感的字符串
+```js
+ 	<p id="p1">这是p1</p>
+    <p id="p2" name="p2_name" class="pp">这是p2<span>这是内部span</span></p>
+    <h2>这是h2</h2>
+    <p class="pp" name="p2_name">这是p3</p>
+    <span>这是span标签</span>
+
+ <script>
+        var p2 = document.getElementById('p2');
+        console.log(p2);
+        p2.style.color="red"
+        // 打印我们返回的元素对象，这样可以更好的查看里面的属性和方法
+        console.dir(p2);
+</script>
+```
+3.4 getElementsByTagName()
+返回所有指定标签的元素(对象)集合
+```js
+ 	<p id="p1">这是p1</p>
+    <p id="p2" name="p2_name" class="pp">这是p2<span>这是内部span</span></p>
+    <h2>这是h2</h2>
+    <p class="pp" name="p2_name">这是p3</p>
+    <span>这是span标签</span>
+
+<script>
+        var p = document.getElementsByTagName('p');
+        console.log(p[1]);
+        p[1].style.fontSize="30px"
+        console.log(p.length);
+</script>
+```
+3.5 getElementsByClassName()
+返回符合指定类名的所有元素（集合）
+```js
+ 	<p id="p1">这是p1</p>
+    <p id="p2" name="p2_name" class="pp">这是p2<span>这是内部span</span></p>
+    <h2>这是h2</h2>
+    <p class="pp" name="p2_name">这是p3</p>
+    <span>这是span标签</span>
+<script>
+        var pp = document.getElementsByClassName('pp');
+        console.log(pp[1]);
+</script>
+```
+
+3.6 getElementsByName()
+用于选择拥有name属性的HTML元素
+```js
+ 	<p id="p1">这是p1</p>
+    <p id="p2" name="p2_name" class="pp">这是p2<span>这是内部span</span></p>
+    <h2>这是h2</h2>
+    <p class="pp" name="p2_name">这是p3</p>
+    <span>这是span标签</span>
+
+<script>
+        var p2_name = document.getElementsByName('p2_name');
+        console.log(p2_name[0]);
+        p2_name[0].value ="lili"
+</script>
+```
+3.7 querySelector系列与getElementsBy系列方法的区别
+querySelector系列属于W3C中的Selectors API(JS)规范
+getElementsBy系列属于W3C的DOM规范
+querySelector系列基本能被所有浏览器支持
+getElementsBy系列通常只有在考虑兼容性的时候才被提起(尽管两者功能相似)
+querySelector系列接收的参数是一个css选择器名
+getElementsBy系列接收的参数只能是单一的className、tagName和name
+querySelectorAll()返回的是一个静态节点列表
+```js
+ 	<ul>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+    </ul>
+
+<script>
+		var ul = document.querySelectorAll('ul')[0];
+        var list = ul.querySelectorAll("li");
+        for (var i = 0; i < list.length; i++) {
+            ul.appendChild(document.createElement("li"));
+        }
+</script>
+```
+
+getElementsBy系列返回的是一个动态节点列表
+```js
+	<ul>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+    </ul>
+
+ <script>
+ 		var ul = document.querySelectorAll('ul')[0];
+        var list = ul.getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++) {
+            ul.appendChild(document.createElement("li"));
+        }
+</script>
+// 此时会进入死循环状态：
+```
+
+4. document节点创建页面元素和属性
+  - JavaScript获取父级元素,子级元素,兄弟元素的实现方法
+```js
+<div id = "dom">
+          <div></div>
+          <div></div>
+     <div></div>
+ </div>
+
+<script>
+   function dom(){
+      var a = document.getElementByIdx_x_x("dom");
+      del_space(a);调用清理空格的函数
+      var b = a.childNodes;获取a的全部子节点；
+      var c = a.parentNode;获取a的父节点；
+      var d = a.nextSbiling;获取a的下一个兄弟节点
+      var e = a.previousSbiling;获取a的上一个兄弟节点
+      var f = a.firstChild;获取a的第一个子节点
+      var g = a.lastChild;获取a的最后一个子节点
+}
+</script>
+```
+- jQuery获取父级元素,子级元素,兄弟元素的实现方法
+jQuery.parent(expr) 找父亲节点，可以传入expr进行过滤，比如("span").parent()或者("span").parent()或者(“span”).parent(“.class”)
+jQuery.parents(expr),类似于jQuery.parents(expr),但是是查找所有祖先元素，不限于父元素
+jQuery.children(expr).返回所有子节点，这个方法只会返回直接的孩子节点，不会返回所有的子孙节点
+jQuery.contents(),返回下面的所有内容，包括节点和文本。这个方法和children()的区别就在于，包括空白文本，也会被作为一个
+jQuery对象返回，children()则只会返回节点
+jQuery.prev()，返回上一个兄弟节点，不是所有的兄弟节点
+jQuery.prevAll()，返回所有之前的兄弟节点
+jQuery.next(),返回下一个兄弟节点，不是所有的兄弟节点
+jQuery.nextAll()，返回所有之后的兄弟节点
+jQuery.siblings(),返回兄弟姐妹节点，不分前后
+jQuery.find(expr),跟jQuery.filter(expr)完全不一样。jQuery.filter()是从初始的jQuery对象集合中筛选出一部分，而jQuery.find()的返回结果，不会有初始集合中的内容，比如("p"),find("span"),是从p元素开始找,等同于("p"),find("span"),是从p元素开始找,等同于(“p span”)
+
+- js获取节点 dom操作
+接口	nodeType常量	nodeType值	备注
+Element	Node.ELEMENT_NODE	1	元素节点
+Text	Node.TEXT_NODE	3	文本节点
+Document	Node.DOCUMENT_NODE	9	document
+Comment	Node.COMMENT_NODE	8	注释的文本
+DocumentFragment	Node.DOCUMENT_FRAGMENT_NODE	11	document片断
+Attr	Node.ATTRIBUTE_NODE	2	节点属性
+—我—是—分—割—线—
+属性	描述
+attributes	如果该节点是一个Element，则以NamedNodeMap形式返回该元素的属性。
+childNodes	以Node[]的形式存放当前节点的子节点。如果没有子节点，则返回空数组。
+firstChild	以Node的形式返回当前节点的第一个子节点。如果没有子节点，则为null。
+lastChild	以Node的形式返回当前节点的最后一个子节点。如果没有子节点，则为null。
+nextSibling	以Node的形式返回当前节点的兄弟下一个节点。如果没有这样的节点，则返回null。下一个兄弟节点
+nodeName	节点的名字，Element节点则代表Element的标记名称。
+nodeType	代表节点的类型。
+parentNode	以Node的形式返回当前节点的父节点。如果没有父节点，则为null。
+previousSibling	以Node的形式返回紧挨当前节点、位于它之前的兄弟节点。如果没有这样的节点，则返回null。上一个兄弟节点
+方法	描述
+createAttribute()	用指定的名字创建新的Attr节点。
+createComment()	用指定的字符串创建新的Comment节点。
+createElement()	用指定的标记名创建新的Element节点。
+createTextNode()	用指定的文本创建新的TextNode节点。
+getElementById()	返回文档中具有指定id属性的Element节点。
+getElementsByTagName()	返回文档中具有指定标记名的所有Element节点。
+
+4.1 document.createElement()
+描述：创建一个页面元素
+语法：document.createElement(“标签名”)
+注意：本方法创建的页面元素不会直接显示在页面中，而是默认存在于内存中
+```js
+ <script>
+        var p = document.createElement('p');
+        console.log(p);
+ </script>
+```
+4.2 fatherNode.appendChild()
+描述：给某个节点添加子节点
+语法：fatherNode.appendChild(子节点)
+fatherNode：父标签对象
+```js
+ <script>
+        // 创建元素
+        var p = document.createElement('p');
+        // 添加元素
+        document.body.appendChild(p);
+</script>
+```
+4.3 fatherNode.removeChild()
+描述：通过父标签对象将自己的一个子标签删除
+语法：fatherNode.removeChild(子节点)
+fatherNode：父标签对象
+```js
+    // 创建元素
+    var p = document.createElement("p");
+    // 添加元素
+    document.body.appendChild(p);
+   // 删除元素
+   document.body.removeChild(p);
+   // 通过自身调用父元素删除自己
+   p.parentNode.removeChild(p)
+```
+生成div标签并设置class和style
+```js
+	<script>
+		var div = document.createElement("div"); //创建一个标签
+		div.className = "box"; //给创建的div设置class；
+		var con = document.getElementById('content'); //获取标签
+		con.appendChild(div); //向刚获取的标签中添加创建的标签
+		var child = document.createElement("div"); //创建一个标签
+		child.className = "name"; //给创建的div设置class；
+		div.appendChild(child);
+		var color = document.getElementsByClassName('name')[0];
+		color.innerHTML = '元素';
+		div.style.backgroundColor = "#00FF7F";
+	</script>
+```
+// 方式二：字符串拼接
+```
+<div id="container">
+</div>
+<script>
+ window.onload = function () {
+  var str='';
+  for(var i=0; i<30 ;i++){
+   var r = parseInt(Math.random()*100); //随机生成一个数字
+   str += '<div>'+r+'</div>'; //拼接str
+  }
+  document.getElementById('container').innerHTML=str;
+ }
+</script>
+```
+总体思路：创建元素：Document.createElement()，找到父级元素 ：可以通过Id、name、标签名、class、匹配指定的css选择器，在指定位置插入、替换、克隆、删除元素：element.appendChild()、element.insertBefore(创建的节点、已知节点) 、element.replaceChild(新节点、老节点)、 需要被复制的节点element.cloneNode(true/false) true 深度克隆，false仅复制当前节点、删除当前节点element.remove()、删除子节点element.removeChild() 
+
+```js
+<div id="div-input">
+ <input type="text" id="txt_input" value="4"/>
+ <input type="button" id="leftInsert" value="左侧入" />
+ <input type="button" id="rightInsert" value="右侧入" />
+</div>
+<div id="container">
+ <span>1</span>
+ <span>2</span>
+ <span>3</span>
+</div>
+    <script>
+      var inputValue = document.getElementById("txt_input").value;
+      document.getElementById("leftInsert").onclick = function () {
+        inputValue = document.getElementById("txt_input").value;
+        //左侧入
+        var span = document.createElement("span"); //1、创建元素
+        span.innerHTML = inputValue;
+        var container = document.getElementById("container"); //2、找到父级元素
+        container.insertBefore(span, container.childNodes[0]); //插入到最左边
+      };
+      document.getElementById("rightInsert").onclick = function () {
+        //右侧入
+        inputValue = document.getElementById("txt_input").value;
+        var span = document.createElement("span"); //1、创建元素
+        span.innerHTML = inputValue;
+        span.innerHTML += "<button class='del'>删除</button>";
+        var container = document.getElementById("container"); //2、找到父级元素
+        container.appendChild(span); //3、在末尾中添加元素
+        addDelBtn();
+      };
+
+      let addDelBtn = function () {
+        let btns = document.querySelectorAll(".del");
+        btns.forEach((item) => {
+          // item.removeEventListener("click");
+          item.onclick = function (e) {
+            console.log(e);
+            item.parentNode.remove();
+            // item.parentNode.parentNode.removeChild(item.parentNode);
+            addDelBtn();
+          }; // 用addEventListener 会出现多次增加点击。每次删除后需要重新赋予click函数，避免节点索引值变化
+        });
+      };
+
+      // for(var i = childs.length - 1; i >= 0; i--) {
+      //   alert(childs[i].nodeName);
+      //   f.removeChild(childs[i]);
+      // }
+      //  this.parentNode.removeChild(this)  删除自身
+    </script>
+ ```
+
+4.4 createTextNode()
+描述：创建文本节点
+```js
+ <script>
+        var p = document.createElement('p');   
+        //p.innerHTML='这是一个p标签';
+        var p_text = document.createTextNode('这是p段落');        // 或
+        //p.innerHTML = '这是p段落';
+        //document.body.appendChild(p);  
+        p.appendChild(p_text);
+        document.body.appendChild(p);
+</script>
+```
+
+4.5 createAttribute()
+描述：创建一个新的属性对象节点
+语法：document.createAttribute(‘属性名’);
+注意：
+
+本方法创建的是属性节点，不是css属性节点
+创建的属性节点使用value=‘’;进行赋值
+创建的属性节点使用setAttributeNode（）方法绑定到元素上。
+```js
+<style>
+  .wrapper {
+    color: red;
+  }
+  .background {
+    background-color: aqua;
+  }
+</style>
+<script>
+      // 在内存空间创建元素节点
+      var p4 = document.createElement("p");
+      // 创建文本节点
+      var p_Text = document.createTextNode("我是新创建的p标签4.5");
+
+      //将文本节点加入到p标签里
+      p4.appendChild(p_Text);
+
+      //创建节点属性
+      attr_class = document.createAttribute("class");
+      p_alg = document.createAttribute("align");
+
+      // 给节点属性赋值
+      attr_class.value = "wrapper";
+      p_alg.value = "center";
+
+      // 将节点属性加入到对应的文本节点中
+      p4.setAttributeNode(attr_class);  // 增加class的方式一
+      p4.setAttributeNode(p_alg);
+      p4.className = "background";  //  增加class的方式二
+      p4.className = "background wrapper"; //  增加class的方式三
+      p4.classList.add("pink");
+
+      //将创建的元素加入到body中
+      document.body.appendChild(p4);
+</script>
+```
+
+5. 操作元素–页面元素属性操作
+  获取属性值：
+   dom节点.属性名  // 不能获取用户自定义的属性,可以动态获取用户修改的属性值
+   dom节点.getAttribute('属性名')  //  获取所有属性,不能动态获取用户修改的属性值
+  设置属性值：
+    dom节点.属性名  =  属性值  // 不能设置用户自定义的属性 ,
+    dom节点.setAttribute('属性名',属性值) ,
+  删除属性值：
+  dom节点.属性名  =  属性值 // 不能删除用户自定义的属性
+  dom节点.removeAttribute('属性名') 
+修改 HTML 文本中的标签属性，浏览器图形界面也会发生对应的改变
+修改 HTML 文本中的标签属性，DOM 中的对象属性也会发生对应的改变
+当 DOM 中的对象属性发生了变化，浏览器图形界面也会发生对应的改变
+当浏览器图形界面发生了改变，DOM 中的对象属性也会发生对应的改变
+
+1 用户修改了图形界面中标签的内容，DOM中的标签对象的属性会同步发生改变，HTML文本不会发生改变
+```js
+    <input type="text" id="username" value="张三">
+    <input type="button" value="测试" id="btn">
+    <script>
+        let btn = document.querySelector("#btn");
+        let username = document.querySelector("#username")
+        btn.onclick = function(){
+            console.log(username.value);   // 张三
+            console.log(username.getAttribute("value"));  //   张三
+        }
+    </script>
+```
+2 修改了HTML文本中标签的内容，图形界面和DOM中的对象属性都会发生改变
+```js
+    <input type="text" id="username" value="张三">
+    <input type="button" value="测试" id="btn">
+    <script>
+        let btn = document.querySelector("#btn");
+        let username = document.querySelector("#username");
+
+        btn.onclick = function(){
+            username.setAttribute("value","李四");
+            console.log(username.value);    // 李四
+        };
+    </script>
+```
+3 修改了 DOM 中的对象属性，图形界面会发生改变，HTML文本不会发生改变
+```js
+    <input type="text" id="username" value="张三">
+    <input type="button" value="测试" id="btn">
+    <script>
+        let btn = document.querySelector("#btn");
+        let username = document.querySelector("#username");
+
+        btn.onclick = function(){
+            username.value = "李四";
+            console.log(username.getAttribute("value"));  // 张三
+        };
+    </script>
+```
+5.1 getAttribute()
+getAttribute(‘属性名’); 获取元素属性值
+```js
+<div class="div">我的div</div>
+var div = document.querySelector(".div");
+div.setAttribute("style", "width:200px; height:200px;border:2px #ccc solid;");
+console.log("getAttribute的值为：" + div.getAttribute('style'));
+```
+
+5.2 setAttribute()
+setAttribute(‘属性名’,‘属性值’); 设置/修改/新增元素属性
+```js
+	<h2 style="color: aquamarine;">雨季</h2>
+    <button>点我</button>
+
+<script>
+    var h2 = document.querySelector('h2');
+    document.querySelector('button').onclick = function() {
+        h2.setAttribute('style', 'color:red;');
+    }
+</script>
+```
+
+5.3 removeAttribute()
+removeAttribute(‘属性名’); 删除元素属性
+```
+<div class="div">我的div</div>
+
+var div = document.querySelector(".div");
+div.setAttribute("style", "width:200px; height:200px;border:2px #ccc solid;");
+console.log("getAttribute的值为：" + div.getAttribute('style'));
+
+//当在实例2的基础之上加上下面这句后
+div.removeAttribute('style');
+```
+
+6. 操作元素–操作元素内容
+innerHTML/innerText/textCoontent都能获取元素的内容
+节点.innerHTML 获取节点下所有内容包含标签，单标签（譬如img、input）不能用这种方法获取，因为单标签内部没有文本内容
+节点.innerText  //获取节点下的文本内容，会过滤到标签
+节点.value // 可以获取input输入框等表单控件的内容 
+  - console.log(docment.getElementsByName('txt')[0].value);
+  - console.log(docment.forms[0].txt.value) 这种必须有form元素
+  - console.log(document.querySelector('input').value)
+  ```js
+   docment.form[0].txt.onblur = function() {
+   // 失去焦点时触发
+   console.log(this.value)  // 这里的this代表当前操作的dom对象
+   if (this.value === 'aaa') {
+     // 输入特定值，跳转到。。。
+     location.href = "www.baidu.com"
+   }
+   }
+  ```
+节点.getAttribute("value")  // value是表单输入框的属性
+6.1 innerText
+从起始位置到终止位置的内容，但它去除html标签，同时空格和换行也会去掉
+```js
+    <style>
+      div,
+      p {
+        width: 400px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        background-color: pink;
+      }
+    </style>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>1123</p>
+
+    <script>
+      // 当我们点击了按钮，  div里面的文字会发生变化
+      // 1. 获取元素
+      var btn1 = document.querySelector("button");
+      var div = document.querySelector("div");
+      // 2.注册事件
+      btn1.onclick = function () {
+        // div.innerText = '2022-5-10';
+        div.innerHTML = getDate();
+      };
+
+      function getDate() {
+        var date = new Date();
+        // 我们写一个 2022年 5月 10日 星期二
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var dates = date.getDate();
+        var arr = [
+          "星期日",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六",
+        ];
+        var day = date.getDay();
+        return (
+          "今天是：" + year + "年" + month + "月" + dates + "日 " + arr[day]
+        );
+      }
+      // 元素也可以不用添加事件，直接赋值
+      var p = document.querySelector("p");
+      p.innerHTML = getDate();
+    </script>
+```
+
+6.2 innerHTML
+从起始位置到终止位置的全部内容，包括 html 标签，同时保留空格和换行
+```js
+    <div></div>
+    <p>
+        我是文字
+        <span>123</span>
+    </p>
+<script>
+        // innerText 和 innerHTML的区别 
+        // 1. innerText 不识别html标签 非标准  去除空格和换行
+        var div = document.querySelector('div');
+        div.innerText = '<strong>今天是：</strong> 2019';
+        //div.innerText += '<strong>今天是：</strong> 2019';
+        // 2. innerHTML 识别html标签 W3C标准 保留空格和换行的
+        // div.innerHTML = '<strong>今天是：</strong> 2019';
+        // 这两个属性是可读写的  可以获取元素里面的内容
+        var p = document.querySelector('p');
+        console.log(p.innerText);
+        // console.log(p.innerHTML);
+</script>
+```
+6.3 innerText 、 innerHTML以及textCoontent的区别
+innerHTML获取的内容包含标签，innerText/textCoontent获取的内容不包含标签
+innerHTML/textCoontent获取的内容不会去除两端的空格，innerText获取的内容会去除两端的空格
+无论通过innerHTML/innerText/textCoontent设置内容，新的内容都会覆盖原来的内容
+如果通过 innerHTML 设置数据，数据中包含标签，会自动解析标签、转换成标签后再添加
+如果是通过innerText/textCoontent设置数据，数据中包含的标签不会转换成标签，会当做字符串直接设置
+```js
+        setText(oDiv, "www.baidu.com");
+
+        function setText(obj, text) { //obj--对象 text--文本
+            //判断对象中是否有 textContent 属性
+            if ("textContent" in obj) {
+                obj.textContent = text;
+            } else {
+                obj.innerText = text;
+            }
+        }
+```
+
+对input的值的获取
+```js
+
+    <button id="btn"><span>这是</span>切换图片</button>
+    <form name="test2" action="" method="post">
+      <input type="text" name="txt" id="" value="这是表单文本框的内容" />
+      <input type="radio" name="sex" id="" value="1" />男
+      <input type="radio" name="sex" id="" value="0" />女<br />
+      <input type="checkbox" name="hobby" id="" value="0" />编程
+      <input type="checkbox" name="hobby" id="" value="1" />音乐
+      <input type="checkbox" name="hobby" id="" value="2" />游戏
+      <input type="checkbox" name="hobby" id="" value="4" />其他
+      <br />
+      <input type="button" value="提交" id="ok" />
+    </form>
+    <script>
+      document.querySelector("form[name='test2']").sex.value = "1";
+      document.querySelector("form[name='test2']").hobby.value = "1"; // 不能通过value设置复选框的某项被选中
+      document.querySelector("form[name='test2']").hobby[1].checked = true;
+      document.querySelector("form[name='test2']").hobby[2].checked = false;
+      // 单击提交按钮 获取所有复选框被选中的值
+      document.querySelector("#ok").onclick = function () {
+        var chks = document.querySelectorAll(
+          "form[name='test2'] input[type='checkbox']"
+        );
+        console.log(chks);
+        var arr = [];
+        var txt = [];
+        for (var i in chks) {
+          if (chks[i].checked) {
+            arr.push(chks[i].value);  // 值
+            txt.push(chks[i].nextSibling.nodeValue);  //  文本内容
+          }
+        }
+        console.log(arr, txt);
+      };
+    </script>
+```
+
+7. 操作元素–操作元素样式
+   方案一： 操作class。 ①获取class 节点.className 获取节点的所有class；节点.getAttribute("class")获取节点的所有class。②设置class。 节点.className = 值； 节点setAttribute("class", 值)；通过 节点.classList.add(value)添加、节点.classList.contains(value)判断是否包含、节点.classList.remove(value)删除class、节点.classList.toggle(value) 切换class
+7.1 style
+描述：用来读写和设置元素的 行内 样式
+语法：元素节点.style.xxx
+** 注意：**
+
+a.将横杠从CSS属性名中去除，然后将横杠后的第一个字母大写（比如：backgroundColor…）
+b.CSS属性名是JavaScript保留字的，在属性名之前需要加上字符串“css”
+c.style对象的属性值都是字符串，而且包括单位。
+d.通过js添加的样式都是行内样式，会覆盖掉同名的css样式
+```js
+<script>
+    	var h2 = document.createElement('h2');
+        h2.innerHTML = '百度';
+
+
+        // 方式1
+        // var h2_style = document.createAttribute('style');
+        // h2_style.value = 'text-align:center;color:red';
+        // h2.setAttributeNode(h2_style);
+
+
+        //方式2
+        // h2.setAttribute("style", "text-align:center;color:red");
+
+
+        // 方式3
+        h2.style.textAlign = 'center';
+        h2.style.color = 'red';
+        // h2.style.cssFloat = 'left';
+
+
+		//方式4，见紧接着下面的 cssText 属性
+
+        document.body.appendChild(h2);
+</script>
+```
+
+7.2 style.cssText属性
+描述：可以用来读写或删除整个style属性
+语法：元素节点.style.cssText=‘css样式’
+```js
+<script>
+    // 创建元素
+    var h2 = document.createElement('h2');
+
+    // 在元素内添加内容
+    h2.innerHTML = '百度';
+
+    // 给元素设置相关样式  h2.style.cssText等价于 h2.style.value
+    h2.style.cssText = 'color: #f40; text-align: center; font-size: 16px;';
+
+    // 将创建的元素加入到页面中
+    document.body.appendChild(h2);
+</script>
+```
+注意：
+删除整个 style 属性可以用 xxx.style.cssText=" ";
+cssText 对应的是HTML元素的style属性，因此不用改写css属性名
+
+7.3 元素节点的style属性方法
+
+针对的是 style 属性里面的某一个属性名和值
+setProperty(propertyName,value) 设置某个css属性
+getPropertyValue(propertyName) 读取某个css属性
+removeProperty(propertyName) 删除某个css属性
+这三个方法的第一个参数，都是css属性名，且不用改写连线词
+```js
+<script>
+    var divStyle = document.querySelector('div').style;
+
+    //divStyle.setProperty('background-color', 'blue');
+
+    //console.log(divStyle.getPropertyValue('background-color'));//red
+
+    divStyle.removeProperty('background-color')
+</script>
+```
+7.4 className属性
+通过 元素.className 来设置元素的样式
+适合于样式较多或者功能复杂的情况
+如果想要保留原先的类名，我们可以按照如下示例的方式做 多类名选择器
+```js
+<style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        .change {
+            background-color: purple;
+            color: #fff;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+</style>
+    <div class="first">文本</div>
+    <script>
+        // 1. 使用 element.style 获得修改元素样式  如果样式比较少 或者 功能简单的情况下使用
+        var test = document.querySelector('div');
+        console.log(test.className) // first
+        console.log(test.getAttributer("class")) // first
+        test.onclick = function() {
+            // 2. 我们可以通过 修改元素的className更改元素的样式 适合于样式较多或者功能复杂的情况
+            // 3. 如果想要保留原先的类名，我们可以这么做 多类名选择器
+            // this.className = 'change';
+            this.className = 'first change';  // 或下面这种写法
+            this.className += ' change';
+        }
+  </script>
+```
+
+7.5 获取元素样式–getComputedStyle(对象)
+通过style属性只能获取到行内样式的属性值，获取不到CSS设置的属性值(例如：oDiv.styyle.width)
+如果想获取到CSS设置的属性值，必须通过getComputedStyle方法获取(例如：window.getComputedStyle(oDiv).width)
+该方法返回一个CSS对象，该对象中存储的是一个标签经过计算之后的最终样式，最终样式中包含了写在内部样式和外部样式中的内容，但是该CSS对象的样式是只读的，也就是我们无法通过该对象来修改样式
+
+7.6 classList
+标签对象.classList
+获取一个标签对象的所有class值，保存在一个对象中，提供了一个函数add，可以向class属性中添加一个值
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid orangered;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .red {
+            background-color: red;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <script>
+        let box1 = document.getElementById("box1");
+        box1.classList.add("pink");
+        box1.classList.add("red");
+        box1.classList.remove("pink");
+        // 判断
+        console.log(box1.classList.contains("pink"));// false
+    </script>
+</body>
+</html>
+```
+
+1. 操作元素–修改元素属性以及表单属性
+8.1 修改元素属性–src
+```js
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button> <br>
+    <img src="images/ldh.jpg" alt="" title="刘德华">
+<script>
+        // 修改元素属性  src
+        // 1. 获取元素
+        var ldh = document.getElementById('ldh');
+        var zxy = document.getElementById('zxy');
+        var img = document.querySelector('img');
+        // 2. 注册事件  处理程序
+        zxy.onclick = function() {
+            img.src = 'images/zxy.jpg';
+            img.title = '张学友思密达';
+        }
+        ldh.onclick = function() {
+            img.src = 'images/ldh.jpg';
+            img.title = '刘德华';
+        }
+        </script>
+```
+
+
+修改其他元素属性依次类推，比如：
+
+输入框的对象.value
+1.文本框、密码框 value 代表的是它们的值，通过value能够读取或设置文本框或密码框的值
+```js
+    <button>按钮</button>
+    <input type="text" value="输入内容">
+    <script>
+        // 1. 获取元素
+        var btn = document.querySelector('button');
+        var input = document.querySelector('input');
+        // 2. 注册事件 处理程序
+        btn.onclick = function() {
+            // input.innerHTML = '点击了';  这个是 普通盒子 比如 div 标签里面的内容
+            // 表单里面的值 文字内容是通过 value 来修改的
+            input.value = '被点击了';
+            // 如果想要某个表单被禁用 不能再点击 disabled  我们想要这个按钮 button禁用
+            // btn.disabled = true;
+            this.disabled = true;
+            // this 指向的是事件函数的调用者 btn
+        }
+    </script>
+```
+2.单选框和多选框的value属性，代表的是提交到服务器的数据，这个value值通常是不去做修改的
+3.下拉框的value属性，可以用于设置某一个下拉选项为选中状态 下拉框的值=选中的值
+4.下拉框中option属性，代表的是提交到服务器的数据，如果没有value提交的是文本，因此通常不做修改
+
+input标签对象.type
+单选框和多选框.checked
+```js
+    <input type="checkbox" class="single">1
+    <input type="checkbox" class="single">2
+    <input type="checkbox" class="single">3
+    <input type="checkbox" id="all">全选
+   
+    <script>
+        /**
+         * 点击全选，所有单选全部选中
+         * 再次点击全选，所有单选按钮全部不选中
+         * 当所有单选全部选中时，全选按钮选中
+         * 当全选状态时，某一个单选按钮未选中，则全选按钮未选中
+        */
+       //1.实现全选
+       let allChecked = document.querySelector("#all");
+       let sings = document.querySelectorAll(".single");
+
+       // 全选
+       allChecked.onclick = function(){
+           for(let i = 0; i < sings.length; i++){
+                sings[i].checked = allChecked.checked;
+           }
+       };
+
+       // 单选
+       sings.forEach(element => {
+            element.onclick = function(){
+               let flag = true;
+               for(let i = 0; i < sings.length; i++){
+                   if(!sings[i].checked) {
+                        flag = false;
+                        break;
+                   }
+               }
+            allChecked.checked = flag;
+        };
+       })
+    </script>
+```
+
+a标签的 href
+```js
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/s.gif" alt="">
+    <div>上午好</div>
+    <script>
+        // 根据系统不同时间来判断，所以需要用到日期内置对象
+        // 利用多分支语句来设置不同的图片
+        // 需要一个图片，并且根据时间修改图片，就需要用到操作元素src属性
+        // 需要一个div元素，显示不同问候语，修改元素内容即可
+        // 1.获取元素
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        
+        // 2. 得到当前的小时数
+        var date = new Date();
+        var h = date.getHours();
+        
+        // 3. 判断小时数改变图片和文字信息
+        if (h < 12) {
+            img.src = 'images/s.gif';
+            div.innerHTML = '亲，上午好，好好写代码';
+        } else if (h < 18) {
+            img.src = 'images/x.gif';
+            div.innerHTML = '亲，下午好，好好写代码';
+        } else {
+            img.src = 'images/w.gif';
+            div.innerHTML = '亲，晚上好，好好写代码';
+
+        }
+    </script>
+</body>
+</html>
+```
+
+获取所有的子节点:
+childNodes():得到所有子节点的数组，可以通过下标去访问,会连文本节点一同获取。
+children():获取某标签下的所有元素节点,得到的也是一个数组，使用方式和childNodes是一样的。
+attributes:获取某元素节点下的所有的属性节点，返回的也是一个数组，可以通过下标进行访问。
+
+firstChild:获取某节点下的第一个子节点，包含文本节点。
+firstElementChild:获取某节点下的第一个元素节点。
+lastChild获取最后一个子节点。
+使用lastElementChild获取最后一个子元素。
+
+parentNodes:获取父节点。
+previousSibling:获取上一个兄弟节点(包含文本节点)。
+priviousElementSibling:获取上一个兄弟元素(不包含文本节点)。
+nextSibling:获取下一个兄弟节点(包含文本节点)。
+nextElementSibling:下一个兄弟元素(不包含文本节点)。 
+       

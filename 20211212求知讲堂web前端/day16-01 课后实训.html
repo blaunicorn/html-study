@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .box {
+        margin: 0 auto;
+        width: 400px;
+        text-align: center;
+        border: 2px solid pink;
+      }
+      .gift {
+        height: 200px;
+        width: 400px;
+        line-height: 200px;
+        font-size: 18px;
+        background-color: pink;
+      }
+      button {
+        cursor: pointer;
+        width: 70px;
+        height: 30px;
+        margin: 20px 20px;
+        font-size: 14px;
+        background-color: #00f;
+        color: #fff;
+      }
+    </style>
+    <div class="box">
+      <div class="gift">开始抽奖了</div>
+      <button class="start">开始</button>
+      <button class="stop">停止</button>
+    </div>
+    <script>
+      // 1.需求：用js写一个抽奖程序，点击开始按钮开始随机，点击停止按钮停止随机，出现奖品
+      let gifts = [
+        { id: 1, name: 1, probability: 0.01 },
+        { id: 2, name: 2, probability: 0.5 },
+        { id: 3, name: 3, probability: 0.6 },
+        { id: 4, name: "纸抽一包", probability: 0.88 },
+        { id: 5, name: "下次中奖", probability: 0.99 },
+      ];
+      let gift = document.querySelector(".gift"),
+        start = document.querySelector(".start"),
+        stop = document.querySelector(".stop");
+      let timer = null;
+      //  停止抽奖
+      stop.addEventListener("click", function () {
+        if (!timer) return;
+        clearInterval(timer);
+        console.log(timer);
+        timer = null;
+        let chanceSelect = random(gifts, gifts);
+        console.log(chanceSelect);
+        gift.textContent = chanceSelect.name || gifts[1].name;
+      });
+      // 开始抽强
+      start.addEventListener("click", function () {
+        if (timer != null) return;
+        timer = setInterval(() => {
+          gift.textContent =
+            gifts[Math.floor(Math.random() * gifts.length)].name ||
+            gifts[1].name;
+        }, 200);
+      });
+
+      /*
+       *在抽奖的活动中经常会用到这个算法，不同奖项的获取概率不同，要按概率去随机生成对应的奖品
+       *
+       */
+      function random(arr1 = [], probability = []) {
+        var sum = 0,
+          factor = 0,
+          random = Math.random();
+
+        // for(var i = probability.length - 1; i >= 0; i--) {
+        //   sum += probability[i];
+        // };
+        // 统计概率总和
+        sum = probability.reduce((sum, cur, index) => {
+          return sum + cur.probability;
+        }, 0);
+        console.log(probability, sum);
+        random *= sum; // 生成概率随机数
+        for (var i = probability.length - 1; i >= 0; i--) {
+          factor += probability[i].probability;
+          if (random <= factor) return arr1[i];
+        }
+        return null;
+      }
+
+      // 2、传入字符串"?name=前段开发&blog=www.baidu.com",返回对象
+      let url = "?name=前段开发&blog=www.baidu.com";
+      function getRequest(url = location.search) {
+        let data = {};
+        if (url.indexOf("?") != -1) {
+          let str = url.substr(1).split("&");
+          str.forEach((item) => {
+            let temp = item.split("=");
+            data[temp[0]] = decodeURIComponent(temp[1]);
+          });
+        }
+        return data;
+      }
+      console.log(getRequest(url));
+    </script>
+  </body>
+</html>
