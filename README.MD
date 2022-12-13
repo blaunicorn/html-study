@@ -1,3 +1,16 @@
+
+```
+ git clone https://github.com/blaunicorn/html-study.git
+ // 或者
+ git init
+ git remote add origin git@github.com:blaunicorn/html-study.git
+ git pull origin master
+ // 修改后
+ git add .
+ git commit -m "我修改了readme.md"
+ git push origin master
+```
+
 ### 知讲堂 web 前端 20 天
 
 F:\code-tencent\html-study\求知讲堂 web 前端
