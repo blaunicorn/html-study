@@ -1,7 +1,9 @@
-
+### git操作
 ```
  git clone https://github.com/blaunicorn/html-study.git
  // 或者
+ git config --global user.email "blackunicorn@163.com"
+ git config --global user.name "blaunicorn"  
  git init
  git remote add origin git@github.com:blaunicorn/html-study.git
  git pull origin master
@@ -11,7 +13,11 @@
  git push origin master
 ```
 
-### 知讲堂 web 前端 20 天
+### 固定布局复习
+E:\Coding_Github\html-study\20221213css定位
+
+
+### 求知讲堂 web 前端 20 天
 
 F:\code-tencent\html-study\求知讲堂 web 前端
 https://www.bilibili.com/video/BV1i7411Z7d8?p=50
