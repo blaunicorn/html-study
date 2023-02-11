@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      .table1 {
+        margin: 20px auto 0;
+        width: 600px;
+        border-collapse: collapse;
+        border: 1;
+      }
+      table,
+      table tr th,
+      table tr td {
+        border: 1px solid #0094ff;
+        text-align: center;
+      }
+      table img {
+        cursor: pointer;
+      }
+      button {
+        cursor: pointer;
+      }
+      .big-img {
+        position: absolute;
+        border: solid 1px #ccc;
+        padding: 3px;
+        /* width: 85px; */
+        height: 120px;
+        background-color: #ccc;
+        display: block;
+        /* display: none; */
+      }
+    </style>
+    页面初始化，使用隔行变色表格展示数据。
+    选择复选框，可以删除，可以全选，多选，图片可放大预览
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+      var arr = [
+        {
+          id: 1,
+          name: "李夏明1",
+          pic: "images/href-bg-1.jpg",
+          sex: "男",
+          price: "36.5元",
+        },
+        {
+          id: 2,
+          name: "李夏明2",
+          pic: "images/href-bg-2.jpg",
+          sex: "女",
+          price: "36.5元",
+        },
+        {
+          id: 3,
+          name: "李夏明3",
+          pic: "images/href-bg-3.jpg",
+          sex: "女",
+          price: "36.5元",
+        },
+        {
+          id: 4,
+          name: "李夏明4",
+          pic: "images/href-bg-4.jpg",
+          sex: "男",
+          price: "36.5元",
+        },
+      ];
+      let title = [
+        { sort: 0, name: "编号", value: "id" },
+        { sort: 1, name: "作者", value: "name" },
+        { sort: 2, name: "封面", value: "pic" },
+        { sort: 3, name: "性别", value: "sex" },
+        { sort: 4, name: "价格", value: "price" },
+      ];
+      let html = "<h2 >数据管理</h2>";
+      let header = "";
+      title.map((item) => {
+        header += `<th>${item.name}</th>`;
+      });
+      header = `<tr><th>选择</th>${header}</tr>`;
+      let tbody = "";
+      arr.map((item) => {
+        tbody += `<tr>`;
+        tbody += `<td><input type="checkbox" value="${item.id}"/></td>`;
+        // Object.keys(item).forEach((element) => {
+        title.map((element) => {
+          if (element.value === "pic") {
+            tbody += `<td><img src="${item[element["value"]]}" /></td>`;
+          } else {
+            tbody += `<td>${item[element.value]}</td>`;
+          }
+        });
+        tbody += `</td>`;
+      });
+      let foot = `<tr><td><input type="checkbox" value="-1"/>全选</td><td colspan=${header.length} style="text-align:right;margin:5px 5px;"><button class="del">删除</button></td>`;
+      html += `<table class="table1"><thead>${header}</thead><tbody>${tbody}</tbody><tfoot>${foot}</tfoot></table`;
+      $("body").append(html);
+
+      // 隔行显示不同颜色
+      $(".table1 tbody tr:odd").css("backgroundColor", "#eee");
+      $(".table1 tbody tr:even").css("backgroundColor", "#ddd");
+
+      // 点击全选，图书全部选中
+      $("tr td [value=-1]").change(function () {
+        console.log(this.checked);
+        // jq中对于本身就有的属性，用prop ，对于用户自定义dom事件一般用attr
+        if (this.checked) {
+          $(".table1 input[type=checkbox]").prop("checked", true);
+        } else {
+          $(".table1 input[type=checkbox]").prop("checked", false);
+        }
+      });
+
+      //  单击删除按钮，根据选择，删除数据
+      $(".del").click(function () {
+        let checkAll = $(".table1 tbody tr input[type=checkbox]:checked");
+        console.log(checkAll);
+        checkAll.each(function () {
+          console.log(this.value);
+          // 方式一 删除父级的父级
+          console.log($(this).parent().parent());
+          $(this).parent().parent().empty();
+          // 方式二 删除数据，然后重新填充数据
+        });
+      });
+
+      // 鼠标移动的图片上时，预览图片
+      let point = {
+        x: 15,
+        y: 5,
+      }; // 图片初始位置
+      $(".table1 img").mousemove(function (e) {
+        let img = $(this).attr("src");
+        let dom = `<img src=${img} class="big-img" />`;
+        if ($(".big-img")) {
+          $(".big-img").remove();
+        }
+        $(this).parent().append(dom).fadeIn(3000);
+
+        $(".big-img").css({
+          top: e.pageY + point.y + "px",
+          left: e.pageX + point.x + "px",
+        });
+      });
+      $(".table1 img").mouseout(function (e) {
+        if ($(".big-img")) {
+          $(".big-img").remove();
+        }
+      });
+    </script>
+  </body>
+</html>

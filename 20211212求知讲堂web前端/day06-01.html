@@ -1,143 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<!-- html5新表单操作 -->
-		<form action="#" method="post">
-			<input type="color" name="color" id="" />
-			<input type="email" name="" id="" />
-			<input type="tel" name="" id="" />
-			<input type="url" name="" id="" />
-			<input type="number" max="100" min="-100" step="10" name="" id="" />
-			<input type="range" value="20" name="" id="" />
-			<input type="search" name="" id="" />
-			<input type="date" name="" id="" />
-			<input type="datetime" name="" id="" />
-			<input type="datetime-local" name="" id="" />
-			<input type="week" name="" id="" />
-			<input type="time" name="" id="" />
-			<input type="submit" value="submit" />
-		</form>
-		<script>
-			var color = document.getElementsByName('color')[0];
-			color.addEventListener('change', function () {
-				console.log(color.value);
-			});
-		</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- html5新表单操作 -->
+    <form action="#" method="post">
+      <input type="color" name="color" id="" />
+      <input type="email" name="" id="" />
+      <input type="tel" name="" id="" />
+      <input type="url" name="" id="" />
+      <input type="number" max="100" min="-100" step="10" name="" id="" />
+      <input type="range" value="20" name="" id="" />
+      <input type="search" name="" id="" />
+      <input type="date" name="" id="" />
+      <input type="datetime" name="" id="" />
+      <input type="datetime-local" name="" id="" />
+      <input type="week" name="" id="" />
+      <input type="time" name="" id="" />
+      <input type="submit" value="submit" />
+    </form>
+    <script>
+      var color = document.getElementsByName("color")[0];
+      color.addEventListener("change", function () {
+        console.log(color.value);
+      });
+    </script>
 
-		<!-- html5新表单属性 -->
-		<form action="" enctype="multipart/form-data" id="user-info">
-			<input type="submit" value="submit" formmethod="post" formaction="http://163.com" />
-		</form>
-		<input type="submit" form="user-info" value="submit out fomr" formmethod="post" />
-		<details>
-			<summary>大前端开发</summary>
-			<p>包括2。。。。。</p>
-			<p>包括2。。。。。</p>
-		</details>
+    <!-- html5新表单属性 -->
+    <form action="" enctype="multipart/form-data" id="user-info">
+      <input
+        type="submit"
+        value="submit"
+        formmethod="post"
+        formaction="http://163.com"
+      />
+    </form>
+    <input
+      type="submit"
+      form="user-info"
+      value="submit out fomr"
+      formmethod="post"
+    />
+    <details>
+      <summary>大前端开发</summary>
+      <p>包括2。。。。。</p>
+      <p>包括2。。。。。</p>
+    </details>
 
-		<meter value="110" max="120" min="80"></meter>公里/小时
+    <meter value="110" max="120" min="80"></meter>公里/小时
 
-		<p>任务完成</p>
-		<progress max="100" value="40"></progress>
+    <p>任务完成</p>
+    <progress max="100" value="40"></progress>
 
-		<style>
-			dialog {
-				position: relative;
-			}
-			dialog span {
-				position: absolute;
-				right: 5px;
-				top: 0px;
-				padding: 10px;
-				cursor: pointer;
-			}
-		</style>
-		<dialog open class="dialog">
-			<span class="close">&times;</span>
-			<h2>这是一个打开的对话框</h2>
-		</dialog>
-		<script>
-			var dialog = document.getElementsByClassName('dialog')[0];
-			var button = document.getElementsByClassName('close')[0];
-			button.addEventListener('click', function () {
-				dialog.close();
-			});
-		</script>
+    <style>
+      dialog {
+        position: relative;
+      }
+      dialog span {
+        position: absolute;
+        right: 5px;
+        top: 0px;
+        padding: 10px;
+        cursor: pointer;
+      }
+    </style>
+    <dialog open class="dialog">
+      <span class="close">&times;</span>
+      <h2>这是一个打开的对话框</h2>
+    </dialog>
+    <script>
+      var dialog = document.getElementsByClassName("dialog")[0];
+      var button = document.getElementsByClassName("close")[0];
+      button.addEventListener("click", function () {
+        dialog.close();
+      });
+    </script>
 
-		<style>
-			figure {
-				width: 200px;
-				text-align: center;
-			}
-			figure img {
-				width: 100%;
-			}
-			figure p {
-				margin-top: -4px;
-			}
-		</style>
-		<figure>
-			<h4>冰天雪地</h4>
-			<img src="./images/logo.png" alt="" srcset="" />
-			<p>这个很冷的</p>
-		</figure>
+    <style>
+      figure {
+        width: 200px;
+        text-align: center;
+      }
+      figure img {
+        width: 100%;
+      }
+      figure p {
+        margin-top: -4px;
+      }
+    </style>
+    <figure>
+      <h4>冰天雪地</h4>
+      <img src="./images/logo.png" alt="" srcset="" />
+      <p>这个很冷的</p>
+    </figure>
 
-		<!-- html5多媒体标签 -->
-		<audio src="a.mp3" controls loop="2" muted preload="auto"></audio>
-		<video src="b.mp4" controls poster="images/logo.png"></video>
-		<embed src="c.swf" type="application/x-shockwave-flash" />
-		<embed src="d.ogg" type="video/ogg" />
+    <!-- html5多媒体标签 -->
+    <audio src="a.mp3" controls loop="2" muted preload="auto"></audio>
+    <video src="b.mp4" controls poster="images/logo.png"></video>
+    <embed src="c.swf" type="application/x-shockwave-flash" />
+    <embed src="d.ogg" type="video/ogg" />
 
-		<!-- html5多媒体标签 -->
-		<canvas width="400" height="400" style="background: chartreuse"></canvas>
-		<script>
-			var canvas = document.getElementsByTagName('canvas')[0];
-			var ctx = canvas.getContext('2d');
-			ctx.fillStyle = '#ff0000';
-			ctx.fillRect(20, 20, 100, 50);
-		</script>
+    <!-- html5多媒体标签 -->
+    <canvas width="400" height="400" style="background: chartreuse"></canvas>
+    <script>
+      var canvas = document.getElementsByTagName("canvas")[0];
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#ff0000";
+      ctx.fillRect(20, 20, 100, 50);
+    </script>
 
-		<!-- html5新增常用属性 -->
-		<p contenteditable="true">是否可编辑</p>
+    <!-- html5新增常用属性 -->
+    <p contenteditable="true">是否可编辑</p>
 
-		<div class="box">box1</div>
-		<div class="box" hidden>box2</div>
-		<div class="box">box3</div>
+    <div class="box">box1</div>
+    <div class="box" hidden>box2</div>
+    <div class="box">box3</div>
 
-		<div data-id="0001" id="getId">这是内容</div>
-		<script>
-			const getId = document.getElementById('getId');
-			//getAttribute()取值属性
-			console.log(getId.getAttribute('data-id'));
-			//getAttribute()取值属性
-			console.log(getId.getAttribute('data-id'));
-			//data-前缀属性可以在JS中通过dataset取值，更加方便
-			console.log(getId.dataset.id);
-			//赋值
-			getId.dataset.id = '113'; //
-		</script>
+    <div data-id="0001" id="getId">这是内容</div>
+    <script>
+      const getId = document.getElementById("getId");
+      //getAttribute()取值属性
+      console.log(getId.getAttribute("data-id"));
+      //getAttribute()取值属性
+      console.log(getId.getAttribute("data-id"));
+      //data-前缀属性可以在JS中通过dataset取值，更加方便
+      console.log(getId.dataset.id);
+      //赋值
+      getId.dataset.id = "113"; //
+    </script>
 
-		<select name="" id="" multiple>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-		</select>
+    <select name="" id="" multiple>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
 
-		<form action="#" method="post">
-			<input type="text" name="" id="" required />
-			<input type="email" name="" id="" />
-			<input type="text" name="" id="" pattern="[A-Za-z]{4,6}" />
-			<input type="submit" value="提交" />
-		</form>
-	</body>
+    <form action="#" method="post">
+      <input type="text" name="" id="" required />
+      <input type="email" name="" id="" />
+      <input type="text" name="" id="" pattern="[A-Za-z]{4,6}" />
+      <input type="submit" value="提交" />
+    </form>
+  </body>
 </html>
-<SCRIPT Language=VBScript><!--
-
-//--></SCRIPT>

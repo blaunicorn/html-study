@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>信息</h2>
+    <table border="1" width="300" class="employer">
+      <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+      </tr>
+    </table>
+    <ul class="score"></ul>
+    <table border="1" width="800" class="students">
+      <caption>
+        学生成绩表
+      </caption>
+      <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+      </tr>
+    </table>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+      // json对象
+      let obj = {
+        id: "111",
+        name: "tom",
+        sex: "man",
+        age: 18,
+        address: "china",
+      };
+      let header = "";
+      let row = "";
+      header += `<tr>`;
+      row += `<tr>`;
+      Object.keys(obj).map((key) => {
+        header += `<td>${key}</td>`;
+        row += `<td>${obj[key]}</td>`;
+      });
+      header += `</tr>`;
+      row += `</tr>`;
+      // $(".employer").append(
+      //   `<tr><td>${obj.id}</td><td>${obj.name}</td><td>${obj.sex}</td><td>${obj.age}</td><td>${obj.address}</td></tr>`
+      // );
+      $(".employer").append(header);
+      $(".employer").append(row);
+
+      // json 数组
+      let score = [83, 23, 34, 1234, 54, 67, 45];
+      score.forEach((value, index) => {
+        $(".score").append(`<li>${index}. ${value}</li>`);
+      });
+      //  json 对象+数组
+      let students = [
+        {
+          id: "111",
+          name: "tom",
+          sex: "man",
+          age: 18,
+          address: "china",
+          score: [83, 23, 34, 1234, 54, 67, 45],
+        },
+        {
+          id: "112",
+          name: "tom2",
+          sex: "man",
+          age: 18,
+          address: "china",
+          score: [83, 23, 34, 1234, 54, 67, 45],
+        },
+        {
+          id: "113",
+          name: "tom3",
+          sex: "man",
+          age: 18,
+          address: "china",
+          score: [83, 23, 34, 1234, 54, 67, 45],
+        },
+      ];
+    </script>
+  </body>
+</html>

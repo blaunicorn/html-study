@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        border-collapse: collapse;
+        margin: 50px auto 0;
+      }
+      tr {
+        text-align: center;
+      }
+      th,
+      td {
+        line-height: 40px;
+        cursor: pointer;
+      }
+      thead th {
+        background-color: #00aeff;
+        color: #fff;
+      }
+      tbody tr:nth-child(n) {
+        background-color: #eee;
+      }
+      tbody tr:nth-child(2n) {
+        background-color: #999;
+      }
+    </style>
+    1.用js实现表格隔行变色效果，并且鼠标进入高亮显示，移开恢复原来的颜色
+    <table class="table" border="1" width="600">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>姓名</th>
+          <th>课程</th>
+          <th>成绩</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>吕布</td>
+          <td>计算机</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>吕布</td>
+          <td>计算机</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>吕布</td>
+          <td>计算机</td>
+          <td>80</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>吕布</td>
+          <td>计算机</td>
+          <td>80</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      let trs = document.querySelectorAll("tbody tr");
+      trs.forEach((tr, index) => {
+        console.log(getComputedStyle(tr).backgroundColor);
+        // console.log(this.style.getPropertyValue("background-color")); //无效
+        let color = getComputedStyle(tr).backgroundColor;
+        tr.onmouseover = function () {
+          this.style.backgroundColor = "#ffe";
+        };
+        // 方式一
+        // if ((index + 1) % 2) {
+        //   tr.onmouseout = function () {
+        //     this.style.backgroundColor = "#eee";
+        //   };
+        // } else {
+        //   tr.onmouseout = function () {
+        //     this.style.backgroundColor = "#999";
+        //   };
+        // }
+        //  方式二
+        tr.onmouseout = function () {
+          this.style.backgroundColor = color;
+        };
+      });
+    </script>
+    2.
+    实现相册功能，点击小图片，让下面的大图片修改路径为响应的小图片，让下面的图片说明修改innerhtml
+    <style>
+      .wrapper {
+        margin: 50px auto 0;
+        width: 500px;
+        border: 1px solid #00aeff;
+      }
+      .wrapper h2 {
+        text-align: center;
+      }
+      .wrapper ul {
+        display: flex;
+        overflow: hidden;
+      }
+      .wrapper li {
+        list-style: none;
+        min-width: 100px;
+        width: 100px;
+        height: 80px;
+        margin: 2px 2px;
+        cursor: pointer;
+        /* flex-shrink: 0; */
+      }
+      .wrapper li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .wrapper > img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+      }
+      .wrapper > p {
+        text-align: center;
+      }
+    </style>
+    <div class="wrapper">
+      <h2>相册</h2>
+      <hr />
+      <ul>
+        <li><img class="item" src="images/href-bg-1.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-2.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-3.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+        <li><img class="item" src="images/href-bg-4.jpg" alt="" /></li>
+      </ul>
+      <img class="big-pic" src="images/href-bg-1.jpg" alt="" srcset="" />
+      <p class="pic-txt">选择图片</p>
+    </div>
+    <script>
+      let items = document.querySelectorAll(".item");
+      let bigPicImg = document.querySelector(".big-pic");
+      let bigPicTxt = document.querySelector(".pic-txt");
+      items.forEach((item, index) => {
+        item.onmouseover = function () {
+          let src = item.getAttribute("src");
+          bigPicImg.setAttribute("src", src);
+          // bigPicImg.src = `images/href-bg-${index + 1}.jpg`;
+          bigPicTxt.innerText = `images/href-bg-${index + 1}.jpg`;
+        };
+      });
+    </script>
+  </body>
+</html>

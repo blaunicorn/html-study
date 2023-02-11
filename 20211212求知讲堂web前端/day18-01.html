@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="box"></div>
+    <p>1</p>
+    <p>2</p>
+
+    <!-- 本地引入 -->
+    <!-- <script src="js/jquery-3.6.0.js"></script> -->
+    <!-- cdn引入 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+      $(".box")
+        .html("wellcome jq!")
+        .css("color", "red")
+        .css("text-align", "center")
+        .mouseover(function () {
+          console.log(this);
+          $(this).fadeOut(2000);
+        })
+        .mouseout(function () {
+          $(this).fadeIn(1000);
+        });
+    </script>
+
+    <div class="box"></div>
+    <p>1</p>
+    <p>2</p>
+    <script>
+      $(".box").css({ color: "blue", backgroundColor: "#eee" });
+      // 添加元素
+      // 1. append方法用来在元素的末尾追加元素（最后一个子节点）
+      // 2. prepend方法在元素开始的时候追加元素（第一个子节点）
+      // 3. after方法在元素之后添加元素（添加兄弟）
+      // 4. before方法在元素之前添加元素（添加兄弟）
+      let link = $("<a href='#'></a>");
+      link.text("baidu");
+      $(".box").after(link);
+      link.text("baidu1");
+      $("p:first").append(link);
+    </script>
+
+    <!-- 选择器1 选择器2：选择器1的所有后代元素（选择器2）
+   选择器1 > 选择器2：只选择选择器1的直系子元素（选择器2）
+   选择器1 + 选择器2： 只选择选择器1的相邻元素（兄弟元素）
+   选择器1 ~ 选择器2： 选择选择器1的所有兄弟元素 -->
+    <div class="wrapper">
+      <span>span1</span>
+      <div class="box">
+        <span>span2</span>
+      </div>
+      <span>span3</span>
+    </div>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <div class="test">test1</div>
+    <script>
+      // 01
+      // $(".wrapper span").html("这是span新的内容"); // 三个span都改变了
+
+      // 02
+      // $(".wrapper > span").html("这是span新的内容"); // 只有直系子元素发生变化
+
+      //03
+      // $(".wrapper + p").html("这是p新的内容"); // 只选择紧挨着的相邻元素，如果没有相邻元素会选择不到的，如下
+      // $(".wrapper + .test").html("这是test1新的内容"); // 这个就选择不到
+
+      // 04
+      $(".wrapper ~ p").html("这是span新的内容"); //  选择所有兄弟元素
+      $(".wrapper ~ .test").html("这是test1新的内容"); // 这个即使不相邻，也能选择到
+    </script>
+
+    <!-- <style>
+      div {
+        display: none;
+      }
+    </style> -->
+
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <p>pppp</p>
+    <input type="hidden" value="拟隐藏传的值" /><br />
+    <input type="text" value="传的值" />
+    <script>
+      $("div:hidden").css("display", "block");
+      $("input:hidden").attr("type", "text"); // input的type不是css是属性
+    </script>
+
+    <p title="pp" id="ee">pp</p>
+    <p title="ppp">ppp</p>
+    <p title="value">ppp</p>
+    <p title="valce">ppp</p>
+    <p>2</p>
+    <script>
+      $("p[title]").css("color", "red");
+      $("p[title=pp]").css("color", "blue");
+      $("p[title!=pp]").css("color", "green");
+      $("p[title^=pp]").css("color", "green");
+      $("p[title$=lue]").css("color", "orange");
+      $("p[title*=e]").css("color", "orange");
+      $("p[title][id]").css("color", "orange");
+    </script>
+
+    <!-- <form action=""> 
+      <input type="text" value=""><br>
+      <input type="password" value=""><br>
+      <input type="button" value=""><br>
+      <input type="submit" value=""><br>
+        <button>提交<button>
+    </form>
+    <script>
+    $(":input").val("aaa")
+    </script> -->
+
+    <div class="box">box4</div>
+    <span
+      class="return-top"
+      style="
+        display: none;
+        border: 1px solid red;
+        float: right;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+      "
+      >回到顶部</span
+    >;
+    <script>
+      console.log($(".box").width(), $(".box").height());
+      $(".box").css("border", "1px solid red");
+      $(".box").width(200);
+      $(".box").height(200);
+      console.log($(".box").width(), $(".box").height());
+      console.log($(".box").innerWidth(), $(".box").innerHeight());
+      console.log($(".box").outerWidth(), $(".box").outerHeight());
+      console.log($(".box").outerWidth(true), $(".box").outerHeight(true));
+
+      console.log($(".box").offset()); // {top: 8, left: 8}
+      console.log($(".box").offset().top); // 8
+
+      console.log($(window).width()); // 548
+      console.log($(window).height()); // 920
+
+      console.log($(document).width()); // 548
+      console.log($(document).height()); // 1555
+
+      console.log($(document).scrollTop()); // 276
+      console.log($(document).scrollLeft()); // 0
+      // 动态获取
+      // $(window).scroll(function () {
+      //   throttle(realFunc, 500, 1000);
+      //   console.log($(document).scrollTop());
+      // });
+
+      // 实际想绑定在 scroll 事件上的 handler
+      function realFunc() {
+        console.log("throttle");
+        console.log($(document).scrollTop());
+      }
+      // 简单的节流函数
+      function throttle(func, wait, mustRun) {
+        console.log(1111);
+        var timeout,
+          startTime = new Date();
+
+        return (function () {
+          var context = this,
+            args = arguments,
+            curTime = new Date();
+
+          clearTimeout(timeout);
+          // 如果达到了规定的触发时间间隔，触发 handlerons
+
+          console.log(curTime - startTime >= mustRun);
+          if (curTime - startTime >= mustRun) {
+            console.log(222);
+            func.apply(context, args);
+            startTime = curTime;
+            // 没达到触发间隔，重新设定定时器
+          } else {
+            console.log(222);
+            timeout = setTimeout(func, wait);
+          }
+        })();
+      }
+
+      // 通过scrollTop回到顶端
+      $(window).scroll(function () {
+        // newFun();
+        throttle(newFun, 500, 1000);
+      });
+      let newFun = function () {
+        console.log(11);
+        if ($(document).scrollTop() > 50) {
+          $(".return-top").css("display", "block").fadeIn(3000);
+        } else {
+          $(".return-top").css("display", "none").fadeOut(3000);
+        }
+      };
+      $(".return-top").click(function () {
+        $(document).scrollTop(0);
+      });
+    </script>
+
+    <!-- <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <script>
+      $("ul li").each(function (i, item) {
+        console.log(i, item);
+        item.innerHTML = i;
+      });
+    </script> -->
+
+    dom事件
+    <div class="dom">dom</div>
+    <script>
+      $(".dom").click(function () {
+        console.log(this); // <div class="dom">dom</div>
+        $(this).html("click后数据变了").css("color", "red");
+      });
+    </script>
+
+    <script>
+      $(".dom").mouseenter(function () {
+        console.log(this); // <div class="dom">dom</div>
+        $(this).html("click后数据变了").css("color", "red");
+      });
+    </script>
+    <form action="">
+      <input type="text" name="user" id="" />
+    </form>
+    <script>
+      $(".dom").mouseleave(function () {
+        console.log(this); // <div class="dom">dom</div>
+        $(this).html("click后数据变了").css("color", "#000");
+      });
+
+      $("input[name=user]").keydown(function (e) {
+        console.log(e);
+        // e.keyCode 键值
+        if (e.keyCode === 13)
+          // 当按下回车键时，执行操作
+          // charCode()  keyCode() 有其不同之处。
+          console.log("准备上传", $(this).val());
+      });
+    </script>
+    <!-- - click() 鼠标单击 （进入子元素也触发）      
+   - mouseover() 鼠标离开 （离开子元素也触发）
+   - mouseenter() 鼠标进入（进入子元素不触发） 即默认阻止了冒泡
+
+   - mouseleave() 鼠标离开 (离开子元素不触发)
+   - keydown() 按下键盘键
+   - keyup() 松开键盘键
+   - keypress() 从键盘输入字符
+   - blue() 元素失去焦点
+   - focus() 元素获取焦点
+   - hover() 同时为mouseenter和mouseleave事件指定处理函数
+   - ready() dom加载完成
+   - resize() 浏览器窗口的大小发生改变
+   - scroll()  滚动条的位置发生变化
+   - submit() 用户递交表单 -->
+
+    <!-- 显示隐藏 -->
+    <!-- <style>
+      .box {
+        width: 400;
+        height: 300px;
+        background-color: #9f56ff;
+      }
+    </style>
+    <button>显示</button><button>隐藏</button><button>切换</button>
+    <div class="box">box</div>
+    <script>
+      $("button")
+        .eq(0)
+        .click(function () {
+          $(".box").show(3000); // 可以加数值，以ms为单位 fast（200ms） normal（400ms） slow（600ms）
+        });
+      $("button")
+        .eq(1)
+        .click(function () {
+          $(".box").hide();
+        });
+      $("button")
+        .eq(2)
+        .click(function () {
+          $(".box").toggle();
+        });
+    </script> -->
+
+    <!-- 显示隐藏 -->
+    <!-- <style>
+      .box {
+        width: 400;
+        height: 300px;
+        background-color: #9f56ff;
+      }
+    </style>
+    <button>显示</button><button>隐藏</button><button>切换</button>
+    <div class="box">box</div>
+    <script>
+      $("button")
+        .eq(0)
+        .click(function () {
+          $(".box").slideDown(3000); // 可以加数值，以ms为单位 fast（200ms） normal（400ms） slow（600ms）
+        });
+      $("button")
+        .eq(1)
+        .click(function () {
+          $(".box").slideUp();
+        });
+      $("button")
+        .eq(2)
+        .click(function () {
+          $(".box").slideToggle();
+        });
+    </script> -->
+
+    <!-- <style>
+      .box {
+        width: 400;
+        height: 300px;
+        background-color: #9f56ff;
+      }
+    </style>
+    <button>淡入</button><button>淡出</button><button>淡入到指定透明度</button>
+    <div class="box">box</div>
+    <script>
+      $("button")
+        .eq(0)
+        .click(function () {
+          $(".box").fadeIn(3000); // 可以加数值，以ms为单位 fast（200ms） normal（400ms） slow（600ms）
+        });
+      $("button")
+        .eq(1)
+        .click(function () {
+          $(".box").fadeOut();
+        });
+      $("button")
+        .eq(2)
+        .click(function () {
+          $(".box").fadeTo(2000, 0.5); // 两个参数，1动画事件，淡入到指定的透明度
+        });
+    </script> -->
+
+    <style>
+      .box {
+        width: 400;
+        height: 300px;
+        background-color: #9f56ff;
+      }
+    </style>
+    <button>动画1</button>
+    <div class="box">box</div>
+    <script>
+      $("button")
+        .eq(0)
+        .click(function () {
+          $(".box").animate({ width: "100px" }, 2000); //  1改变的对象；2动画时间；对颜色无效；有效属性：backgroundPosition\borderWidth\borderBottomWidth/borderRightWidth/borderTopWidth\borderSpacing\margin\marginBottom\marginLeft\marginRight\marginTop\outlineWidth\padding\paddingBottom\width\height\minHeight\minWidth\font\maxWidth\font\fontSize\bottm\left\right\top\letterSpacing\wordSpacing\lineHeight\textIndent
+        });
+      $("button")
+        .eq(1)
+        .click(function () {
+          $(".box").fadeOut();
+        });
+      $("button")
+        .eq(2)
+        .click(function () {
+          $(".box").fadeTo(2000, 0.5);
+        });
+    </script>
+  </body>
+</html>

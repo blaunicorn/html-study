@@ -4715,4 +4715,5 @@ previousSibling:获取上一个兄弟节点(包含文本节点)。
 priviousElementSibling:获取上一个兄弟元素(不包含文本节点)。
 nextSibling:获取下一个兄弟节点(包含文本节点)。
 nextElementSibling:下一个兄弟元素(不包含文本节点)。 
-       
+
+常用事件： onload onclick onbbclick onmousevoer onmouseout onmousemove onkeydown onkeyup onsubit onrest onkeypress onblur onfocus onresize onscorll ...

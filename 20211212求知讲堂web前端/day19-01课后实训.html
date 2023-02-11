@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    页面初始化，使用隔行变色表格展示数据。
+    选择复选框，可以删除，可以全选，多选，图片可放大预览
+    删除数据，有提示框，确定或取消，提示框始终居中显示。删除突出显示，并带全屏背景
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+      .body {
+        width: 600px;
+      }
+      .correct:before {
+        content: "\2714";
+        color: #008100;
+      }
+      .incorrect:before {
+        content: "\2716";
+        color: #b20610;
+        cursor: pointer;
+      }
+      input {
+        cursor: pointer;
+      }
+
+      input[type="checkbox"] {
+        position: relative;
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        cursor: pointer;
+      }
+      /* 
+      input[type="checkbox"]:after {
+        display: inline-block;
+        content: "";
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+        background: #fff;
+        border: 1px solid #ddd;
+      }
+
+      input[type="checkbox"]:checked:after {
+        content: "✓";
+        font-size: 12px;
+        line-height: 15px;
+        font-weight: bold;
+        color: rgb(236, 37, 37);
+        background-color: #28b673;
+        text-align: center;
+      } */
+
+      .btn {
+        border: #666 1px solid;
+        padding: 2px;
+        width: 65px;
+      }
+      ul {
+        list-style-type: none;
+        list-style-position: outside;
+      }
+      .show {
+        display: inline-block;
+        text-align: center;
+        background-color: #eee;
+        padding: 0 10px;
+      }
+
+      .show a {
+        /* background-color: #eee; */
+        width: 280px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        margin: 0 auto;
+      }
+      .show span {
+        padding-left: 50px;
+      }
+      .mask {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        filter: alpha(opacity=30);
+        display: none;
+        z-index: 100;
+      }
+      .dialog {
+        border: solid 2px #666;
+        position: absolute;
+
+        top: 50%;
+
+        left: 50%;
+
+        width: 50%;
+
+        max-width: 630px;
+
+        min-width: 320px;
+
+        height: auto;
+
+        z-index: 2000;
+
+        visibility: hidden;
+        /* 
+        visibility: visible; */
+
+        -webkit-backface-visibility: hidden;
+
+        -moz-backface-visibility: hidden;
+
+        backface-visibility: hidden;
+
+        -webkit-transform: translateX(-50%) translateY(-50%);
+
+        -moz-transform: translateX(-50%) translateY(-50%);
+
+        -ms-transform: translateX(-50%) translateY(-50%);
+
+        /* transform: translateX(-50%) translateY(-50%); */
+      }
+      .dialog .title {
+        background-color: #fbaf15;
+        padding: 10px;
+        color: #fff;
+        font-weight: bold;
+        height: 20px;
+      }
+
+      .dialog .title .incorrect {
+        float: right;
+      }
+      .dialog .content {
+        background-color: #fff;
+        padding: 25px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .dialog .content img {
+        height: 100%;
+        width: 30px;
+      }
+      .dialog .content span {
+        margin-left: 5px;
+      }
+      .dialog .bottom {
+        text-align: right;
+        padding: 10px 10px 10px 0px;
+        background-color: #eee;
+      }
+    </style>
+    <!-- 数据显示 -->
+    <div class="show">
+      <ul>
+        <li>
+          <input type="checkbox" id="checkbox1" />
+          <a href="#">这是一条可删除的数据</a>
+          <span
+            ><input class="btn1" type="button" value="删除" class="btn"
+          /></span>
+        </li>
+        <li>
+          <input type="checkbox" id="checkbox1" />
+          <a href="#">这是第二条可删除的数据</a>
+          <span
+            ><input class="btn1" type="button" value="删除" class="btn"
+          /></span>
+        </li>
+        <li>
+          <input type="checkbox" id="checkbox1" />
+          <a href="#">这是第三条可删除的数据</a>
+          <span
+            ><input class="btn1" type="button" value="删除" class="btn"
+          /></span>
+        </li>
+      </ul>
+    </div>
+    <!-- 遮罩 -->
+    <div class="mask"></div>
+    <!-- 删除对话框 -->
+    <div class="dialog">
+      <div class="title">
+        提示框
+        <div class="incorrect"></div>
+      </div>
+      <div class="content">
+        <img src="images/ambitios_first_row_bg.png" alt="" srcset="" />
+        <span>您真的要删除该条记录吗？</span>
+      </div>
+      <div class="bottom">
+        <input type="button" id="btn2" value="确定" class="btn" />
+        <input type="button" id="btn3" value="取消" class="btn" />
+      </div>
+    </div>
+    <script>
+      // 对话框动态居中
+      let dialog = $(".dialog");
+      function showDialog() {
+        // 窗口宽高
+        let objW = $(window).width();
+        let objH = $(window).height();
+        // 滚动条的距离
+        let scrollL = $(window).scrollLeft();
+        let scrollT = $(window).scrollTop();
+        // 对话框宽高
+
+        let dialogW = $(".dialog").width();
+        let dialogH = $(".dialog").height();
+        // 左右居中：(滚动条的距离+窗口宽高-对话框宽高)/2
+        let left = scrollL + (objW - dialogW) / 2;
+        let top = scrollT + (objH - dialogH) / 2;
+        console.log(objW, scrollL, dialogW, left, top);
+        // dialog.css({
+        //   position: "absolute",
+        //   left: left,
+        //   top: top,
+        // });
+      }
+
+      // 监听改变窗口大小时，对话框动态居中
+      $(window).resize(function () {
+        if (!dialog.is(":visible")) return;
+        showDialog();
+      });
+      let temp;
+      // 单击删除按钮时，显示对话框
+      $(".btn1").click(function () {
+        temp = this;
+        console.log(
+          temp,
+          $(temp).parent().parent().find("input").is(":checked")
+        );
+        dialog.css("visibility", "visible");
+        $(".mask").show();
+      });
+      // 单击取消，遮罩关闭
+      $("#btn3").click(function () {
+        dialog.css("visibility", "hidden");
+        $(".mask").hide();
+      });
+      // 单击右上角图标，执行关闭对话框和遮罩
+      $(".incorrect").click(function () {
+        dialog.css("visibility", "hidden");
+        $(".mask").hide();
+      });
+      // 单击确定，删除数据，遮罩关闭
+      $("#btn2").click(function () {
+        console.log(
+          temp,
+          $(temp).parent().parent().find("input").is(":checked"),
+          $(temp).parent().parent()
+        );
+
+        $(temp).parent().parent().remove();
+        dialog.css("visibility", "hidden");
+        $(".mask").hide();
+      });
+    </script>
+  </body>
+</html>

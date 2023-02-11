@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: url('./images/R-C.jpg') no-repeat center / cover;
+  display: flex;
+  justify-content: center;
+  align-content:space-around;
+  align-items: center;
+}
+.cy-title {
+  top: 1rem;
+  position: absolute;
+  font-size: 30px;
+  color: #ff0898;
+  font-family: '微软雅黑';
+  font-weight: bolder;
+text-shadow: 0 0 20px #fefcc9,
+    10px -10px 30px #feec85,
+    -20px -20px 40px #ffae34,
+    20px -40px 50px #ec760c,
+    0 -80px 70px #f38e1c;
+  /*设置文字阴影*/
+  -webkit-animation: flame 2s infinite;
+}
+@-webkit-keyframes flame {
+
+  /*创建动画*/
+  0% {
+    text-shadow: 0 0 20px #fefcc9,
+      10px -10px 30px #feec85,
+      -20px -20px 40px #ffae34,
+      20px -40px 50px #ec760c,
+      0 -80px 70px #f38e1c;
+  }
+
+  30% {
+    text-shadow: 0 0 20px #fefcc9,
+      10px -10px 30px #feec85,
+      -20px -20px 40px #ffae34,
+      20px -40px 50px #ec760c,
+      10px -90px 80px #f38e1c;
+  }
+
+  60% {
+    text-shadow: 0 0 20px #fefcc9,
+      10px -10px 30px #feec85,
+      -20px -20px 40px #ffae34,
+      20px -40px 50px #ec760c,
+      0px -80px 100px #f38e1c;
+  }
+
+  100% {
+    text-shadow: 0 0 20px #fefcc9,
+      10px -10px 30px #feec85,
+      -20px -20px 40px #ffae34,
+      20px -40px 50px #ec760c,
+      0 -80px 70px #f38e1c;
+  }
+}
+
+/* 中间消除的盒子元素 */
+.cy-box {
+  position: absolute;
+ 
+  width: 8rem;
+  height: 8rem;
+  bottom: 6rem;
+}
+/* 每一个块元素 */
+.cy-box-item {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 4px;
+  border: 2px solid #FFF;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 2px 2px 8px rgb(0 0 0 / 50%);
+    -moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 2px 2px 8px rgb(0 0 0 / 50%);
+    -webkit-animation-duration: 1s;
+      -webkit-animation-name: nodeInserted;
+}
+@-webkit-keyframes nodeInserted {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+  
+
+  
+/* 收集盒子的块元素 */
+.cy-collection {
+  width: 8.6rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0.2rem;
+  background: url('./images/20d6c430c2496590f224.jpg') no-repeat center/cover;
+  position: fixed;
+  margin: auto;
+  overflow: hidden;
+  bottom: 10px;
+}
+
+.cy-collection>.cy-box-item {
+  margin-right: 0.2rem;
+  width: 1rem;
+  min-width: 1rem;
+}
+
+.cy-left-source,
+.cy-right-source {
+  width: 2.6rem;
+  height: 1.2rem;
+  position: absolute;
+  bottom: 4.5rem;
+}
+
+.cy-left-source {
+  left: 0.5rem;
+}
+
+.cy-right-source {
+  right: 0.5rem;
+}
+
+.cy-shadow {
+  box-shadow: 0 0 50px 10px #535455 inset;
+}
