@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左边和顶部固定，右自适应后台管理界面布局</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+				box-sizing: border-box;
+    }
+    .top {
+       height: 100px;
+       position: fixed;/*固定定位 要实现水平自适应，就不要加宽*/
+       left:10px;
+       right:10px;
+       top:0px;
+       background-color: pink;
+       border-radius: 10px;
+    }
+    .siderbar{
+       width: 250px;
+       position: fixed;/*固定定位 要实现垂直自适应，就不要加高*/
+       left:10px;
+       top:110px;
+       bottom:10px;
+       background-color: pink;
+       height: calc(100vh - 120px);
+       min-height: 400px;
+       border-radius: 10px;
+
+  }
+   .main{
+       margin:110px 10px 0px 270px;/*水平自适应，不要加宽*/
+       height: calc(100vh - 120px);
+       min-height: 400px;
+       background-color: skyblue;
+       overflow: auto;
+  }
+</style>
+<body>
+    <!--顶部-->
+    <div class="top"></div>
+    <!--左侧边栏-->
+    <div class="siderbar"></div>
+    <!--主内容区-->
+    <div class="main">
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+        <ul class="li">测试数据#01#</ul>
+    </div>
+</body>
+</html>
