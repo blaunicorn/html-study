@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            min-width: 480px;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+        }
+        .box {
+           
+            /* display: flex; */
+           /* height: 400px; */
+    
+            flex-direction: row;
+            /* column-count:4; */
+            column-width: 200px;
+            column-gap: 2px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .box img {
+            width: 200px;
+            vertical-align: top;
+            object-fit: contain;
+            padding: 5px;
+            border: 1px solid #cccccc;
+    /* padding: 8px;
+    border-radius: 10px;
+    -moz-page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;*/
+    break-inside: avoid;
+    margin: 0 0.5em 0.5em; 
+        }
+    </style>
+</head>
+<body>
+    <h1>图片的宽度固定，但是列可变（根据屏幕大小）</h1>
+     <div class="box">
+        <img src="./images/img/00.jpg" alt="">
+        <img src="./images/img/10.jpg" alt="">
+        <img src="./images/img/01.jpg" alt="">
+        <img src="./images/img/02.jpg" alt="">
+        <img src="./images/img/03.jpg" alt="">
+        <img src="./images/img/04.jpg" alt="">
+        <img src="./images/img/05.jpg" alt="">
+        <img src="./images/img/06.jpg" alt="">
+        <img src="./images/img/07.jpg" alt="">
+        <img src="./images/img/08.jpg" alt="">
+        <img src="./images/img/09.jpg" alt="">
+     
+        <img src="./images/img/11.jpg" alt="">
+        <img src="./images/img/12.jpg" alt="">
+        <img src="./images/img/13.jpg" alt="">
+        <img src="./images/img/14.jpg" alt="">
+        <img src="./images/img/15.jpg" alt="">
+        <img src="./images/img/16.jpg" alt="">
+    </div>
+    <script>
+
+
+        window.addEventListener('resize',()=> {
+            console.log("resize")
+            // waterfallHandler()
+        })
+        function waterfallHandler () {
+            let  w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+        let imgWith = 200
+            let column_count = Math.ceil(imgWith/w)
+            let box = document.querySelector('.box')
+            box.style.columnCount = column_count
+           
+            window.location.reload();
+            console.log(w,column_count)
+        }
+        
+    </script>
+</body>
+</html>
